@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>サービス管理 - iroha（静的版）</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>💼 サービス管理（静的版）</h1>
+            <nav class="admin-nav">
+                <a href="admin-menu.html">← 管理メニュー</a>
+                <a href="index.html">メインサイトへ</a>
+            </nav>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-notice">
+                <h3>⚠️ 静的サイト版の使い方</h3>
+                <ol>
+                    <li>下のエディタでサービス情報を編集</li>
+                    <li>「JSONをダウンロード」ボタンでファイルを保存</li>
+                    <li>保存したファイルを <code>data/services.json</code> として配置</li>
+                    <li>サイトを再デプロイして反映</li>
+                </ol>
+            </div>
+
+            <div class="json-editor-section">
+                <div class="editor-header">
+                    <h2>サービスデータ編集</h2>
+                    <div class="editor-actions">
+                        <button id="load-json-btn" class="btn btn-secondary">JSONを読み込む</button>
+                        <button id="download-json-btn" class="btn btn-primary">JSONをダウンロード</button>
+                        <button id="add-service-btn" class="btn btn-success">新規サービスを追加</button>
+                    </div>
+                </div>
+
+                <textarea id="json-editor" class="json-editor" rows="30"></textarea>
+                
+                <div class="editor-status" id="editor-status"></div>
+            </div>
+
+            <div class="admin-help">
+                <h3>📖 フィールド説明</h3>
+                <ul>
+                    <li><strong>id</strong>: サービスの一意なID（数字の文字列）</li>
+                    <li><strong>title</strong>: サービス名</li>
+                    <li><strong>description</strong>: サービスの説明</li>
+                    <li><strong>image_url</strong>: サービス画像のURL（600x400推奨）</li>
+                    <li><strong>price</strong>: 料金（「¥300,000〜」「要相談」など。空欄可）</li>
+                    <li><strong>display_order</strong>: 表示順序（数字が小さい方が先）</li>
+                    <li><strong>is_published</strong>: 公開状態（true=公開、false=非公開）</li>
+                </ul>
+                
+                <h3>💡 画像URL取得方法</h3>
+                <p>Unsplash（<a href="https://unsplash.com/" target="_blank">https://unsplash.com/</a>）で画像を検索し、以下の形式でURLを作成：</p>
+                <code>https://images.unsplash.com/photo-[ID]?w=600&h=400&fit=crop</code>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const jsonEditor = document.getElementById('json-editor');
+        const editorStatus = document.getElementById('editor-status');
+        const loadJsonBtn = document.getElementById('load-json-btn');
+        const downloadJsonBtn = document.getElementById('download-json-btn');
+        const addServiceBtn = document.getElementById('add-service-btn');
+
+        // 初回読み込み
+        loadServicesData();
+
+        // JSONを読み込む
+        async function loadServicesData() {
+            try {
+                const response = await fetch('data/services.json');
+                const data = await response.json();
+                jsonEditor.value = JSON.stringify(data, null, 2);
+                showStatus('✅ データを読み込みました', 'success');
+            } catch (error) {
+                showStatus('❌ データの読み込みに失敗しました: ' + error.message, 'error');
+            }
+        }
+
+        // JSONをダウンロード
+        downloadJsonBtn.addEventListener('click', () => {
+            try {
+                const jsonData = JSON.parse(jsonEditor.value);
+                const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'services.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                showStatus('✅ services.json をダウンロードしました', 'success');
+            } catch (error) {
+                showStatus('❌ JSONの形式が正しくありません: ' + error.message, 'error');
+            }
+        });
+
+        // 再読み込み
+        loadJsonBtn.addEventListener('click', () => {
+            loadServicesData();
+        });
+
+        // 新規サービスを追加
+        addServiceBtn.addEventListener('click', () => {
+            try {
+                const data = JSON.parse(jsonEditor.value);
+                const newId = Math.max(...data.map(item => parseInt(item.id)), 0) + 1;
+                
+                const newService = {
+                    id: String(newId),
+                    title: "新しいサービス名",
+                    description: "サービスの説明をここに入力してください。",
+                    image_url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop",
+                    price: "¥100,000〜",
+                    display_order: newId,
+                    is_published: true
+                };
+                
+                data.unshift(newService);
+                jsonEditor.value = JSON.stringify(data, null, 2);
+                showStatus('✅ 新規サービスを追加しました（一番上）', 'success');
+            } catch (error) {
+                showStatus('❌ エラー: ' + error.message, 'error');
+            }
+        });
+
+        // ステータス表示
+        function showStatus(message, type) {
+            editorStatus.textContent = message;
+            editorStatus.className = 'editor-status ' + type;
+            setTimeout(() => {
+                editorStatus.textContent = '';
+                editorStatus.className = 'editor-status';
+            }, 5000);
+        }
+
+        // JSONのフォーマット（Ctrl+Sで整形）
+        jsonEditor.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                try {
+                    const data = JSON.parse(jsonEditor.value);
+                    jsonEditor.value = JSON.stringify(data, null, 2);
+                    showStatus('✅ JSONを整形しました', 'success');
+                } catch (error) {
+                    showStatus('❌ JSONの形式が正しくありません', 'error');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

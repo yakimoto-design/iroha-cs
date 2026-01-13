@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>コラム管理 - iroha（静的版）</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>📝 コラム管理（静的版）</h1>
+            <nav class="admin-nav">
+                <a href="admin-menu.html">← 管理メニュー</a>
+                <a href="index.html">メインサイトへ</a>
+            </nav>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-notice">
+                <h3>⚠️ 静的サイト版の使い方</h3>
+                <ol>
+                    <li>下のエディタでコラム情報を編集</li>
+                    <li>「JSONをダウンロード」ボタンでファイルを保存</li>
+                    <li>保存したファイルを <code>data/columns.json</code> として配置</li>
+                    <li>サイトを再デプロイして反映</li>
+                </ol>
+            </div>
+
+            <div class="json-editor-section">
+                <div class="editor-header">
+                    <h2>コラムデータ編集</h2>
+                    <div class="editor-actions">
+                        <button id="load-json-btn" class="btn btn-secondary">JSONを読み込む</button>
+                        <button id="download-json-btn" class="btn btn-primary">JSONをダウンロード</button>
+                        <button id="add-column-btn" class="btn btn-success">新規コラムを追加</button>
+                    </div>
+                </div>
+
+                <textarea id="json-editor" class="json-editor" rows="30"></textarea>
+                
+                <div class="editor-status" id="editor-status"></div>
+            </div>
+
+            <div class="admin-help">
+                <h3>📖 フィールド説明</h3>
+                <ul>
+                    <li><strong>id</strong>: コラムの一意なID（数字の文字列）</li>
+                    <li><strong>title</strong>: コラムのタイトル</li>
+                    <li><strong>description</strong>: コラムの本文（長文OK）</li>
+                    <li><strong>category</strong>: カテゴリー（デザイン、UI/UX、トレンド等）</li>
+                    <li><strong>image_url</strong>: アイキャッチ画像のURL（800x400推奨）</li>
+                    <li><strong>project_url</strong>: 詳細ページのURL（noteなど。空欄可）</li>
+                    <li><strong>display_order</strong>: 表示順序（数字が小さい方が先）</li>
+                    <li><strong>is_published</strong>: 公開状態（true=公開、false=非公開）</li>
+                    <li><strong>created_at</strong>: 投稿日（YYYY-MM-DD形式）</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const jsonEditor = document.getElementById('json-editor');
+        const editorStatus = document.getElementById('editor-status');
+        const loadJsonBtn = document.getElementById('load-json-btn');
+        const downloadJsonBtn = document.getElementById('download-json-btn');
+        const addColumnBtn = document.getElementById('add-column-btn');
+
+        // 初回読み込み
+        loadColumnsData();
+
+        // JSONを読み込む
+        async function loadColumnsData() {
+            try {
+                const response = await fetch('data/columns.json');
+                const data = await response.json();
+                jsonEditor.value = JSON.stringify(data, null, 2);
+                showStatus('✅ データを読み込みました', 'success');
+            } catch (error) {
+                showStatus('❌ データの読み込みに失敗しました: ' + error.message, 'error');
+            }
+        }
+
+        // JSONをダウンロード
+        downloadJsonBtn.addEventListener('click', () => {
+            try {
+                const jsonData = JSON.parse(jsonEditor.value);
+                const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'columns.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                showStatus('✅ columns.json をダウンロードしました', 'success');
+            } catch (error) {
+                showStatus('❌ JSONの形式が正しくありません: ' + error.message, 'error');
+            }
+        });
+
+        // 再読み込み
+        loadJsonBtn.addEventListener('click', () => {
+            loadColumnsData();
+        });
+
+        // 新規コラムを追加
+        addColumnBtn.addEventListener('click', () => {
+            try {
+                const data = JSON.parse(jsonEditor.value);
+                const newId = Math.max(...data.map(item => parseInt(item.id)), 0) + 1;
+                const today = new Date().toISOString().split('T')[0];
+                
+                const newColumn = {
+                    id: String(newId),
+                    title: "新しいコラムのタイトル",
+                    description: "ここにコラムの本文を入力してください。長文でも大丈夫です。",
+                    category: "デザイン",
+                    image_url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop",
+                    project_url: "",
+                    display_order: newId,
+                    is_published: true,
+                    created_at: today
+                };
+                
+                data.unshift(newColumn);
+                jsonEditor.value = JSON.stringify(data, null, 2);
+                showStatus('✅ 新規コラムを追加しました（一番上）', 'success');
+            } catch (error) {
+                showStatus('❌ エラー: ' + error.message, 'error');
+            }
+        });
+
+        // ステータス表示
+        function showStatus(message, type) {
+            editorStatus.textContent = message;
+            editorStatus.className = 'editor-status ' + type;
+            setTimeout(() => {
+                editorStatus.textContent = '';
+                editorStatus.className = 'editor-status';
+            }, 5000);
+        }
+
+        // JSONのフォーマット（Ctrl+Sで整形）
+        jsonEditor.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                try {
+                    const data = JSON.parse(jsonEditor.value);
+                    jsonEditor.value = JSON.stringify(data, null, 2);
+                    showStatus('✅ JSONを整形しました', 'success');
+                } catch (error) {
+                    showStatus('❌ JSONの形式が正しくありません', 'error');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

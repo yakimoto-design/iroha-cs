@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin.html
+Disallow: /admin-menu.html
+Disallow: /services-admin.html
+
+# Sitemap
+Sitemap: https://yoursite.com/sitemap.xml
