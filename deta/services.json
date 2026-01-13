@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Webサイト制作",
+    "description": "シンプルで美しいデザインのWebサイトを制作します。レスポンシブ対応はもちろん、SEO対策も万全です。",
+    "image_url": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
+    "price": "¥300,000〜",
+    "display_order": 1,
+    "is_published": true
+  },
+  {
+    "id": "2",
+    "title": "UI/UXデザイン",
+    "description": "ユーザー体験を重視した、使いやすく美しいインターフェースを設計します。",
+    "image_url": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+    "price": "¥200,000〜",
+    "display_order": 2,
+    "is_published": true
+  },
+  {
+    "id": "3",
+    "title": "ブランディング",
+    "description": "ロゴデザインからブランドガイドラインの作成まで、企業のアイデンティティを確立します。",
+    "image_url": "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop",
+    "price": "要相談",
+    "display_order": 3,
+    "is_published": true
+  },
+  {
+    "id": "4",
+    "title": "コンサルティング",
+    "description": "Web戦略からデザイン改善まで、専門的なアドバイスを提供します。",
+    "image_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    "price": "¥100,000〜",
+    "display_order": 4,
+    "is_published": true
+  }
+]
