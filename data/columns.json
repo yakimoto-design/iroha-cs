@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "title": "シンプルなデザインがもたらす3つのメリット",
+    "description": "シンプルなデザインは、ユーザーにとって理解しやすく、使いやすいWebサイトを実現します。余計な装飾を削ぎ落とすことで、本質的なメッセージが伝わりやすくなり、ブランドの信頼性も向上します。この記事では、シンプルデザインの具体的なメリットと実践方法について解説します。",
+    "category": "デザイン",
+    "image_url": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 1,
+    "is_published": true,
+    "created_at": "2026-01-10"
+  },
+  {
+    "id": "2",
+    "title": "ユーザー体験を向上させるUI設計のポイント",
+    "description": "優れたUI設計は、ユーザーの満足度を高め、ビジネスの成功につながります。直感的な操作性、視覚的な階層、一貫性のあるデザインなど、UI設計において重要な要素を詳しく解説します。実例を交えながら、すぐに実践できるテクニックをご紹介します。",
+    "category": "UI/UX",
+    "image_url": "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 2,
+    "is_published": true,
+    "created_at": "2026-01-08"
+  },
+  {
+    "id": "3",
+    "title": "2026年のWebデザイントレンド予測",
+    "description": "Web業界は常に進化し続けています。2026年に注目されるデザイントレンドとして、ミニマリズムの進化、AIを活用したパーソナライズ、アクセシビリティの重視などが挙げられます。これらのトレンドを理解し、先取りすることで、競争力のあるWebサイトを構築できます。",
+    "category": "トレンド",
+    "image_url": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 3,
+    "is_published": true,
+    "created_at": "2026-01-05"
+  },
+  {
+    "id": "4",
+    "title": "レスポンシブデザインの基本と実践",
+    "description": "スマートフォン、タブレット、PCなど、様々なデバイスで快適に閲覧できるWebサイトは必須です。レスポンシブデザインの基本原則から、モバイルファーストの考え方、実装時の注意点まで、実践的なノウハウをお伝えします。",
+    "category": "テクニック",
+    "image_url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 4,
+    "is_published": true,
+    "created_at": "2026-01-12"
+  },
+  {
+    "id": "5",
+    "title": "色彩心理学を活用したデザイン",
+    "description": "色は人の心理に大きな影響を与えます。ブランドカラーの選定から、配色のバランス、アクセントカラーの使い方まで、色彩心理学の知識を活用した効果的なデザイン手法をご紹介します。",
+    "category": "デザイン",
+    "image_url": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 5,
+    "is_published": true,
+    "created_at": "2026-01-11"
+  },
+  {
+    "id": "6",
+    "title": "アクセシビリティを考慮したWebデザイン",
+    "description": "すべてのユーザーにとって使いやすいWebサイトを作ることは、社会的責任でもあります。視覚障害、聴覚障害、運動障害など、様々な状況のユーザーを考慮したアクセシビリティ対応の重要性と実装方法を解説します。",
+    "category": "UI/UX",
+    "image_url": "https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 6,
+    "is_published": true,
+    "created_at": "2026-01-09"
+  },
+  {
+    "id": "7",
+    "title": "栃木県の企業がWebサイトを持つべき3つの理由",
+    "description": "栃木県内の中小企業にとって、Webサイトは新規顧客獲得の強力なツールです。宇都宮市、小山市、足利市など県内各地からのアクセスを増やし、地域ビジネスを拡大するための具体的な戦略をお伝えします。",
+    "category": "ビジネス",
+    "image_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 7,
+    "is_published": true,
+    "created_at": "2026-01-13"
+  },
+  {
+    "id": "8",
+    "title": "地域ビジネスのためのSEO対策～栃木県で検索上位を目指す～",
+    "description": "「栃木県 Web制作」「宇都宮 ホームページ制作」などの地域キーワードで上位表示を目指すための実践的なSEO対策をご紹介。Googleビジネスプロフィールの活用から、地域特化コンテンツの作成方法まで詳しく解説します。",
+    "category": "SEO",
+    "image_url": "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800&h=400&fit=crop",
+    "project_url": "",
+    "display_order": 8,
+    "is_published": true,
+    "created_at": "2026-01-13"
+  }
+]
