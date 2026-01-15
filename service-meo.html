@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <title>MEO対策 | iroha - 栃木県のWebデザイン・Web制作</title>
+    <meta name="description" content="栃木県内の店舗・施設向けMEO対策サービス。Googleマップでの視認性を高め、地域密着の集客と来店者数アップをサポートします。プロフィールの最適化から運用まで。">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="MEO対策 | iroha">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yoursite.com/service-meo.html">
+    <meta property="og:image" content="https://yoursite.com/service-meo-ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <!-- 構造化データ（Service）: MEOに特化 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "MEO対策 / ローカルSEO運用",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "iroha"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "栃木県"
+      },
+      "description": "Googleマップでの検索順位向上と、店舗情報の最適化。栃木県の店舗ビジネスに特化した来店促進サポートを提供します。"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #111111;
+            --secondary-color: #777777;
+            --bg-light: #f8f8f8;
+            --white: #ffffff;
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --max-width: 1100px;
+            --font-serif-en: 'Bodoni Moda', serif;
+            --font-serif-jp: 'Shippori Mincho', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2.1; letter-spacing: 0.05em; background-color: var(--white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        .logo a { font-family: var(--font-serif-en); font-size: 24px; font-weight: 700; letter-spacing: 0.2em; }
+
+        .page-hero { padding: 200px 0 120px; background-color: var(--white); text-align: center; position: relative; }
+        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: #eee; }
+        .hero-label { font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.4em; color: var(--secondary-color); text-transform: uppercase; margin-bottom: 25px; display: block; }
+        .hero-title { font-size: 3rem; font-weight: 500; margin-bottom: 35px; letter-spacing: 0.1em; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 120px 40px; }
+        .section-title { font-size: 2rem; font-weight: 500; margin-bottom: 60px; text-align: center; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 1px; background: #ddd; margin: 25px auto 0; }
+        
+        .intro-text { font-size: 1.2rem; text-align: center; margin-bottom: 100px; line-height: 2.3; }
+
+        /* Background Contrast Sections */
+        .service-features { background-color: var(--bg-light); }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .feature-item { background: var(--white); padding: 60px 45px; border: 1px solid rgba(0,0,0,0.01); transition: var(--transition); }
+        .feature-item:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .feature-item h3 { font-size: 1.3rem; margin-bottom: 25px; font-weight: 500; letter-spacing: 0.1em; }
+        .feature-item p { font-size: 14px; color: #555; }
+
+        .production-flow { background-color: var(--white); }
+        .flow-list { position: relative; padding-left: 50px; border-left: 1px solid #eee; max-width: 700px; margin: 0 auto; }
+        .flow-step { position: relative; margin-bottom: 80px; }
+        .flow-step::before { content: ''; position: absolute; left: -55px; top: 12px; width: 9px; height: 9px; background: var(--primary-color); border-radius: 50%; }
+        .flow-step-num { font-family: var(--font-serif-en); font-size: 12px; color: var(--secondary-color); letter-spacing: 0.3em; display: block; margin-bottom: 8px; }
+        .flow-step-title { font-size: 1.4rem; font-weight: 500; margin-bottom: 20px; }
+
+        .cta-box { text-align: center; background: var(--primary-color); color: var(--white); padding: 150px 40px; }
+        .cta-box p { margin-bottom: 45px; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.1em; }
+        .btn { display: inline-block; padding: 20px 60px; border: 1px solid var(--white); color: var(--white); font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; transition: var(--transition); }
+        .btn:hover { background: var(--white); color: var(--primary-color); }
+
+        .footer { padding: 100px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.4em; color: var(--secondary-color); text-transform: uppercase; background-color: var(--bg-light); border-top: 1px solid rgba(0,0,0,0.03); }
+
+        @media (max-width: 768px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2rem; }
+            .container { padding: 80px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation">
+            <div class="logo"><a href="index.html">iroha</a></div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="page-hero">
+            <div class="container-full">
+                <span class="hero-label">Service 02</span>
+                <h1 class="hero-title">MEO対策</h1>
+                <p class="hero-subtitle">栃木県の「探している人」と「店舗」を繋ぐ。</p>
+            </div>
+        </section>
+
+        <section class="production-intro">
+            <div class="container">
+                <div class="intro-text">
+                    <p>
+                        スマートフォンの普及により、今や「場所」を探すツールは地図アプリが主役です。<br>
+                        地域名＋業種で検索された際に、貴社の情報を正しく上位に表示させることで、<br>
+                        意欲の高い見込み客をスムーズに来店へと導きます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features section">
+            <div class="container">
+                <h2 class="section-title">Why MEO?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>01. ローカル検索の圧倒的優位</h3>
+                        <p>「近くのカフェ」「宇都宮 美容室」などの検索キーワードに対し、通常の検索結果よりも上に表示されるため、高いクリック率を誇ります。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>02. 信頼を構築する情報管理</h3>
+                        <p>最新の営業時間、写真、そして口コミ。これらを一括管理し、正確な情報を届けることで店舗の信頼性を強固なものにします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="production-flow section">
+            <div class="container">
+                <h2 class="section-title">Management Flow</h2>
+                <div class="flow-list">
+                    <div class="flow-step">
+                        <span class="flow-step-num">STEP 01</span>
+                        <h3 class="flow-step-title">アカウント診断・KW選定</h3>
+                        <p>現在のビジネスプロフィールの状態を診断。ターゲットとなる地域と、来店に直結するキーワードを厳選します。</p>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-step-num">STEP 02</span>
+                        <h3 class="flow-step-title">内部情報の最適化</h3>
+                        <p>魅力的な写真の投稿、説明文の推敲、サイテーション（外部引用）の強化を行い、Googleからの評価を高めます。</p>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-step-num">STEP 03</span>
+                        <h3 class="flow-step-title">継続運用・効果測定</h3>
+                        <p>定期的な情報更新とインサイト分析。毎月のデータに基づき、次の一手をご提案する伴走型サポートです。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-box">
+            <p>店舗の集客にお悩みの方は、ぜひ一度ご相談ください。</p>
+            <a href="index.html#contact" class="btn">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2026 iroha. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <title>Webサイト制作 | iroha - 栃木県のWebデザイン・Web制作</title>
+    <meta name="description" content="栃木県を拠点に活動するirohaのWebサイト制作サービス。成果につながるUI/UX設計とシンプルで洗練されたデザインで貴社のビジネスをサポート。制作の流れや特徴をご紹介。">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="Webサイト制作 | iroha">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yoursite.com/service-web.html">
+    <meta property="og:image" content="https://yoursite.com/service-ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <!-- 構造化データ（Service） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Webサイト制作",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "iroha"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "栃木県"
+      },
+      "description": "シンプルで洗練されたデザインのWebサイト制作。レスポンシブ対応、UI/UX設計、SEO最適化を含みます。"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #111111;
+            --secondary-color: #888888;
+            --bg-light: #fdfdfd;
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --max-width: 1100px;
+            --font-serif-en: 'Bodoni Moda', serif;
+            --font-serif-jp: 'Shippori Mincho', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2.1; letter-spacing: 0.05em; background-color: var(--white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        .logo a { font-family: var(--font-serif-en); font-size: 24px; font-weight: 700; letter-spacing: 0.2em; }
+
+        .page-hero { padding: 180px 0 100px; background-color: var(--bg-light); text-align: center; }
+        .hero-label { font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.3em; color: var(--secondary-color); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .hero-title { font-size: 2.8rem; font-weight: 500; margin-bottom: 30px; letter-spacing: 0.1em; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 100px 40px; }
+        .section-title { font-size: 1.8rem; font-weight: 500; margin-bottom: 50px; text-align: center; position: relative; }
+        .section-title::after { content: ''; display: block; width: 30px; height: 1px; background: #ddd; margin: 20px auto 0; }
+        
+        .intro-text { font-size: 1.1rem; text-align: center; margin-bottom: 80px; }
+
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 100px; }
+        .feature-item { background: var(--bg-light); padding: 50px 40px; border: 1px solid transparent; }
+        .feature-item:hover { border-color: #eee; transform: translateY(-5px); transition: var(--transition); }
+        .feature-item h3 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 500; }
+        .feature-item p { font-size: 14px; color: #555; }
+
+        .flow-list { position: relative; padding-left: 40px; border-left: 1px solid #eee; }
+        .flow-step { position: relative; margin-bottom: 60px; }
+        .flow-step::before { content: ''; position: absolute; left: -45px; top: 12px; width: 9px; height: 9px; background: var(--primary-color); border-radius: 50%; }
+        .flow-step-num { font-family: var(--font-serif-en); font-size: 11px; color: var(--secondary-color); letter-spacing: 0.3em; display: block; margin-bottom: 5px; }
+        .flow-step-title { font-size: 1.3rem; font-weight: 500; margin-bottom: 15px; }
+
+        .cta-box { text-align: center; background: var(--primary-color); color: var(--white); padding: 120px 40px; }
+        .cta-box p { margin-bottom: 40px; font-size: 1.3rem; font-weight: 300; }
+        .btn { display: inline-block; padding: 18px 56px; border: 1px solid var(--white); color: var(--white); font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; transition: var(--transition); }
+        .btn:hover { background: var(--white); color: var(--primary-color); }
+
+        .footer { padding: 80px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.3em; color: var(--secondary-color); text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo"><a href="index.html">iroha</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container-full">
+                <span class="hero-label">Service Detail</span>
+                <h1 class="hero-title">Webサイト制作</h1>
+                <p class="hero-subtitle">貴社の想いを、正しく美しく届ける場所を作る。</p>
+            </div>
+        </section>
+
+        <article class="container">
+            <div class="intro-text">
+                <p>貴社が解決したい課題、届けたい相手を深く理解し、ビジネスの成長に貢献する最適なデジタル拠点をご提案します。</p>
+            </div>
+
+            <section id="features">
+                <h2 class="section-title">Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>01. 洗練された美しさ</h3>
+                        <p>シンプルで品格のあるデザイン。誠実さを、ブランドの信頼感へとつなげるビジュアルを実現します。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>02. モバイル・AI最適化</h3>
+                        <p>スマートフォン対応はもちろん、検索エンジンやAIが内容を正確に理解できるよう構築します。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="flow">
+                <h2 class="section-title">Production Flow</h2>
+                <div class="flow-list">
+                    <div class="flow-step">
+                        <span class="flow-step-num">STEP 01</span>
+                        <h3 class="flow-step-title">ヒアリング・企画設計</h3>
+                        <p>目的や課題を詳しく伺い、競合調査を経てサイトの設計図を描きます。</p>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-step-num">STEP 02</span>
+                        <h3 class="flow-step-title">デザイン・構築</h3>
+                        <p>コンセプトを形にし、最新の技術で高速かつ安全なサイトを作り上げます。</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <section class="cta-box">
+            <p>制作に関するご相談、お見積りはこちらから。</p>
+            <a href="index.html#contact" class="btn">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 iroha. All rights reserved.</p>
+    </footer>
+</body>
+</html>

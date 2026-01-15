@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <title>iroha - 栃木県のWebデザイン・Web制作 | できることを、シンプルにありのままに。</title>
+    <meta name="description" content="栃木県を拠点に、企業のWebサイト制作・UI/UXデザイン・ブランディングを提供。貴社の課題に最もマッチする解決策を、シンプルかつ誠実に提案します。">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="iroha - 栃木県のWebデザイン・Web制作">
+    <meta property="og:description" content="栃木県を拠点に、企業のWeb制作・デザイン・ブランディングを提供。できることを、シンプルにありのままに。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com/">
+    <meta property="og:image" content="https://yoursite.com/ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <!-- 構造化データ（LocalBusiness） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "iroha",
+      "description": "栃木県を拠点に、企業のWebサイト制作・UI/UXデザイン・ブランディングを提供。",
+      "url": "https://yoursite.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "栃木県",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.5657,
+        "longitude": 139.8836
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #111111;
+            --secondary-color: #777777;
+            --bg-light: #f8f8f8;
+            --white: #ffffff;
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --max-width: 1100px;
+            --font-serif-en: 'Bodoni Moda', serif;
+            --font-serif-jp: 'Shippori Mincho', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        /* --- Global Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2; letter-spacing: 0.1em; background-color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        
+        .section { padding: 160px 0; }
+        .section-title { font-family: var(--font-serif-en); font-size: 3.5rem; font-weight: 400; text-align: center; margin-bottom: 100px; letter-spacing: 0.25em; text-transform: uppercase; }
+        .section-title span { display: block; font-size: 0.3em; letter-spacing: 0.15em; margin-top: 15px; color: var(--secondary-color); font-family: var(--font-serif-jp); font-weight: 400; }
+
+        /* --- Header --- */
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 100px; }
+        .logo a { font-family: var(--font-serif-en); font-size: 28px; font-weight: 700; letter-spacing: 0.2em; }
+        .nav-menu { display: flex; gap: 50px; }
+        .nav-menu a { font-family: var(--font-serif-en); font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.6; }
+        .nav-menu a:hover { opacity: 1; }
+        .hamburger { display: none; flex-direction: column; gap: 8px; cursor: pointer; }
+        .hamburger span { width: 30px; height: 1px; background: var(--primary-color); transition: var(--transition); }
+
+        /* --- Hero --- */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #ffffff; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f9f9f9 100%); z-index: -1; }
+        .hero-title { font-family: var(--font-serif-en); font-size: clamp(4rem, 15vw, 8.5rem); font-weight: 400; line-height: 1; margin-bottom: 35px; letter-spacing: -0.02em; animation: heroFadeIn 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+        .hero-subtitle { font-family: var(--font-serif-jp); font-size: 1rem; color: var(--secondary-color); letter-spacing: 0.6em; animation: heroFadeIn 1.8s cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards; opacity: 0; text-indent: 0.6em; }
+
+        @keyframes heroFadeIn { from { opacity: 0; transform: translateY(60px) skewY(2deg); } to { opacity: 1; transform: translateY(0) skewY(0); } }
+
+        /* --- About --- */
+        .about-inner { max-width: 750px; margin: 0 auto; text-align: center; }
+        .about-inner p { margin-bottom: 40px; font-size: 1.1rem; color: #333; }
+        .about-inner strong { display: block; font-size: 1.6rem; color: var(--primary-color); margin-bottom: 25px; letter-spacing: 0.15em; }
+
+        /* --- Services --- */
+        .services { background-color: var(--bg-light); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; }
+        .service-card { background: var(--white); padding: 90px 60px; text-align: center; transition: var(--transition); border: 1px solid rgba(0,0,0,0.01); display: block; }
+        .service-card:hover { transform: translateY(-12px); box-shadow: 0 40px 80px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.05); }
+        .service-icon { font-family: var(--font-serif-en); font-size: 3.2rem; font-style: italic; color: #e5e5e5; margin-bottom: 40px; display: block; }
+        .service-card h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 30px; letter-spacing: 0.2em; }
+        .service-card p { font-size: 14px; color: var(--secondary-color); line-height: 2.3; }
+
+        /* --- Column --- */
+        .category-filter { display: flex; justify-content: center; gap: 40px; margin-bottom: 100px; flex-wrap: wrap; }
+        .category-btn { padding: 10px 0; border: none; background: transparent; cursor: pointer; font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.4em; color: var(--secondary-color); position: relative; transition: var(--transition); }
+        .category-btn.active { color: var(--primary-color); font-weight: 700; }
+        .category-btn::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary-color); transition: var(--transition); }
+        .category-btn.active::after { width: 100%; }
+
+        .column-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 70px; }
+        .column-item { display: block; }
+        .column-img { width: 100%; aspect-ratio: 16 / 10; background: #f0f0f0; margin-bottom: 30px; overflow: hidden; position: relative; }
+        .column-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .column-item:hover .column-img img { transform: scale(1.08); }
+        .column-date { font-family: var(--font-serif-en); font-size: 11px; color: var(--secondary-color); margin-bottom: 12px; letter-spacing: 0.25em; }
+        .column-title { font-size: 1.05rem; font-weight: 500; line-height: 1.8; color: #222; }
+
+        /* --- Contact --- */
+        .contact { text-align: center; background: var(--primary-color); color: var(--white); padding: 200px 0; }
+        .contact .section-title { color: white; margin-bottom: 50px; }
+        .contact-email { font-size: clamp(1.6rem, 8vw, 4.5rem); font-family: var(--font-serif-en); font-weight: 400; margin-top: 30px; display: inline-block; letter-spacing: 0.05em; border-bottom: 1px solid rgba(255,255,255,0.2); }
+
+        /* --- Footer --- */
+        .footer { padding: 100px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.4em; color: var(--secondary-color); text-transform: uppercase; background: var(--bg-light); border-top: 1px solid rgba(0,0,0,0.03); }
+
+        @media (max-width: 768px) {
+            .nav-menu { position: fixed; top: 0; left: 100%; width: 100%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; align-items: center; transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+            .nav-menu.active { left: 0; }
+            .hamburger { display: flex; z-index: 1001; }
+            .section { padding: 100px 0; }
+            .section-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo"><a href="#">iroha</a></div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#column">Column</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Simple & Clean</h1>
+                <p class="hero-subtitle">できることを、シンプルにありのままに。</p>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">About <span>私たちについて</span></h2>
+                <div class="about-inner">
+                    <p><strong>栃木県を拠点に、企業のWeb課題を解決します。</strong></p>
+                    <p>
+                        企業の悩みはそれぞれであり、解決策も一つではありません。だからこそ、私は自分にできることをすべて開示します。
+                        私の持つすべての経験から、貴社の課題に最もマッチする解決策を提案します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">Services <span>提供サービス</span></h2>
+                <!-- ※ここはJavaScriptで自動生成されるため、HTMLに直接書き込んでも消えてしまいます。下のScript部分で追加してください。 -->
+                <div id="services-grid" class="services-grid"></div>
+            </div>
+        </section>
+
+        <section id="column" class="section column">
+            <div class="container">
+                <h2 class="section-title">Column <span>コラム</span></h2>
+                <div id="category-filter" class="category-filter">
+                    <button class="category-btn active" data-category="all">ALL</button>
+                    <button class="category-btn" data-category="design">DESIGN</button>
+                    <button class="category-btn" data-category="coding">CODING</button>
+                    <button class="category-btn" data-category="local">LOCAL</button>
+                </div>
+                <!-- ※ここもJavaScriptで自動生成されるため、下のScript部分で追加してください。 -->
+                <div id="column-list" class="column-list"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Contact <span>お問い合わせ</span></h2>
+                <p>栃木県内でのWeb制作・デザインのご相談はお気軽に。</p>
+                <a href="mailto:info@irohacs.com" class="contact-email">info@irohacs.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 iroha. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* ============================================================
+        【重要】項目を追加・編集したい場合は、以下のデータを変更してください。
+        HTMLの <div id="..."> の中身を直接いじっても、読み込み時に消えてしまいます。
+        ============================================================
+        */
+
+        // 1. サービスの追加・編集
+        const services = [
+            { 
+                title: "Webサイト制作", 
+                desc: "情報の純度を高め、貴社の誠実さを正しく伝えるWebサイトを制作します。", 
+                icon: "I", 
+                url: "service-web.html" 
+            },
+            { 
+                title: "MEO対策", 
+                desc: "Googleマップでの視認性を高め、地域密着の集客と来店者数アップをサポートします。", 
+                icon: "II", 
+                url: "service-meo.html" 
+            },
+            { 
+                title: "LINE公式アカウント活用", 
+                desc: "リッチメニュー制作から運用設計まで、顧客をファンに変える仕組みを作ります。", 
+                icon: "III", 
+                url: "service-line.html" 
+            },
+            /* 新しいサービスを追加したい場合は、ここに { ... } をコピーして増やしてください。
+            */
+        ];
+
+        // 2. コラム（記事）の追加・編集
+        const columns = [
+            { id: 1, category: "design", date: "2025.12.01", title: "余白を活かす。ミニマルデザインの極意", url: "article-1.html", image: "" },
+            { id: 2, category: "coding", date: "2025.11.20", title: "最新のCSS Gridで作るレスポンシブレイアウト", url: "article-2.html", image: "" },
+            { id: 3, category: "local", date: "2025.11.15", title: "栃木県の企業がWeb活用で成功するためのステップ", url: "article-3.html", image: "" },
+            { id: 4, category: "design", date: "2025.10.30", title: "色の選び方一つで、ブランドの信頼感は変わる", url: "article-4.html", image: "" },
+            /* 新しい記事を追加したい場合は、ここに { ... } をコピーして増やしてください。
+            idは重複しない数字、categoryは design / coding / local から選んでください。
+            */
+        ];
+
+        /* --- 以下、表示を制御するプログラム部分 (基本触らなくてOK) --- */
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const servicesGrid = document.getElementById('services-grid');
+        const columnList = document.getElementById('column-list');
+
+        hamburger.addEventListener('click', () => { 
+            hamburger.classList.toggle('active'); 
+            navMenu.classList.toggle('active'); 
+        });
+
+        function renderServices() {
+            servicesGrid.innerHTML = services.map(s => `
+                <a href="${s.url}" class="service-card">
+                    <span class="service-icon">${s.icon}</span>
+                    <h3>${s.title}</h3>
+                    <p>${s.desc}</p>
+                </a>
+            `).join('');
+        }
+
+        function renderColumns(cat = 'all') {
+            const filtered = cat === 'all' ? columns : columns.filter(c => c.category === cat);
+            columnList.innerHTML = filtered.map(item => `
+                <a href="${item.url}" class="column-item">
+                    <div class="column-img">${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}</div>
+                    <p class="column-date">${item.date}</p>
+                    <h3 class="column-title">${item.title}</h3>
+                </a>
+            `).join('');
+        }
+
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderColumns(this.dataset.category);
+            });
+        });
+
+        window.onload = () => { 
+            renderServices(); 
+            renderColumns(); 
+        };
+    </script>
+</body>
+</html>
