@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column - iroha | 全ての記事一覧</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #111111;
+            --secondary-color: #777777;
+            --bg-light: #f8f8f8;
+            --white: #ffffff;
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --max-width: 1100px;
+            --font-serif-en: 'Bodoni Moda', serif;
+            --font-serif-jp: 'Shippori Mincho', serif;
+        }
+
+        /* --- Global Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2; letter-spacing: 0.1em; background-color: var(--white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        
+        /* --- Header --- */
+        .header { position: sticky; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 100px; }
+        .logo a { font-family: var(--font-serif-en); font-size: 28px; font-weight: 700; letter-spacing: 0.2em; }
+        .nav-menu { display: flex; gap: 50px; }
+        .nav-menu a { font-family: var(--font-serif-en); font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.6; }
+        .nav-menu a:hover { opacity: 1; }
+
+        /* --- Page Title --- */
+        .page-header { padding: 120px 0 60px; text-align: center; }
+        .page-title { font-family: var(--font-serif-en); font-size: 4rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+        .page-subtitle { font-size: 0.9rem; color: var(--secondary-color); letter-spacing: 0.3em; }
+
+        /* --- Column Grid --- */
+        .section { padding: 60px 0 160px; }
+        .category-filter { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
+        .category-btn { padding: 10px 0; border: none; background: transparent; cursor: pointer; font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.4em; color: var(--secondary-color); position: relative; transition: var(--transition); }
+        .category-btn.active { color: var(--primary-color); font-weight: 700; }
+        .category-btn::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--primary-color); transition: var(--transition); }
+        .category-btn.active::after { width: 100%; }
+
+        .column-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 70px 50px; }
+        .column-item { display: block; }
+        .column-img { width: 100%; aspect-ratio: 16 / 10; background: #f0f0f0; margin-bottom: 25px; overflow: hidden; }
+        .column-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .column-item:hover .column-img img { transform: scale(1.05); }
+        .column-date { font-family: var(--font-serif-en); font-size: 11px; color: var(--secondary-color); margin-bottom: 10px; letter-spacing: 0.2em; }
+        .column-title { font-size: 1rem; font-weight: 500; line-height: 1.8; color: #222; }
+
+        /* --- Footer --- */
+        .footer { padding: 80px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.4em; color: var(--secondary-color); text-transform: uppercase; background: var(--bg-light); border-top: 1px solid rgba(0,0,0,0.03); }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .nav-menu { display: none; } /* モバイルではシンプルにロゴだけに */
+            .column-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo"><a href="index.html">iroha</a></div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#column">Column</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">Column</h1>
+                <p class="page-subtitle">コラム一覧</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div id="category-filter" class="category-filter">
+                    <button class="category-btn active" data-category="all">ALL</button>
+                    <button class="category-btn" data-category="it">IT</button>
+                    <button class="category-btn" data-category="Marketing">MARKETING</button>
+                    <button class="category-btn" data-category="example">EXAMPLE</button>
+                </div>
+                <div id="column-list" class="column-list">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 iroha. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 全ての記事データをここに管理します（index.htmlにあるもの＋古い記事）
+        const columns = [
+            { id: 1, category: "it", date: "2025.1.15", title: "その「現場の悩み」に、ITという名の相棒を。——最先端を要約し、地方の明日を軽くする。", url: "article-1.html", image: "https://images.unsplash.com/photo-1573495627361-d9b87960b12d?q=80&w=869&auto=format&fit=crop" },
+            { id: 2, category: "Marketing", date: "2026.1.16", title: "歯科医院の集患を最大化する「MEO対策」の重要性｜地域一番の選ばれる医院になるための新基準", url: "article-2.html", image: "https://images.unsplash.com/photo-1628320281190-89b24da58b0f?q=80&w=870&auto=format&fit=crop" },
+            { id: 3, category: "example", date: "2026.1.17", title: "【実績】LINE会員1万人を活かした「在庫なし」EC構築。4か月で売上100万円達成", url: "article-3.html", image: "https://p1-598f4ae0.imageflux.jp/c!/w=1200,h=630,a=2,ir=auto/67a5c0dffe9260083b0b3e7e/ogp/0d00189212e0cb918d54.png" },
+            { id: 4, category: "it", date: "2025.10.30", title: "コスト削減から始める経営—「当たり前」を疑い、利益を創出する", url: "article-4.html", image: "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?q=80&w=870&auto=format&fit=crop" },
+            // 今後、5記事目以降が増えたらここに追加していけばOKです
+        ];
+
+        const columnList = document.getElementById('column-list');
+
+        function renderColumns(cat = 'all') {
+            const filtered = cat === 'all' ? columns : columns.filter(c => c.category === cat);
+            
+            columnList.innerHTML = filtered.map(item => `
+                <a href="${item.url}" class="column-item">
+                    <div class="column-img">${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}</div>
+                    <p class="column-date">${item.date}</p>
+                    <h3 class="column-title">${item.title}</h3>
+                </a>
+            `).join('');
+        }
+
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderColumns(this.dataset.category);
+            });
+        });
+
+        window.onload = () => { renderColumns(); };
+    </script>
+</body>
+</html>

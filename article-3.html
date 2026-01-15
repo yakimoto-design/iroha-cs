@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,28 +12,25 @@
       gtag('config', 'G-4KY8G122Y8');
     </script>
 
-    <title>記事タイトル | iroha - 栃木県のWebデザイン・Web制作</title>
-    <meta name="description" content="コラム記事の概要文をここに入力。AI検索はこの部分を引用して回答を生成しやすくなります。">
+    <title>【実績】LINE会員1万人を活かした「在庫なし」EC構築。4か月で売上100万円達成 | iroha - 栃木県のWebデザイン・Web制作</title>
+    <meta name="description" content="既存のLINE会員1万人という強みを最大化し、STORESを活用した在庫を持たないECサイトを構築。運用開始4か月で売上100万円を達成したWebマーケティング事例をご紹介します。">
 
-    <!-- OGP -->
-    <meta property="og:title" content="記事タイトル | iroha">
+    <meta property="og:title" content="【実績】LINE会員1万人を活かした「在庫なし」EC構築。4か月で売上100万円達成 | iroha">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://yoursite.com/article-1.html">
+    <meta property="og:url" content="https://yoursite.com/case-petcierge.html">
     <meta property="og:image" content="https://yoursite.com/article-ogp.jpg">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
-    <!-- 構造化データ（BlogPosting） -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "記事のタイトルをここに入力",
-      "datePublished": "2025-12-01",
+      "headline": "【実績】LINE会員1万人を活かした「在庫なし」EC構築。4か月で売上100万円達成",
+      "datePublished": "2026-01-15",
       "author": { "@type": "Person", "name": "iroha" },
       "publisher": { "@type": "Organization", "name": "iroha" }
     }
@@ -54,6 +50,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2.1; letter-spacing: 0.05em; background-color: var(--white); -webkit-font-smoothing: antialiased; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* リンクの基本スタイル（テキスト用） */
+        .text-link { text-decoration: underline; text-underline-offset: 4px; color: var(--primary-color); font-weight: 500; }
+        .text-link:hover { color: var(--secondary-color); }
 
         .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.03); }
         .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: 1100px; margin: 0 auto; padding: 0 40px; }
@@ -61,12 +61,21 @@
 
         .article-hero { padding: 180px 0 80px; text-align: center; background-color: var(--bg-light); }
         .category-tag { font-family: var(--font-serif-en); font-size: 12px; letter-spacing: 0.3em; color: var(--secondary-color); text-transform: uppercase; display: block; margin-bottom: 20px; }
-        .article-title { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 500; line-height: 1.4; max-width: 900px; margin: 0 auto 30px; padding: 0 20px; }
+        .article-title { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 500; line-height: 1.6; max-width: 900px; margin: 0 auto 30px; padding: 0 20px; }
 
         .article-container { max-width: var(--max-width); margin: 0 auto; padding: 80px 25px; }
-        .content h2 { font-size: 1.8rem; margin: 80px 0 40px; padding-bottom: 15px; border-bottom: 1px solid #eee; font-weight: 500; }
+        .content h2 { font-size: 1.6rem; margin: 80px 0 40px; padding-bottom: 15px; border-bottom: 1px solid #eee; font-weight: 500; }
         .content p { margin-bottom: 35px; }
-        .content blockquote { margin: 60px 0; padding: 40px; background: var(--bg-light); border-left: 1px solid var(--primary-color); font-style: italic; }
+        .content blockquote { margin: 60px 0; padding: 40px; background: var(--bg-light); border-left: 1px solid var(--primary-color); font-style: normal; }
+        .content ul { margin-bottom: 35px; list-style-type: none; }
+        .content li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .content li::before { content: "—"; position: absolute; left: 0; color: var(--secondary-color); }
+
+        /* お問い合わせエリア */
+        .cta-section { margin-top: 100px; padding: 60px 40px; background-color: var(--bg-light); text-align: center; border: 1px solid #eee; }
+        .cta-title { font-size: 1.4rem; margin-bottom: 20px; }
+        .cta-button { display: inline-block; padding: 15px 50px; background-color: var(--primary-color); color: var(--white); font-family: var(--font-serif-jp); font-size: 14px; letter-spacing: 0.2em; margin-top: 30px; transition: 0.4s; }
+        .cta-button:hover { background-color: var(--secondary-color); color: var(--white); }
 
         .footer { padding: 80px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; color: var(--secondary-color); text-transform: uppercase; background-color: var(--bg-light); }
     </style>
@@ -81,18 +90,44 @@
     <main>
         <section class="article-hero">
             <div class="container">
-                <span class="category-tag">Column</span>
-                <h1 class="article-title">記事タイトルをここに入力してください</h1>
-                <div style="font-family:var(--font-serif-en); font-size:12px; color:var(--secondary-color);">2025.12.01</div>
+                <span class="category-tag">Works / Marketing</span>
+                <h1 class="article-title">LINE会員1万人を活かした「在庫なし」EC構築。<br>4か月で売上100万円達成の舞台裏</h1>
+                <div style="font-family:var(--font-serif-en); font-size:12px; color:var(--secondary-color);">2026.01.15</div>
             </div>
         </section>
 
         <article class="article-container">
             <div class="content">
-                <p>記事の導入文をここに入力します。栃木県の魅力を織り交ぜた内容などが効果的です。</p>
-                <h2>1. 本質的なデザインとは</h2>
-                <p>情報を整理し、最も伝えたいことを強調するミニマルなデザイン手法について解説します。</p>
-                <blockquote>「デザインは、単にどう見えるかではなく、どう機能するかである」</blockquote>
+                <p>既存の顧客資産を最大限に活用し、最小限のリスクで新規事業を立ち上げる。今回は、動物病院向けオンライン診療システムを展開するクライアント様のECサイト「<a href="https://petcierge.stores.jp/" target="_blank" rel="noopener" class="text-link">Petcierge（ペットシェルジュ）</a>」構築事例をご紹介します。</p>
+                
+                <h2>1. 「属性の濃い」1万人のリストをどう活かすか</h2>
+                <p>クライアント様は、もともとオンライン診療システムを提供しており、サービス利用の鍵となるLINE公式アカウントには1万人の友だち登録がありました。この1万人は「すべてペット飼育者」という非常に属性の濃いユーザーです。</p>
+                <p>むやみに不特定多数へ広告を打つのではなく、この1万人に対して価値を提供できる仕組みとして、ペット用品・フードを販売するECサイトを0ベースから構築することになりました。</p>
+
+                <blockquote>
+                    <strong>プロジェクトの核心</strong><br>
+                    「すでに存在する強み（LINE会員）を、いかにスムーズに購買体験へ繋げるか」
+                </blockquote>
+
+                <h2>2. リスクを最小化したEC構築戦略</h2>
+                <p>今回の立ち上げにおいて、以下の4点を軸に戦略を設計しました。</p>
+                <ul>
+                    <li><strong>在庫を持たない運営：</strong> 初期投資と管理リスクを抑える仕組みの導入。</li>
+                    <li><strong>STORESによる構築：</strong> 拡張性と運用効率を考慮したプラットフォーム選定。</li>
+                    <li><strong>Googleショッピング連携：</strong> 外部検索からの流入経路を自動化。</li>
+                    <li><strong>Google広告の最適化：</strong> ターゲットを絞り込み、1クリックあたり25円以下という低コスト運用を実現。</li>
+                </ul>
+
+                <h2>3. 開始4か月で売上100万円を達成</h2>
+                <p>サイトオープン後、LINE会員へ定期的なメッセージ配信やキャンペーンの告知、クーポンの配布を仕組み化しました。結果として、運用面をスムーズに整えながら、開始4か月で売上100万円を達成することができました。</p>
+                <p>実際のサイト：<a href="https://petcierge.stores.jp/" target="_blank" rel="noopener" class="text-link">ペット用品ECサイト「Petcierge」</a></p>
+                <p>栃木県から全国へ、ペットと飼い主様を繋ぐ架け橋となるプロジェクト。irohaでは、ただサイトを作るだけでなく、その先にある「仕組み作り」から伴走いたします。</p>
+
+                <section class="cta-section">
+                    <h3 class="cta-title">新規事業・EC立ち上げのご相談</h3>
+                    <p>貴社がすでにお持ちの資産を、デジタルで収益化しませんか？<br>0からの構築から運用支援まで、お気軽にご相談ください。</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" class="cta-button">CONTACT</a>
+                </section>
             </div>
         </article>
     </main>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <title>経営相談・ITコンサルティング | iroha - 栃木県の経営支援・IT導入</title>
+    <meta name="description" content="栃木県を拠点とするirohaの経営相談サービス。新規事業の立ち上げ、ITシステム導入、組織課題の解決など、専門的な知見で貴社のビジネスを伴走サポートします。">
+    
+    <meta property="og:title" content="経営相談・ITコンサルティング | iroha">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yoursite.com/service-consulting.html">
+    <meta property="og:image" content="https://yoursite.com/service-ogp.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Shippori+Mincho:wght@400;500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #111111;
+            --secondary-color: #888888; /* service-webに合わせて変更 */
+            --bg-light: #fdfdfd;      /* service-webに合わせて変更 */
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --max-width: 1100px;
+            --font-serif-en: 'Bodoni Moda', serif;
+            --font-serif-jp: 'Shippori Mincho', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        /* Basic Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif-jp); color: var(--primary-color); line-height: 2.1; letter-spacing: 0.05em; background-color: var(--white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        /* Header Navigation */
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+        .logo a { font-family: var(--font-serif-en); font-size: 24px; font-weight: 700; letter-spacing: 0.2em; }
+
+        /* Hero Section */
+        .page-hero { padding: 180px 0 100px; background-color: var(--bg-light); text-align: center; }
+        .hero-label { font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.3em; color: var(--secondary-color); text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .hero-title { font-size: 2.8rem; font-weight: 500; margin-bottom: 30px; letter-spacing: 0.1em; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 40px; }
+        .section-title { font-size: 1.8rem; font-weight: 500; margin-bottom: 50px; text-align: center; position: relative; }
+        .section-title::after { content: ''; display: block; width: 30px; height: 1px; background: #ddd; margin: 20px auto 0; }
+        
+        .intro-text { font-size: 1.1rem; text-align: center; margin-bottom: 60px; word-break: keep-all; }
+
+        /* Table Style (service-webの料金表スタイルを継承) */
+        .consulting-table-wrapper { width: 100%; overflow-x: auto; margin-bottom: 60px; border: 1px solid #eee; }
+        .consulting-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .consulting-table th, .consulting-table td { padding: 25px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+        .consulting-table th { background: var(--bg-light); font-weight: 600; color: var(--secondary-color); font-size: 12px; letter-spacing: 0.1em; }
+        .consulting-table tr:last-child td { border-bottom: none; }
+        .service-cat { font-weight: 700; font-size: 16px; width: 30%; }
+        .service-desc { line-height: 1.8; color: #444; }
+
+        .note-text { font-size: 13px; color: var(--secondary-color); text-align: center; margin-top: -20px; margin-bottom: 80px; }
+
+        /* CTA Box */
+        .cta-box { text-align: center; background: var(--primary-color); color: var(--white); padding: 120px 40px; }
+        .cta-box p { margin-bottom: 40px; font-size: 1.3rem; font-weight: 300; }
+        .btn { display: inline-block; padding: 18px 56px; border: 1px solid var(--white); color: var(--white); font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; transition: var(--transition); cursor: pointer; }
+        .btn:hover { background: var(--white); color: var(--primary-color); }
+
+        /* Footer */
+        .footer { padding: 80px 0; text-align: center; font-family: var(--font-serif-en); font-size: 10px; letter-spacing: 0.3em; color: var(--secondary-color); text-transform: uppercase; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.8rem; }
+            .consulting-table th, .consulting-table td { padding: 15px; }
+            .service-cat { font-size: 14px; width: 40%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo"><a href="index.html">iroha</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container-full">
+                <span class="hero-label">Service Detail</span>
+                <h1 class="hero-title">経営相談サービス</h1>
+                <p class="hero-subtitle">専門知見で、変化する時代のビジネスを支える。</p>
+            </div>
+        </section>
+
+        <article class="container">
+            <div class="intro-text">
+                <p>新規事業の参入やITシステム導入、組織課題の解決など、<br>
+                専門的な知見が必要な場面で、貴社のパートナーとして伴走します。<br>
+                理想を形にするための具体的な道筋を、共に描きます。</p>
+            </div>
+
+            <section id="solutions">
+                <h2 class="section-title">Support Menu</h2>
+                <div class="consulting-table-wrapper">
+                    <table class="consulting-table">
+                        <thead>
+                            <tr>
+                                <th>CATEGORY</th>
+                                <th>DETAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="service-cat">新規事業創出</td>
+                                <td class="service-desc">アイデアの具体化から、形にするための手法構築。市場参入に向けた戦略立案をサポートします。</td>
+                            </tr>
+                            <tr>
+                                <td class="service-cat">ITシステム導入</td>
+                                <td class="service-desc">要件定義の策定、適切な開発ベンダーの選定支援。貴社の身の丈に合ったシステム活用をガイドします。</td>
+                            </tr>
+                            <tr>
+                                <td class="service-cat">運用改善・DX</td>
+                                <td class="service-desc">導入したシステムがうまく運用できない課題を解決。現場に定着させるためのフロー構築を支援します。</td>
+                            </tr>
+                            <tr>
+                                <td class="service-cat">組織・人材支援</td>
+                                <td class="service-desc">人材流出の防止や組織の機能不全を解消。コミュニケーション設計を通じ、人が定着する組織作りを助けます。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note-text">※課題の規模や期間に応じて、柔軟な支援プランをご提案いたします。</p>
+            </section>
+        </article>
+
+        <section class="cta-box">
+            <p>経営やITに関するお悩みは、こちらから。</p>
+            <a href="https://docs.google.com/forms/d/1yUJijaoyPm5qE6VzRc1Ep8Jza4KKRntXpcqUNJFSC2k/edit" class="btn" target="_blank" rel="noopener noreferrer">Contact Form</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 iroha. All rights reserved.</p>
+    </footer>
+</body>
+</html>
