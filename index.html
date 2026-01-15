@@ -93,8 +93,8 @@
         .btn-outline { display: inline-block; padding: 18px 50px; border: 1px solid #ddd; font-family: var(--font-serif-en); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--primary-color); transition: var(--transition); background: transparent; }
         .btn-outline:hover { background: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
         
-        .btn-contact { display: inline-block; padding: 22px 60px; background: var(--white); color: var(--primary-color); font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; border: none; font-weight: 500; }
-        .btn-contact:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); background: #f0f0f0; }
+        .btn-contact { display: inline-block; padding: 22px 60px; background: var(--primary-color); color: var(--white); font-family: var(--font-serif-en); font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; border: none; font-weight: 500; cursor: pointer; }
+        .btn-contact:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
 
         /* --- About --- */
         .about-inner { max-width: 750px; margin: 0 auto; text-align: center; }
@@ -128,8 +128,8 @@
         .more-button-container { text-align: center; margin-top: 80px; }
 
         /* --- Contact --- */
-        .contact { text-align: center; background: var(--primary-color); color: var(--white); padding: 200px 0; }
-        .contact .section-title { color: white; margin-bottom: 40px; }
+        .contact { text-align: center; background: #fdfdfd; padding: 200px 0; border-top: 1px solid #eee; }
+        .contact .section-title { margin-bottom: 40px; }
         .contact-text { margin-bottom: 50px; opacity: 0.8; }
 
         /* --- Footer --- */
@@ -141,7 +141,6 @@
             .hamburger { display: flex; z-index: 1001; }
             .section { padding: 100px 0; }
             .section-title { font-size: 2.5rem; }
-            .hero-btn-container { margin-top: 20px; }
         }
     </style>
 </head>
@@ -257,7 +256,14 @@
         }
 
         function renderColumns(cat = 'all') {
-            const filtered = cat === 'all' ? columns : columns.filter(c => c.category === cat);
+            let filtered = cat === 'all' ? columns : columns.filter(c => c.category === cat);
+            
+            // 日付の新しい順（降順）にソート
+            filtered.sort((a, b) => {
+                return new Date(b.date.replace(/\./g, '/')) - new Date(a.date.replace(/\./g, '/'));
+            });
+
+            // ソート後の最新4件だけを抽出
             const limited = filtered.slice(0, 4);
             
             columnList.innerHTML = limited.map(item => `
