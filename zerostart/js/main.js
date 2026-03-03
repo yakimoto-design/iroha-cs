@@ -117,4 +117,28 @@
     });
   });
 
+  /* ----- Privacy Modal ----- */
+  const privacyModal  = document.getElementById('privacyModal');
+  const openPrivacy   = document.getElementById('openPrivacy');
+  const closePrivacy  = document.getElementById('closePrivacy');
+  const modalOverlay  = document.getElementById('modalOverlay');
+
+  function openModal() {
+    privacyModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    privacyModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (openPrivacy)  openPrivacy.addEventListener('click', openModal);
+  if (closePrivacy) closePrivacy.addEventListener('click', closeModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+  // ESCキーでも閉じる
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
 })();
