@@ -136,9 +136,31 @@
   if (closePrivacy) closePrivacy.addEventListener('click', closeModal);
   if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
 
-  // ESCキーでも閉じる
+  /* ----- Tokushoho Modal ----- */
+  const tokushohoModal   = document.getElementById('tokushohoModal');
+  const openTokushoho    = document.getElementById('openTokushoho');
+  const closeTokushoho   = document.getElementById('closeTokushoho');
+  const tokushohoOverlay = document.getElementById('tokushohoOverlay');
+
+  function openTokushohoModal() {
+    tokushohoModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTokushohoModal() {
+    tokushohoModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (openTokushoho)    openTokushoho.addEventListener('click', openTokushohoModal);
+  if (closeTokushoho)   closeTokushoho.addEventListener('click', closeTokushohoModal);
+  if (tokushohoOverlay) tokushohoOverlay.addEventListener('click', closeTokushohoModal);
+
+  // ESCキーで両モーダルを閉じる
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      closeModal();
+      closeTokushohoModal();
+    }
   });
 
 })();
