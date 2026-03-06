@@ -971,8 +971,12 @@ a.case-card:hover .case-card__thumb img { transform: scale(1.04); }
   align-items: center;
   justify-content: center;
   padding: 24px;
+  pointer-events: none;
 }
-.modal.open { display: flex; }
+.modal.open {
+  display: flex;
+  pointer-events: auto;
+}
 
 .modal__overlay {
   position: absolute;
