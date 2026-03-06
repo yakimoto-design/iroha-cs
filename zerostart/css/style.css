@@ -1097,7 +1097,36 @@ a.case-card:hover .case-card__thumb img { transform: scale(1.04); }
   transition: background .15s;
   text-decoration: none;
 }
-.modal__line-btn:hover { background: #05a845; }
+.modal__box--wide { max-width: 720px; }
+
+/* テーブル形式（特定商取引法） */
+.modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.modal__table th,
+.modal__table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.85;
+}
+.modal__table tbody tr:last-child th,
+.modal__table tbody tr:last-child td { border-bottom: none; }
+.modal__table th {
+  width: 130px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--bg-gray);
+  white-space: nowrap;
+  font-size: 12px;
+}
+.modal__table td { color: var(--text-mid); }
+.modal__table td strong { color: var(--text); }
+
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
