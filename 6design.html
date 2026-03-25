@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Design（シックスデザイン）｜月額6,000円で叶える次世代ホームページ制作</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+        body { font-family: 'Noto+Sans+JP', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(90deg, #4F46E5, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .feature-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 1.5rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter">
+                <span class="gradient-text">6-Design</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#features" class="hover:text-indigo-600 transition">選ばれる理由</a>
+                <a href="#pricing" class="hover:text-indigo-600 transition">制作料金</a>
+                <a href="#gallery" class="hover:text-indigo-600 transition">制作実績</a>
+                <a href="#contact" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-md">無料相談・お見積り</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto text-center max-w-4xl">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wider text-indigo-600 bg-indigo-50 rounded-full">
+                初期費用0円・月額固定の安心ホームページ制作
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                月額<span class="text-indigo-600">6,000</span>円で<br>
+                プロ品質のサイトを。
+            </h1>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                6-Design（シックスデザイン）は、オリジナルデザイン・スマホ最適化・AI検索対策までを<br class="hidden md:block">
+                すべて含んだサブスクリプション型のホームページ制作サービスです。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all">
+                    ホームページ制作を相談する
+                </a>
+                <a href="#features" class="px-8 py-4 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
+                    機能とサービスを見る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">ビジネスを加速させる標準機能</h2>
+                <p class="text-slate-500">追加費用なし。月額6,000円ですべての機能をご提供します。</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-pen-nib text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">オリジナルデザイン</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">画一的なテンプレートは使いません。ブランドに合わせた世界に一つだけのホームページを作成します。</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-mobile-screen-button text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">スマホ完全最適化</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">現代の閲覧の8割以上を占めるスマホ。すべてのデバイスで美しく使いやすいサイトを構築します。</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-robot text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI検索対策（ASO）</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Googleに加え、ChatGPTやPerplexityなどのAI回答エンジンに最適化された最新の構造化データを採用。</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-location-dot text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">マップ・SNS連携</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Googleマップでの店舗誘導や、SNSの最新フィード表示。外部サービスとの連携も標準実装します。</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-server text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">保守・サーバー管理</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">サーバー契約やドメインの面倒なメンテナンスは不要。常に最新の状態で安定稼働をサポートします。</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-images text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">フォトギャラリー</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">実績やサービス内容を視覚的にアピール。直感的なギャラリー機能で成約率を向上させます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Optimization Message -->
+    <section class="py-20 bg-indigo-600 text-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">AI時代に勝つホームページ。</h2>
+                <p class="text-indigo-100 mb-8 leading-relaxed">
+                    従来のSEO（検索エンジン最適化）だけでは、ユーザーの行動を把握しきれない時代が来ています。
+                    6-Designでは、AI回答エンジンが情報を正しく引用できる「構造化データ」をすべてのサイトに標準実装。
+                    次世代の検索環境においても、あなたのホームページが見つかりやすくなる土壌を整えます。
+                </p>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+                        <p class="text-xs uppercase tracking-widest text-indigo-200">Quality</p>
+                        <p class="text-2xl font-bold">AI推奨最適化</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+                        <p class="text-xs uppercase tracking-widest text-indigo-200">Trust</p>
+                        <p class="text-2xl font-bold">常時SSL・最新SEO</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-white p-6 rounded-3xl shadow-2xl text-slate-800">
+                    <div class="flex items-center mb-4 space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div class="space-y-4 text-sm">
+                        <p class="font-bold text-indigo-600">AI検索エンジンでの引用イメージ：</p>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-slate-600 italic">
+                            「〇〇でおすすめのサービスはありますか？」というAIへの問いに対し、あなたのホームページが情報源として正確に表示されます。
+                        </div>
+                        <div class="h-20 bg-indigo-50 rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-indigo-200">
+                            <i class="fa-solid fa-bolt text-indigo-400 mb-2"></i>
+                            <p class="text-indigo-400 font-bold text-xs uppercase tracking-widest">Optimized for Next Search</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">制作実績</h2>
+                <p class="text-slate-500">6-Designが制作した、最新のホームページ実績です。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Studio Seren -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
+                    <div class="aspect-video relative overflow-hidden bg-slate-200">
+                        <img src="https://github.com/yakimoto-design/image/blob/main/%E3%83%94%E3%83%A9%E3%83%86%E3%82%A3%E3%82%B9.png?raw=true" alt="Studio Seren" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-indigo-900/5 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-1">Studio Seren</h3>
+                                <p class="text-indigo-600 text-sm font-bold">デザイン・ポートフォリオサイト</p>
+                            </div>
+                            <a href="https://studio-seren.cc/" target="_blank" class="text-slate-400 hover:text-indigo-600 transition">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xl"></i>
+                            </a>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">クリエイティブな世界観を存分に表現したポートフォリオ。スマホでの快適なページ遷移とAI対策を両立しています。</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Over Road -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
+                    <div class="aspect-video relative overflow-hidden bg-slate-200">
+                        <img src="https://github.com/yakimoto-design/image/blob/main/overroad/%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%892.png?raw=true" alt="Over Road" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-indigo-900/5 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-1">Over Road</h3>
+                                <p class="text-indigo-600 text-sm font-bold">サービス紹介・コーポレート</p>
+                            </div>
+                            <a href="https://yakimoto-design.github.io/image/over-road.html" target="_blank" class="text-slate-400 hover:text-indigo-600 transition">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xl"></i>
+                            </a>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">信頼感と力強さを重視したデザイン。実績を強調するフォトギャラリー機能を搭載し、視覚的な信頼獲得に特化しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold mb-12">初期制作費0円・維持費のみ</h2>
+            <div class="p-12 rounded-3xl border-4 border-indigo-600 relative overflow-hidden shadow-2xl shadow-indigo-100 bg-white">
+                <div class="absolute top-0 right-0 bg-indigo-600 text-white px-6 py-2 rounded-bl-xl font-bold text-sm tracking-widest uppercase">
+                    6-Design Plan
+                </div>
+                <p class="text-slate-500 mb-2 font-bold">月額運用・管理費</p>
+                <div class="flex justify-center items-end mb-8">
+                    <span class="text-2xl font-bold mb-4 mr-1">¥</span>
+                    <span class="text-7xl font-black text-indigo-600">6,000</span>
+                    <span class="text-xl font-bold mb-4 ml-2">(税別)</span>
+                </div>
+                <ul class="text-left space-y-4 mb-10 mx-auto max-w-sm border-t border-b border-slate-100 py-8">
+                    <li class="flex items-center font-medium"><i class="fa-solid fa-check text-green-500 mr-3"></i>初期費用・制作費用 0円</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i>オリジナルデザインでの制作</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i>独自ドメイン・高速サーバー管理</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i>毎月2回までの修正無料</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i>アクセス解析・SEO・AI検索対策</li>
+                </ul>
+                <a href="#contact" class="block w-full py-5 bg-indigo-600 text-white rounded-xl font-bold text-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-100 transition-all">
+                    今すぐ制作を相談する
+                </a>
+                <p class="mt-6 text-sm text-slate-400 italic">※最低契約期間：12ヶ月</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <div class="inline-block p-4 rounded-full bg-indigo-500/10 mb-6">
+                <i class="fa-solid fa-envelope-open-text text-3xl text-indigo-400"></i>
+            </div>
+            <h2 class="text-4xl font-bold mb-6">ホームページのご相談</h2>
+            <p class="text-slate-400 mb-10 text-lg leading-relaxed">
+                現在のホームページの改善、新規制作のご相談などは<br class="hidden md:block">
+                専用のGoogleフォームより承っております。<br>
+                お気軽にお問い合わせください。
+            </p>
+            
+            <!-- Google Form Button -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScGb04oMWBlOjop83TaKn_D9WFvTxqVHv2b8ioF4Xdaw6oFnQ/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold text-xl hover:bg-indigo-700 transition-all shadow-2xl shadow-indigo-500/20 group">
+                <span>Googleフォームでお問い合わせ</span>
+                <i class="fa-solid fa-arrow-up-right-from-square ml-3 text-sm opacity-70 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-3xl font-black gradient-text mb-6">6-Design</div>
+            <div class="flex flex-wrap justify-center space-x-6 md:space-x-8 mb-8 font-medium text-slate-500">
+                <button onclick="openModal('terms')" class="hover:text-indigo-600 transition">利用規約</button>
+                <button onclick="openModal('privacy')" class="hover:text-indigo-600 transition">プライバシーポリシー</button>
+                <button onclick="openModal('tokusho')" class="hover:text-indigo-600 transition">特定商取引法に基づく表記</button>
+                <button onclick="openModal('company')" class="hover:text-indigo-600 transition">運営者情報</button>
+            </div>
+            <p class="text-slate-400 text-xs tracking-widest uppercase font-bold">&copy; 2024 6-Design / iroha Consulting. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <div class="sticky top-0 bg-white border-b border-slate-100 p-6 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-xl font-bold"></h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-900 text-2xl">&times;</button>
+            </div>
+            <div id="modalBody" class="p-8 text-slate-600 leading-relaxed text-sm">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Content Data -->
+    <template id="terms-content">
+        <h4 class="font-bold text-slate-900 mb-4">第1条（適用）</h4>
+        <p class="mb-6">本規約は、6-Design（以下「当サービス」）が提供するホームページ制作および保守管理サービスの利用条件を定めるものです。利用者の皆様は、本規約に同意の上、サービスをご利用いただくものとします。</p>
+        <h4 class="font-bold text-slate-900 mb-4">第2条（契約期間と解約）</h4>
+        <p class="mb-6">本サービスは、原則として最低契約期間を12ヶ月と定めています。期間満了の1ヶ月前までに申し出がない限り、契約は自動更新されます。最低期間内の解約については、残月数分の費用を一括でお支払いいただきます。</p>
+        <h4 class="font-bold text-slate-900 mb-4">第3条（支払い）</h4>
+        <p class="mb-6">利用料金は、翌月分を前月末日までに指定の支払方法（クレジットカード、銀行振込等）にてお支払いいただくものとします。</p>
+        <h4 class="font-bold text-slate-900 mb-4">第4条（知的財産権）</h4>
+        <p class="mb-6">制作物の著作権は、原則として当サービスに帰属します。契約期間中、利用者は制作物を利用する権利を有します。</p>
+    </template>
+
+    <template id="privacy-content">
+        <h4 class="font-bold text-slate-900 mb-4">個人情報の取り扱いについて</h4>
+        <p class="mb-6">当サービスは、お問い合わせ時にお預かりする個人情報を適切に管理し、サービス提供、ご連絡以外の目的には使用いたしません。</p>
+        <h4 class="font-bold text-slate-900 mb-4">外部ツールについて</h4>
+        <p class="mb-6">当サイトでは、Googleアナリティクスを用いたアクセス解析および、Googleフォームによるお問い合わせ受付を行っています。これらのデータは各社のポリシーに基づいて管理されます。</p>
+    </template>
+
+    <template id="tokusho-content">
+        <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">販売業者名</div>
+                <div class="md:col-span-2">irohaコンサルティング</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">代表責任者名</div>
+                <div class="md:col-span-2">秋元 祐介</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">所在地</div>
+                <div class="md:col-span-2">東京都大田区東馬込1-26-9-101</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">電話番号</div>
+                <div class="md:col-span-2">ご請求時に遅滞なく開示いたします。</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">販売価格</div>
+                <div class="md:col-span-2">月額6,000円（税別）</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">代金の支払方法</div>
+                <div class="md:col-span-2">クレジットカード、銀行振込</div>
+            </div>
+        </div>
+    </template>
+
+    <template id="company-content">
+        <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">名称</div>
+                <div class="md:col-span-2">irohaコンサルティング</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">代表者</div>
+                <div class="md:col-span-2">秋元 祐介</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">所在地</div>
+                <div class="md:col-span-2">東京都大田区東馬込1-26-9-101</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-3 border-b border-slate-100">
+                <div class="font-bold text-slate-900">主な事業内容</div>
+                <div class="md:col-span-2">
+                    ・Webサイトの企画・制作・保守運用<br>
+                    ・AI検索最適化（ASO）支援<br>
+                    ・Webコンサルティング業務
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Modal Logic
+        function openModal(type) {
+            const modal = document.getElementById('legalModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+            
+            const titles = {
+                'terms': '利用規約',
+                'privacy': 'プライバシーポリシー',
+                'tokusho': '特定商取引法に基づく表記',
+                'company': '運営者情報'
+            };
+            
+            title.innerText = titles[type];
+            const contentTemplate = document.getElementById(`${type}-content`);
+            if (contentTemplate) {
+                body.innerHTML = contentTemplate.innerHTML;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('legalModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('legalModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
