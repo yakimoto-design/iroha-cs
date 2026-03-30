@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- トップページ -->
+  <url>
+    <loc>https://irohacs.com/</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/"/>
+  </url>
+
+  <!-- 実績詳細ページ -->
+  <url>
+    <loc>https://irohacs.com/works/media-analysis.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/media-analysis.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/ec-analysis.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/ec-analysis.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/sales-training.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/sales-training.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/seo-stationery.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/seo-stationery.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/lp-renewal.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/lp-renewal.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/recruitment-renewal.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/recruitment-renewal.html"/>
+  </url>
+
+  <url>
+    <loc>https://irohacs.com/works/medical-market-analysis.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://irohacs.com/works/medical-market-analysis.html"/>
+  </url>
+
+</urlset>
