@@ -816,6 +816,405 @@ body.cursor-hover .cursor-follower { width: 0; height: 0; border: none; }
   display: inline-block;
 }
 
+/* =====================================================
+   プランカードグリッド
+   ===================================================== */
+
+/* グリッドレイアウト */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+  align-items: stretch;
+}
+
+/* 個別カード */
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1.5px solid var(--gray-1);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s;
+}
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.10);
+  border-color: var(--gray-2);
+}
+
+/* 注目プラン（中央） */
+.plan-card-featured {
+  background: var(--black);
+  border-color: transparent;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+  transform: translateY(-8px);
+}
+.plan-card-featured:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 32px 72px rgba(0,0,0,0.28);
+}
+
+/* バッジ */
+.plan-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: var(--off-white);
+  color: var(--text-sub);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.plan-badge-accent {
+  background: var(--accent);
+  color: var(--black);
+}
+
+/* カードヘッダー */
+.plan-card-header {
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid var(--gray-1);
+}
+.plan-card-featured .plan-card-header {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+/* アイコン */
+.plan-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.plan-card-featured .plan-icon {
+  background: rgba(255,255,255,0.12);
+  color: var(--accent);
+}
+
+/* プランラベル */
+.plan-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gray-3);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.plan-card-featured .plan-label {
+  color: var(--accent);
+}
+
+/* プランタイトル */
+.plan-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.plan-card-featured .plan-title {
+  color: var(--white);
+}
+
+/* プランサブ */
+.plan-sub {
+  font-size: 0.85rem;
+  color: var(--gray-3);
+  line-height: 1.6;
+}
+.plan-card-featured .plan-sub {
+  color: rgba(255,255,255,0.55);
+}
+
+/* カードボディ */
+.plan-card-body {
+  padding: 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* BPOメニューリスト */
+.plan-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--gray-1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.plan-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gray-1);
+  transition: background 0.2s;
+}
+.plan-menu li:last-child { border-bottom: none; }
+.plan-menu li:hover { background: var(--off-white); }
+
+.plan-menu-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.plan-menu-name i {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  color: var(--gray-4);
+  flex-shrink: 0;
+}
+.plan-menu-price {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.plan-menu-price small {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-3);
+}
+
+/* 価格（メイン表示） */
+.plan-price-main {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 16px 20px;
+  background: var(--off-white);
+  border-radius: 14px;
+}
+.plan-card-featured .plan-price-main {
+  background: rgba(255,255,255,0.08);
+}
+.plan-price-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--black);
+  letter-spacing: -0.04em;
+  font-family: var(--font-en);
+}
+.plan-card-featured .plan-price-num {
+  color: var(--accent);
+}
+.plan-price-unit {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gray-3);
+}
+.plan-card-featured .plan-price-unit {
+  color: rgba(255,255,255,0.5);
+}
+
+/* 含まれる内容リスト */
+.plan-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plan-includes li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-sub);
+}
+.plan-card-featured .plan-includes li {
+  color: rgba(255,255,255,0.75);
+}
+.plan-includes li i {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(200,255,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #7aad00;
+  flex-shrink: 0;
+}
+.plan-card-featured .plan-includes li i {
+  background: rgba(200,255,0,0.2);
+  color: var(--accent);
+}
+
+/* ポイントバナー */
+.plan-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(200,255,0,0.08);
+  border: 1px solid rgba(200,255,0,0.2);
+  border-radius: 12px;
+  font-size: 0.83rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+  margin-top: auto;
+}
+.plan-card-featured .plan-point {
+  background: rgba(200,255,0,0.1);
+  border-color: rgba(200,255,0,0.3);
+  color: rgba(255,255,255,0.75);
+}
+.plan-point i {
+  color: var(--accent);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.plan-point strong { color: var(--black); }
+.plan-card-featured .plan-point strong { color: var(--accent); }
+
+/* CTAボタン */
+.plan-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 24px;
+  margin: 0 24px 24px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  letter-spacing: 0.02em;
+}
+.plan-cta:hover {
+  background: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.plan-cta-accent {
+  background: var(--accent);
+  color: var(--black);
+}
+.plan-cta-accent:hover {
+  background: #b8ef00;
+  box-shadow: 0 8px 28px rgba(200,255,0,0.4);
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .plan-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .plan-card-featured {
+    transform: none;
+  }
+  .plan-card-featured:hover {
+    transform: translateY(-6px);
+  }
+}
+@media (max-width: 600px) {
+  .plan-card-header { padding: 24px 24px 20px; }
+  .plan-card-body   { padding: 20px 24px; }
+  .plan-cta         { margin: 0 16px 16px; }
+}
+
+/* =====================================================
+   なぜ安いのかセクション
+   ===================================================== */
+.why-section {
+  background: var(--off-white);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.why-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px 32px;
+  border: 1.5px solid var(--gray-1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+}
+.why-card-num {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  background: rgba(200,255,0,0.1);
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+.why-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+.why-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+.why-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  line-height: 1.85;
+}
+.why-card-desc strong { color: var(--black); }
+
+@media (max-width: 900px) {
+  .why-grid { grid-template-columns: 1fr; max-width: 480px; margin: 48px auto 0; }
+}
+
 /* ターゲット訴求バナー */
 .bpo-appeal {
   margin: 0 0 56px;
@@ -1719,6 +2118,92 @@ body.cursor-hover .cursor-follower { width: 0; height: 0; border: none; }
 .footer-policies { display: flex; gap: 20px; }
 .footer-policies a { font-size: 0.78rem; color: rgba(255,255,255,0.3); transition: color var(--dur); }
 .footer-policies a:hover { color: rgba(255,255,255,0.7); }
+
+/* =====================================================
+   LINE追従バナー
+   ===================================================== */
+.line-sticky-banner {
+  position: fixed;
+  bottom: -100px;
+  left: 0; right: 0;
+  z-index: 9999;
+  padding: 0 16px 16px;
+  transition: bottom 0.45s cubic-bezier(.22,.68,0,1.2);
+  pointer-events: none;
+}
+.line-sticky-banner.is-visible {
+  bottom: 0;
+  pointer-events: auto;
+}
+.line-sticky-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #06C755;        /* LINEグリーン */
+  color: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 8px 32px rgba(6,199,85,0.35), 0 2px 8px rgba(0,0,0,0.18);
+}
+.line-sticky-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.line-sticky-text {
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.line-sticky-label {
+  font-weight: 700;
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+.line-sticky-cta {
+  flex-shrink: 0;
+  background: #fff;
+  color: #06C755;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.line-sticky-cta:hover {
+  background: #e6ffe6;
+  transform: scale(1.04);
+}
+.line-sticky-close {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.line-sticky-close:hover { color: #fff; }
+
+@media (max-width: 600px) {
+  .line-sticky-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .line-sticky-text { font-size: 0.82rem; }
+  .line-sticky-cta  { width: 100%; justify-content: center; }
+}
 
 /* =====================================================
    スクロールアニメーション
