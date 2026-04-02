@@ -240,4 +240,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  /* -------------------------------------------------
+     LINE追従バナー
+     スクロール300px以上で表示、×ボタンで閉じる（セッション中は非表示）
+     ------------------------------------------------- */
+  const lineBanner = document.getElementById('lineStickyBanner');
+  const lineBannerClose = document.getElementById('lineBannerClose');
+
+  if (lineBanner) {
+    const dismissed = sessionStorage.getItem('lineBannerDismissed');
+    if (!dismissed) {
+      const showBanner = () => {
+        if (window.scrollY > 300) {
+          lineBanner.classList.add('is-visible');
+        } else {
+          lineBanner.classList.remove('is-visible');
+        }
+      };
+      window.addEventListener('scroll', showBanner, { passive: true });
+    }
+
+    if (lineBannerClose) {
+      lineBannerClose.addEventListener('click', () => {
+        lineBanner.classList.remove('is-visible');
+        sessionStorage.setItem('lineBannerDismissed', '1');
+        window.removeEventListener('scroll', () => {});
+      });
+    }
+  }
+
 });
