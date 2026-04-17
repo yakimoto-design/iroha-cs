@@ -1,429 +1,435 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  ChevronRight, Layout, Megaphone, Palette, LineChart, 
-  MessageSquare, MapPin, Search, FileText, PhoneCall, 
-  ArrowRight, Menu, X, Zap, AlertCircle, TrendingUp, 
-  MousePointer2, Check, ExternalLink, Building2, Calendar, User
-} from 'lucide-react';
-
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header";
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const spotMenus = [
-    { category: "制作プロダクト", items: [
-      { name: "LP制作 (1ページ)", price: "30,000", note: "約5営業日〜" },
-      { name: "HP制作 (5ページ〜)", price: "100,000", note: "月額1.5万円〜" },
-      { name: "バナー制作", price: "3,000", note: "1本〜" },
-      { name: "チラシ制作", price: "5,000", note: "1枚〜" },
-      { name: "ECサイト構築", price: "300,000", note: "要相談" },
-    ]},
-    { category: "運用・設定代行", items: [
-      { name: "Instagram初期設定", price: "50,000", note: "戦略設計込" },
-      { name: "広告運用初期設定", price: "50,000", note: "Google/SNS" },
-      { name: "MEO対策初期設定", price: "30,000", note: "Googleマップ" },
-      { name: "LINE公式構築", price: "30,000", note: "アカウント開設込" },
-      { name: "資料作成代行", price: "30,000", note: "営業資料など" },
-    ]}
-  ];
-
-  const packages = [
-    { 
-      name: "スタンダード", 
-      price: "150,000", 
-      desc: "制作と分析をバランスよく",
-      features: ["調査・分析・戦略設計", "LP 月2本まで", "バナー/チラシ 月6枚", "MTG 月2回", "チャット相談無制限"],
-      dark: false
-    },
-    { 
-      name: "プロフェッショナル", 
-      price: "300,000", 
-      desc: "専属チームのように並走",
-      features: ["スタンダードの全内容", "SNS運用代行", "広告運用代行", "MTG 週1回", "高度な分析レポート"],
-      dark: true
-    }
-  ];
-
-  const handleContactClick = () => {
-    window.open(googleFormUrl, '_blank');
-  };
-
-  return (
-    <div className="min-h-screen bg-white font-sans text-slate-950 selection:bg-slate-950 selection:text-white overflow-x-hidden">
-      <style>{`
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iroha | 戦略型BPOサービス</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
         @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .reveal {
-          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .reveal.active {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .bg-dot {
-          background-image: radial-gradient(#000 0.5px, transparent 0.5px);
-          background-size: 24px 24px;
+            background-image: radial-gradient(#000 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
         }
         .bg-grid-white {
-          background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
-                            linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
-          background-size: 40px 40px;
+            background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                              linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        html { scroll-behavior: smooth; }
-      `}</style>
+        .modal-overlay {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(4px);
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-950 selection:bg-slate-950 selection:text-white overflow-x-hidden">
 
-      {/* ナビゲーション */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrollY > 50 ? 'bg-white/95 backdrop-blur-md border-b border-slate-100 py-3' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <span className="text-3xl font-black tracking-tighter uppercase leading-none cursor-pointer" onClick={() => window.scrollTo(0,0)}>iroha</span>
-            <span className="hidden sm:block text-[9px] font-bold tracking-[0.4em] text-slate-400 uppercase border-l border-slate-200 pl-4">Small Biz Support</span>
-          </div>
-          
-          <div className="hidden md:flex items-center space-x-10">
-            <a href="#spot" className="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Spot Menu</a>
-            <a href="#problems" className="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Mission</a>
-            <a href="#packages" className="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Package</a>
-            <button 
-              onClick={handleContactClick}
-              className="bg-black text-white px-8 py-3 text-[10px] font-bold tracking-[0.2em] hover:bg-slate-800 transition-all uppercase"
-            >
-              Contact
+    <!-- ナビゲーション -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span class="text-3xl font-black tracking-tighter uppercase leading-none cursor-pointer" onclick="window.scrollTo(0,0)">iroha</span>
+                <span class="hidden sm:block text-[9px] font-bold tracking-[0.4em] text-slate-400 uppercase border-l border-slate-200 pl-4">Small Biz Support</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#spot" class="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Spot Menu</a>
+                <a href="#problems" class="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Mission</a>
+                <a href="#packages" class="text-[10px] font-bold tracking-widest hover:text-slate-500 transition-colors uppercase">Package</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="bg-black text-white px-8 py-3 text-[10px] font-bold tracking-[0.2em] hover:bg-slate-800 transition-all uppercase">
+                    Contact
+                </a>
+            </div>
+
+            <button class="md:hidden p-2" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
-          </div>
-
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </nav>
+    </nav>
 
-      {/* モバイルメニュー */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 md:hidden p-6">
-          <button className="absolute top-6 right-6" onClick={() => setIsMenuOpen(false)}><X size={32} /></button>
-          <a href="#spot" onClick={() => setIsMenuOpen(false)} className="text-2xl font-black uppercase tracking-tighter">Spot Menu</a>
-          <a href="#problems" onClick={() => setIsMenuOpen(false)} className="text-2xl font-black uppercase tracking-tighter">Mission</a>
-          <a href="#packages" onClick={() => setIsMenuOpen(false)} className="text-2xl font-black uppercase tracking-tighter">Package</a>
-          <button 
-            onClick={() => { setIsMenuOpen(false); handleContactClick(); }}
-            className="bg-black text-white px-12 py-4 font-bold tracking-widest uppercase w-full max-w-xs"
-          >
+    <!-- モバイルメニュー -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 hidden p-6">
+        <button class="absolute top-6 right-6" id="mobile-menu-close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <a href="#spot" class="mobile-link text-2xl font-black uppercase tracking-tighter">Spot Menu</a>
+        <a href="#problems" class="mobile-link text-2xl font-black uppercase tracking-tighter">Mission</a>
+        <a href="#packages" class="mobile-link text-2xl font-black uppercase tracking-tighter">Package</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="bg-black text-white px-12 py-4 font-bold tracking-widest uppercase w-full text-center max-w-xs">
             Contact
-          </button>
-        </div>
-      )}
-
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 bg-grid-white">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-12 gap-12 relative z-10">
-          <div className="lg:col-span-8 reveal" style={{ animationDelay: '0.1s' }}>
-            <div className="inline-block border-2 border-black px-4 py-1 mb-10">
-              <span className="text-[10px] font-black tracking-[0.3em] uppercase">Strategy BPO Service</span>
-            </div>
-            <h1 className="text-5xl lg:text-[100px] font-black leading-[0.95] tracking-tighter mb-12 uppercase">
-              1人の採用費で、<br />
-              <span className="text-slate-300 underline decoration-slate-200 underline-offset-4">2人の専門家</span>を。
-            </h1>
-            <p className="text-slate-600 text-lg lg:text-xl leading-relaxed mb-12 max-w-2xl font-medium">
-              Webデザイナーとマーケターを、同時に貴社のチームへ。<br />
-              採用の壁を突破し、スモールビジネスに「売れる仕組み」を。
-              単発のご依頼から、まるごと任せる定額制まで、プロの技術を自由に活用できます。
-            </p>
-            <div className="flex flex-wrap gap-6 items-center">
-              <button 
-                onClick={handleContactClick}
-                className="bg-black text-white px-12 py-6 text-xs font-black tracking-[0.2em] hover:bg-slate-800 transition-all flex items-center shadow-2xl group"
-              >
-                無料相談を申し込む
-                <ArrowRight className="ml-4 transition-transform group-hover:translate-x-1" size={16} />
-              </button>
-              <div className="flex -space-x-2">
-                 {[1,2,3].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center"><User size={20} className="text-slate-300" /></div>)}
-                 <div className="pl-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center">Trusted by Small Businesses</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-10 right-10 hidden lg:block opacity-20">
-           <div className="text-[160px] font-black leading-none tracking-tighter text-slate-100 select-none">IROHA</div>
-        </div>
-      </section>
-
-      {/* Problems: Dark Impact Section */}
-      <section id="problems" className="py-32 bg-black text-white relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-24 items-start">
-            <div className="reveal sticky top-32">
-              <h2 className="text-xs font-bold tracking-[0.5em] uppercase text-slate-500 mb-10">The Mission</h2>
-              <h3 className="text-4xl lg:text-6xl font-black leading-tight mb-12 uppercase">
-                採用の壁を、<br />
-                <span className="text-slate-800 underline decoration-slate-700 underline-offset-8">賢く</span>回避する。
-              </h3>
-              <p className="text-slate-400 text-lg leading-relaxed font-medium">
-                優秀なWebデザイナーとマーケターを自社で抱えるのは、コストもリスクも高すぎます。<br />
-                irohaは、一人の採用費で二人のプロフェッショナルを提供し、スモールビジネスの成長を支援します。
-              </p>
-            </div>
-            
-            <div className="grid gap-1 border-t border-slate-800">
-              {[
-                { title: "人が採れない", desc: "求人を出しても良い人材が来ない、採用コストだけが膨らむ。" },
-                { title: "何が正解か不明", desc: "とりあえずHPを作ったが、集客に繋がっていない。" },
-                { title: "手が足りない", desc: "バナー1枚、チラシ1枚を頼みたいが、制作会社は腰が重い。" },
-                { title: "運用が止まる", desc: "SNSやブログを始めたが、忙しくて更新が続かない。" }
-              ].map((item, i) => (
-                <div key={i} className="group p-10 border-b border-slate-800 hover:bg-slate-900 transition-all reveal" style={{ animationDelay: `${0.1 * i}s` }}>
-                  <div className="flex items-start space-x-8">
-                    <span className="text-4xl font-black text-slate-800 group-hover:text-white transition-colors leading-none">0{i+1}</span>
-                    <div>
-                      <h4 className="font-black text-xl mb-4 tracking-tight uppercase">{item.title}</h4>
-                      <p className="text-slate-500 text-sm font-medium leading-relaxed group-hover:text-slate-400">{item.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Spot Menu: Main focus for Small Biz */}
-      <section id="spot" className="py-32 bg-white relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row justify-between items-end mb-24 reveal">
-            <div className="max-w-2xl">
-              <h2 className="text-xs font-bold tracking-[0.5em] uppercase text-slate-400 mb-6">Spot Product Menu</h2>
-              <h3 className="text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-none mb-8">
-                必要なものを、<br />
-                必要な時に。
-              </h3>
-              <p className="text-slate-500 font-medium text-sm lg:text-base leading-relaxed">
-                「まずはLPだけ」「SNSの初期設定だけ」といった、スモールビジネスに最適な単発メニューをご用意。<br />
-                デザイナーとマーケターを、必要な期間だけピンポイントで活用できます。
-              </p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-1 px-px bg-slate-200 border border-slate-200">
-            {spotMenus.map((category, i) => (
-              <div key={i} className="bg-white p-10 lg:p-12">
-                <h4 className="text-xs font-black tracking-[0.4em] uppercase mb-10 text-slate-400">{category.category}</h4>
-                <div className="space-y-8">
-                  {category.items.map((item, j) => (
-                    <div key={j} className="flex justify-between items-end group">
-                      <div className="border-b-2 border-transparent group-hover:border-black transition-all pb-1">
-                        <div className="font-bold text-slate-950 text-lg tracking-tight">{item.name}</div>
-                        <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">{item.note}</div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-[10px] font-bold mr-2 uppercase">JPY</span>
-                        <span className="text-2xl font-black tracking-tighter">{item.price}</span>
-                        <span className="text-[10px] font-black ml-1 uppercase opacity-30">〜</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center reveal">
-            <p className="text-slate-400 text-xs font-bold tracking-widest uppercase cursor-pointer hover:text-black transition-colors" onClick={handleContactClick}>※ 詳細なお見積もりはこちらからお問い合わせください。</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Package Section: Ongoing support */}
-      <section id="packages" className="py-32 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-24 reveal">
-            <h2 className="text-xs font-bold tracking-[0.5em] uppercase text-slate-400 mb-6">Continuous Support</h2>
-            <h3 className="text-4xl font-black uppercase tracking-tight">まるごと任せる、定額プラン。</h3>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 max-w-5xl mx-auto border-4 border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] bg-white">
-            {packages.map((p, i) => (
-              <div key={i} className={`p-12 lg:p-16 flex flex-col ${p.dark ? 'bg-black text-white' : 'bg-white text-black lg:border-r-4 border-black'}`} style={{ animationDelay: `${0.2 * i}s` }}>
-                <div className="mb-12">
-                  <h4 className={`text-[10px] font-black tracking-[0.3em] mb-4 uppercase ${p.dark ? 'text-slate-500' : 'text-slate-400'}`}>{p.name}</h4>
-                  <div className="text-xl font-bold mb-8">{p.desc}</div>
-                  <div className="flex items-baseline">
-                    <span className="text-sm font-black mr-2">JPY</span>
-                    <span className="text-6xl font-black tracking-tighter">{p.price}</span>
-                    <span className="text-[10px] font-bold ml-3 uppercase tracking-widest opacity-40">/ Month</span>
-                  </div>
-                </div>
-                <ul className="space-y-6 mb-16 flex-grow">
-                  {p.features.map((f, j) => (
-                    <li key={j} className="flex items-center text-sm font-bold tracking-tight">
-                      <div className={`w-1.5 h-1.5 mr-4 ${p.dark ? 'bg-white' : 'bg-black'}`}></div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <button 
-                  onClick={handleContactClick}
-                  className={`w-full py-6 text-xs font-black tracking-[0.3em] uppercase transition-all ${p.dark ? 'bg-white text-black hover:bg-slate-200' : 'bg-black text-white hover:bg-slate-800'}`}
-                >
-                  このプランで無料相談
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA: Strong and Simple */}
-      <section className="py-44 bg-white text-black relative bg-dot">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center relative z-10 reveal">
-          <div className="mb-12 flex justify-center">
-             <div className="w-px h-24 bg-black"></div>
-          </div>
-          <h2 className="text-5xl lg:text-[110px] font-black tracking-tighter leading-[0.9] mb-20 uppercase">
-            Let's Make <br />
-            <span className="text-slate-200">It Real.</span>
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
-            <button 
-              onClick={handleContactClick}
-              className="bg-black text-white px-16 py-8 text-sm font-black tracking-[0.3em] uppercase hover:bg-slate-800 transition-all shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
-            >
-              無料相談を申し込む
-            </button>
-            <button 
-              onClick={handleContactClick}
-              className="text-black px-12 py-8 text-sm font-black tracking-[0.3em] uppercase border-b-4 border-black hover:bg-slate-50 transition-all"
-            >
-              実績資料を請求
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-20">
-            <div className="max-w-md">
-              <div className="text-4xl font-black tracking-tighter mb-10 uppercase">iroha</div>
-              <p className="text-slate-500 text-sm font-medium leading-relaxed mb-10">
-                株式会社セレソンが提供する、戦略型BPOサービス。<br />
-                栃木県小山市から、日本中のスモールビジネスのポテンシャルを解放します。
-              </p>
-              <div className="flex items-center space-x-6 text-slate-500">
-                <Layout size={20} />
-                <Megaphone size={20} />
-                <Palette size={20} />
-                <LineChart size={20} />
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-end space-y-8 w-full md:w-auto">
-               <div className="text-right">
-                  <div className="text-[10px] font-black tracking-[0.4em] uppercase text-slate-500 mb-2">Location</div>
-                  <div className="text-lg font-bold">栃木県小山市大字横倉新田14-61</div>
-               </div>
-               <div className="flex space-x-12 text-[10px] font-black tracking-[0.4em] uppercase text-slate-500">
-                  <button onClick={() => setIsAboutModalOpen(true)} className="hover:text-white transition-colors">About Us</button>
-                  <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                  <button onClick={handleContactClick} className="hover:text-white transition-colors">Contact</button>
-               </div>
-               <p className="text-[9px] font-bold text-slate-700 tracking-[0.5em] uppercase">© 2024 Celeson Inc. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      {/* About Us モーダル */}
-      {isAboutModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setIsAboutModalOpen(false)}></div>
-          <div className="relative bg-white w-full max-w-2xl p-10 lg:p-16 border border-slate-200 overflow-y-auto max-h-[90vh]">
-            <button 
-              className="absolute top-6 right-6 text-slate-400 hover:text-black transition-colors"
-              onClick={() => setIsAboutModalOpen(false)}
-            >
-              <X size={32} />
-            </button>
-            
-            <div className="mb-12 text-center">
-              <h2 className="text-xs font-black tracking-[0.5em] uppercase text-slate-400 mb-4">Company Profile</h2>
-              <h3 className="text-4xl font-black uppercase tracking-tight">株式会社セレソン</h3>
-              <div className="w-12 h-1 bg-black mx-auto mt-6"></div>
-            </div>
-
-            <div className="space-y-8 text-sm font-medium">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
-                <div className="flex items-center text-slate-400 uppercase tracking-widest text-[10px] font-bold">
-                  <Building2 size={16} className="mr-2" /> Company Name
-                </div>
-                <div className="md:col-span-2 text-slate-900 font-bold">株式会社セレソン</div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
-                <div className="flex items-center text-slate-400 uppercase tracking-widest text-[10px] font-bold">
-                  <MapPin size={16} className="mr-2" /> Address
-                </div>
-                <div className="md:col-span-2 text-slate-900 font-bold leading-relaxed">
-                  栃木県小山市大字横倉新田14-61
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
-                <div className="flex items-center text-slate-400 uppercase tracking-widest text-[10px] font-bold">
-                  <Calendar size={16} className="mr-2" /> Established
-                </div>
-                <div className="md:col-span-2 text-slate-900 font-bold">2015年10月（創業18年）</div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
-                <div className="flex items-center text-slate-400 uppercase tracking-widest text-[10px] font-bold">
-                  <User size={16} className="mr-2" /> Representative
-                </div>
-                <div className="md:col-span-2 text-slate-900 font-bold">谷原 康和</div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center text-slate-400 uppercase tracking-widest text-[10px] font-bold">
-                  <Zap size={16} className="mr-2" /> Business
-                </div>
-                <div className="md:col-span-2 text-slate-900 font-bold space-y-2">
-                  <p>・デザイン・制作・印刷</p>
-                  <p>・広告代理業</p>
-                  <p>・デジタルソリューション業</p>
-                  <p>・営業・経営・DX支援</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-16 pt-8 border-t border-slate-100">
-              <p className="text-slate-400 text-xs leading-relaxed text-center">
-                栃木県小山市で18年間の実績を元に、デザイン・印刷のみならず<br className="hidden md:block" />
-                WEBマーケティングやSNS、AI活用までを幅広くサポートいたします。
-              </p>
-            </div>
-            
-            <button 
-              onClick={() => { setIsAboutModalOpen(false); handleContactClick(); }}
-              className="mt-12 w-full bg-black text-white py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-slate-800 transition-all shadow-xl"
-            >
-              お問い合わせはこちら
-            </button>
-          </div>
-        </div>
-      )}
+        </a>
     </div>
-  );
-};
 
-export default App;
+    <!-- Hero Section -->
+    <section class="relative min-h-[95vh] flex items-center pt-20 bg-grid-white">
+        <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-12 gap-12 relative z-10">
+            <div class="lg:col-span-11 reveal" style="transition-delay: 0.1s">
+                <div class="inline-block border-2 border-black px-4 py-1 mb-10">
+                    <span class="text-[10px] font-black tracking-[0.3em] uppercase">Strategy BPO Service</span>
+                </div>
+                
+                <!-- 強調を強めた見出し -->
+                <h1 class="text-5xl lg:text-[100px] font-black leading-[1.1] tracking-tighter mb-10 uppercase">
+                    1人の採用費で、<br />
+                    <span class="inline-block bg-black text-white px-4 lg:px-8 py-2 mt-4 transform -skew-x-2">3人の専門家</span>を。
+                </h1>
+
+                <!-- 専門職の内訳をスタイリッシュに表示 -->
+                <div class="flex flex-wrap gap-4 lg:gap-8 mb-12 text-[11px] lg:text-[13px] font-bold tracking-[0.2em] uppercase text-slate-800">
+                    <span class="flex items-center"><span class="w-3 h-3 bg-black mr-3"></span>Web Designer</span>
+                    <span class="flex items-center"><span class="w-3 h-3 bg-black mr-3"></span>Director</span>
+                    <span class="flex items-center"><span class="w-3 h-3 bg-black mr-3"></span>Marketer</span>
+                </div>
+
+                <p class="text-slate-600 text-lg lg:text-xl leading-relaxed mb-12 max-w-3xl font-medium">
+                    デザイン、進行管理、戦略設計。3つの知見を同時に貴社のチームへ。<br />
+                    採用の壁を突破し、スモールビジネスに「売れる仕組み」を。
+                    プロの技術を自由に活用できる、次世代のアウトソーシングです。
+                </p>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="bg-black text-white px-12 py-6 text-xs font-black tracking-[0.2em] hover:bg-slate-800 transition-all flex items-center shadow-2xl group">
+                        無料相談を申し込む
+                        <svg class="ml-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 right-10 hidden lg:block opacity-10 pointer-events-none">
+           <div class="text-[160px] font-black leading-none tracking-tighter text-slate-200 select-none">3 EXPERTS</div>
+        </div>
+    </section>
+
+    <!-- Problems -->
+    <section id="problems" class="py-32 bg-black text-white relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-24 items-start">
+                <div class="reveal">
+                    <h2 class="text-xs font-bold tracking-[0.5em] uppercase text-slate-500 mb-10">The Mission</h2>
+                    <h3 class="text-4xl lg:text-6xl font-black leading-tight mb-12 uppercase">
+                        採用の壁を、<br />
+                        <span class="text-slate-800 underline decoration-slate-700 underline-offset-8">賢く</span>回避する。
+                    </h3>
+                    <p class="text-slate-400 text-lg leading-relaxed font-medium">
+                        優秀なデザイナー、ディレクター、マーケターを個別に採用するのはコストもリスクも高すぎます。<br />
+                        irohaは、一人の採用費で三人のプロフェッショナルを提供し、経営の足かせとなる「人材不足」を解消します。
+                    </p>
+                </div>
+                
+                <div class="grid gap-1 border-t border-slate-800">
+                    <div class="group p-10 border-b border-slate-800 hover:bg-slate-900 transition-all reveal">
+                        <div class="flex items-start space-x-8">
+                            <span class="text-4xl font-black text-slate-800 group-hover:text-white transition-colors leading-none">01</span>
+                            <div>
+                                <h4 class="font-black text-xl mb-4 tracking-tight uppercase">人が採れない</h4>
+                                <p class="text-slate-500 text-sm font-medium leading-relaxed group-hover:text-slate-400">求人を出しても専門性の高い人材が来ない、採用費だけが積み上がる。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group p-10 border-b border-slate-800 hover:bg-slate-900 transition-all reveal">
+                        <div class="flex items-start space-x-8">
+                            <span class="text-4xl font-black text-slate-800 group-hover:text-white transition-colors leading-none">02</span>
+                            <div>
+                                <h4 class="font-black text-xl mb-4 tracking-tight uppercase">管理が煩雑</h4>
+                                <p class="text-slate-500 text-sm font-medium leading-relaxed group-hover:text-slate-400">外部へ個別に発注するとディレクションの手間が増え、一貫性がなくなる。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group p-10 border-b border-slate-800 hover:bg-slate-900 transition-all reveal">
+                        <div class="flex items-start space-x-8">
+                            <span class="text-4xl font-black text-slate-800 group-hover:text-white transition-colors leading-none">03</span>
+                            <div>
+                                <h4 class="font-black text-xl mb-4 tracking-tight uppercase">成果への道筋が不明</h4>
+                                <p class="text-slate-500 text-sm font-medium leading-relaxed group-hover:text-slate-400">制作は進んでいるが、それがマーケティングの正解なのか判断できない。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spot Menu -->
+    <section id="spot" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-24 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="text-xs font-bold tracking-[0.5em] uppercase text-slate-400 mb-6">Spot Product Menu</h2>
+                    <h3 class="text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-none mb-8">
+                        必要なものを、<br />
+                        必要な時に。
+                    </h3>
+                    <p class="text-slate-500 font-medium text-sm lg:text-base leading-relaxed">
+                        「まずはLP制作と分析から」といった、最適な単発メニューをご用意。<br />
+                        デザイナー、ディレクター、マーケターを必要な期間だけピンポイントで活用できます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-1 px-px bg-slate-200 border border-slate-200 reveal">
+                <!-- 制作プロダクト -->
+                <div class="bg-white p-10 lg:p-12">
+                    <h4 class="text-xs font-black tracking-[0.4em] uppercase mb-10 text-slate-400">制作プロダクト</h4>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">LP制作 (1ページ)</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">約5営業日〜</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">30,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">HP制作 (5ページ〜)</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">月額費用別途</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">100,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">バナー・チラシ制作</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">1本 / 1枚〜</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">3,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 運用・設定代行 -->
+                <div class="bg-white p-10 lg:p-12">
+                    <h4 class="text-xs font-black tracking-[0.4em] uppercase mb-10 text-slate-400">運用・設定代行</h4>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">Instagram初期設定</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">戦略設計込</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">50,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">広告・MEO初期設定</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Google/SNS</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">30,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                        <div class="flex justify-between items-end group">
+                            <div class="pb-1 border-b-2 border-transparent group-hover:border-black transition-all">
+                                <div class="font-bold text-slate-950 text-lg tracking-tight">資料作成代行</div>
+                                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">営業資料等</div>
+                            </div>
+                            <div class="text-right"><span class="text-[10px] font-bold mr-2 opacity-30">JPY</span><span class="text-2xl font-black tracking-tighter">30,000</span><span class="text-[10px] font-black opacity-30">〜</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center reveal">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="text-slate-400 text-xs font-bold tracking-widest uppercase cursor-pointer hover:text-black transition-colors border-b border-transparent hover:border-black pb-1">※ 詳細なお見積もりはこちらからお問い合わせください</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="py-32 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-xs font-bold tracking-[0.5em] uppercase text-slate-400 mb-6">Continuous Support</h2>
+                <h3 class="text-4xl font-black uppercase tracking-tight">まるごと任せる、定額プラン。</h3>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 max-w-5xl mx-auto border-4 border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,1)] bg-white reveal">
+                <!-- スタンダード -->
+                <div class="p-12 lg:p-16 flex flex-col bg-white text-black lg:border-r-4 border-black">
+                    <div class="mb-12">
+                        <h4 class="text-[10px] font-black tracking-[0.3em] mb-4 uppercase text-slate-400 tracking-[0.3em]">STANDARD</h4>
+                        <div class="text-xl font-bold mb-8 uppercase">三人のプロが戦略を形にする</div>
+                        <div class="flex items-baseline">
+                            <span class="text-sm font-black mr-2 opacity-50 uppercase">JPY</span>
+                            <span class="text-6xl font-black tracking-tighter">150,000</span>
+                            <span class="text-[10px] font-bold ml-3 uppercase tracking-widest opacity-40">/ Month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-16 flex-grow">
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-black"></div>ディレクターによる進行管理</li>
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-black"></div>LP 月2本 / バナー 月6枚</li>
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-black"></div>マーケティング分析・MTG 月2回</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="w-full py-6 bg-black text-white text-xs font-black tracking-[0.3em] uppercase transition-all hover:bg-slate-800 text-center">
+                        Contact Plan
+                    </a>
+                </div>
+                <!-- プロフェッショナル -->
+                <div class="p-12 lg:p-16 flex flex-col bg-black text-white">
+                    <div class="mb-12">
+                        <h4 class="text-[10px] font-black tracking-[0.3em] mb-4 uppercase text-slate-500 tracking-[0.3em]">PROFESSIONAL</h4>
+                        <div class="text-xl font-bold mb-8 uppercase">最高峰のBPOチームとして</div>
+                        <div class="flex items-baseline">
+                            <span class="text-sm font-black mr-2 opacity-50 uppercase">JPY</span>
+                            <span class="text-6xl font-black tracking-tighter">300,000</span>
+                            <span class="text-[10px] font-bold ml-3 uppercase tracking-widest opacity-40">/ Month</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-16 flex-grow">
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-white"></div>スタンダードの全内容</li>
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-white"></div>SNS / 広告の高度な運用代行</li>
+                        <li class="flex items-center text-sm font-bold tracking-tight"><div class="w-1.5 h-1.5 mr-4 bg-white"></div>週次レポート・高度な戦略MTG</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="w-full py-6 bg-white text-black text-xs font-black tracking-[0.3em] uppercase transition-all hover:bg-slate-100 text-center">
+                        Contact Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-44 bg-white text-black relative bg-dot">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center relative z-10 reveal">
+            <div class="mb-12 flex justify-center"><div class="w-px h-24 bg-black"></div></div>
+            <h2 class="text-5xl lg:text-[110px] font-black tracking-tighter leading-[0.9] mb-20 uppercase">Let's Make <br /><span class="text-slate-200">It Real.</span></h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-10">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="bg-black text-white px-16 py-8 text-sm font-black tracking-[0.3em] uppercase hover:bg-slate-800 transition-all shadow-2xl">
+                    無料相談を申し込む
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="text-black px-12 py-8 text-sm font-black tracking-[0.3em] uppercase border-b-4 border-black hover:bg-slate-50 transition-all">
+                    実績資料を請求
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-20">
+                <div class="max-w-md">
+                    <div class="text-4xl font-black tracking-tighter mb-10 uppercase">iroha</div>
+                    <p class="text-slate-500 text-sm font-medium leading-relaxed mb-10 italic uppercase">Designer, Director, Marketer. ALL IN ONE.</p>
+                    <p class="text-slate-600 text-xs font-medium leading-relaxed">株式会社セレソンが提供する、戦略型BPOサービス。栃木県小山市から、日本中のスモールビジネスをアップデートします。</p>
+                </div>
+                
+                <div class="flex flex-col items-end space-y-8 w-full md:w-auto">
+                    <div class="flex space-x-12 text-[10px] font-black tracking-[0.4em] uppercase text-slate-500">
+                        <button id="about-btn" class="hover:text-white transition-colors">About Us</button>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="hover:text-white transition-colors">Contact</a>
+                    </div>
+                    <p class="text-[9px] font-bold text-slate-700 tracking-[0.5em] uppercase">© 2024 Celeson Inc. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="modal-overlay fixed inset-0 z-[100] items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="relative bg-white w-full max-w-2xl p-10 lg:p-16 border border-slate-200 overflow-y-auto max-h-[90vh]">
+            <button id="about-close" class="absolute top-6 right-6 text-slate-400 hover:text-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="mb-12 text-center">
+                <h2 class="text-xs font-black tracking-[0.5em] uppercase text-slate-400 mb-4 font-mono uppercase">Company Profile</h2>
+                <h3 class="text-4xl font-black tracking-tight uppercase">株式会社セレソン</h3>
+                <div class="w-12 h-1 bg-black mx-auto mt-6"></div>
+            </div>
+            <div class="space-y-8 text-sm font-medium">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
+                    <div class="text-slate-400 uppercase tracking-widest text-[10px] font-black uppercase">Company Name</div>
+                    <div class="md:col-span-2 text-slate-900 font-bold uppercase">株式会社セレソン</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
+                    <div class="text-slate-400 uppercase tracking-widest text-[10px] font-black uppercase">Address</div>
+                    <div class="md:col-span-2 text-slate-900 font-bold leading-relaxed">栃木県小山市大字横倉新田14-61</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-slate-100 pb-6">
+                    <div class="text-slate-400 uppercase tracking-widest text-[10px] font-black uppercase">Established</div>
+                    <div class="md:col-span-2 text-slate-900 font-bold">2015年10月（創業18年実績）</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="text-slate-400 uppercase tracking-widest text-[10px] font-black uppercase">Business</div>
+                    <div class="md:col-span-2 text-slate-900 font-bold space-y-2">
+                        <p>・デザイン・制作・印刷</p>
+                        <p>・広告代理業 / デジタルソリューション業</p>
+                        <p>・営業・経営・DX支援</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-slate-100 text-center">
+                <p class="text-slate-400 text-xs leading-relaxed italic">栃木県小山市で18年間の実績を元に、デザイン・印刷のみならず<br class="hidden md:block" />WEBマーケティングやSNS、AI活用までを幅広くサポートいたします。</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSevMAjlFMy6-Xub7ca19pXur5ndCJwO_fp4Ccaq9cmKFpgYRA/viewform?usp=header" target="_blank" class="mt-12 block w-full bg-black text-white py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-slate-800 transition-all text-center">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        // スクロール時のナビゲーション背景変更
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-slate-100', 'py-3');
+                nav.classList.remove('bg-transparent', 'py-6');
+            } else {
+                nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-b', 'border-slate-100', 'py-3');
+                nav.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // モバイルメニュー制御
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // モーダル制御
+        const aboutBtn = document.getElementById('about-btn');
+        const aboutClose = document.getElementById('about-close');
+        const aboutModal = document.getElementById('about-modal');
+
+        aboutBtn.addEventListener('click', () => aboutModal.classList.add('active'));
+        aboutClose.addEventListener('click', () => aboutModal.classList.remove('active'));
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) aboutModal.classList.remove('active');
+        });
+
+        // スクロール連動アニメーション
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
