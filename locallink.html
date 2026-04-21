@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Link | アンバサダー募集</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: M PLUS Rounded 1c -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            -webkit-text-size-adjust: 100%;
+        }
+        /* 改行のコントロール */
+        .br-pc { display: block; }
+        .br-sp { display: none; }
+        @media (max-width: 768px) {
+            .br-pc { display: none; }
+            .br-sp { display: block; }
+        }
+        html { scroll-behavior: smooth; }
+        .text-outline {
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+        .keep-word {
+            display: inline-block;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 selection:bg-orange-100 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-orange-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-14 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-orange-400 rounded-lg flex items-center justify-center shadow-sm">
+                        <span class="text-white font-black text-lg">L</span>
+                    </div>
+                    <span class="text-lg font-extrabold tracking-tight text-orange-500 text-outline">Local Link</span>
+                </div>
+                <a href="#" class="bg-[#06C755] text-white px-4 py-2 rounded-full text-xs font-black flex items-center gap-1.5 hover:opacity-90 transition">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                    LINE登録
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white overflow-hidden">
+        <div class="w-full">
+            <img 
+                src="https://github.com/yakimoto-design/image/blob/main/local%20link/hero2.png?raw=true" 
+                alt="Local Link Hero PC"
+                class="hidden md:block w-full h-auto"
+            >
+            <img 
+                src="https://github.com/yakimoto-design/image/blob/main/local%20link/herosp2.png?raw=true" 
+                alt="Local Link Hero Smartphone"
+                class="block md:hidden w-full h-auto"
+            >
+        </div>
+        
+        <!-- CTA: ボタン内のテキストを短く整理 -->
+        <div class="max-w-7xl mx-auto px-4 text-center py-10 lg:py-16">
+            <div class="flex flex-col items-center gap-6">
+                <!-- pxを調整し、文字を短縮して1行に収める -->
+                <a href="#" class="w-full max-w-[340px] sm:max-w-none sm:w-auto bg-[#06C755] text-white px-4 sm:px-12 py-5 rounded-[2.5rem] text-[18px] sm:text-xl lg:text-3xl font-black flex items-center justify-center gap-2 sm:gap-3 hover:scale-105 active:scale-95 transition-transform shadow-xl shadow-green-100">
+                    <i data-lucide="message-circle" class="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10"></i>
+                    <span class="whitespace-nowrap tracking-tighter sm:tracking-normal">LINEで登録して始める</span>
+                </a>
+                <div class="inline-flex items-center gap-2 text-slate-400 font-bold bg-slate-50 px-6 py-2.5 rounded-full text-[10px] sm:text-sm">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-orange-400"></i>
+                    <span class="keep-word">登録無料・1分で入力完了♪</span>
+                    <i data-lucide="sparkles" class="w-4 h-4 text-orange-400"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-orange-50/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-[22px] sm:text-3xl lg:text-4xl font-black mb-4 text-slate-800 leading-tight">
+                    <span class="keep-word">Local Linkで</span><span class="keep-word">得られるメリット</span>
+                </h2>
+                <div class="w-12 h-1.5 bg-orange-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
+                <!-- Benefit 1 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-full bg-white p-4 rounded-[2.5rem] shadow-sm border border-orange-50 mb-5 transition-all group-hover:shadow-md overflow-hidden">
+                        <div class="aspect-square bg-slate-50 rounded-[2rem] flex items-center justify-center mb-4 overflow-hidden">
+                            <img src="https://github.com/yakimoto-design/image/blob/main/local%20link/image1.png?raw=true" alt="話題の店舗を無料体験" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-md font-black text-slate-800 text-center leading-tight">
+                            <span class="keep-word">話題の店舗を</span><br><span class="keep-word">無料体験</span>
+                        </h3>
+                    </div>
+                    <p class="px-2 text-center text-slate-500 text-[13px] leading-relaxed font-bold">
+                        <span class="keep-word">地元の人気店を無料で体験！</span><br class="br-sp">
+                        <span class="keep-word">あなたの日常が</span><br class="br-pc">
+                        <span class="keep-word">特別な取材の時間に変わります。</span>
+                    </p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-full bg-white p-4 rounded-[2.5rem] shadow-sm border border-orange-50 mb-5 transition-all group-hover:shadow-md overflow-hidden">
+                        <div class="aspect-square bg-slate-50 rounded-[2rem] flex items-center justify-center mb-4 overflow-hidden">
+                            <img src="https://github.com/yakimoto-design/image/blob/main/local%20link/image2.png?raw=true" alt="SNSのプロが徹底サポート" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-md font-black text-slate-800 text-center leading-tight">
+                            <span class="keep-word">SNSのプロが</span><br><span class="keep-word">徹底サポート</span>
+                        </h3>
+                    </div>
+                    <p class="px-2 text-center text-slate-500 text-[13px] leading-relaxed font-bold">
+                        <span class="keep-word">初心者でも安心。</span><span class="keep-word">バズる撮影術や編集、</span><br class="br-pc">
+                        <span class="keep-word">ハッシュタグ選びまで</span><br class="br-sp">
+                        <span class="keep-word">丁寧にレクチャーします。</span>
+                    </p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-full bg-white p-4 rounded-[2.5rem] shadow-sm border border-orange-50 mb-5 transition-all group-hover:shadow-md overflow-hidden">
+                        <div class="aspect-square bg-slate-50 rounded-[2rem] flex items-center justify-center mb-4 overflow-hidden">
+                            <img src="https://github.com/yakimoto-design/image/blob/main/local%20link/image3.png?raw=true" alt="地域貢献＆ファン作り" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-md font-black text-slate-800 text-center leading-tight">
+                            <span class="keep-word">地域貢献＆</span><br><span class="keep-word">ファン作り</span>
+                        </h3>
+                    </div>
+                    <p class="px-2 text-center text-slate-500 text-[13px] leading-relaxed font-bold">
+                        <span class="keep-word">あなたの大好きな街を元気に！</span><br class="br-sp">
+                        <span class="keep-word">地元の人々と繋がる</span><br class="br-pc">
+                        <span class="keep-word">「街の有名人」を目指せます。</span>
+                    </p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="flex flex-col items-center group">
+                    <div class="w-full bg-white p-4 rounded-[2.5rem] shadow-sm border border-orange-50 mb-5 transition-all group-hover:shadow-md overflow-hidden">
+                        <div class="aspect-square bg-slate-50 rounded-[2rem] flex items-center justify-center mb-4 overflow-hidden">
+                            <img src="https://github.com/yakimoto-design/image/blob/main/local%20link/image4.png?raw=true" alt="キャリアアップを支援" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-md font-black text-slate-800 text-center leading-tight">
+                            <span class="keep-word">キャリアアップを</span><br><span class="keep-word">支援</span>
+                        </h3>
+                    </div>
+                    <p class="px-2 text-center text-slate-500 text-[13px] leading-relaxed font-bold">
+                        <span class="keep-word">実績を積むと高単価案件や、</span><br class="br-sp">
+                        <span class="keep-word">個別企業プロモーション</span><br class="br-pc">
+                        <span class="keep-word">案件への道も開かれます！</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Support Section -->
+    <section class="py-20 bg-gradient-to-b from-rose-50 to-indigo-50 relative overflow-hidden">
+        <div class="absolute top-10 right-10 w-32 h-32 bg-orange-200/30 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-10 left-10 w-48 h-48 bg-purple-200/30 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center md:text-left">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white text-rose-400 text-[11px] font-black mb-6 shadow-sm border border-rose-100">
+                        ＼ プロになりたいあなたへ！ ／
+                    </span>
+                    <h2 class="text-[22px] sm:text-3xl lg:text-4xl font-black mb-6 leading-tight text-slate-800 text-center md:text-left">
+                        <span class="keep-word">ただ体験する</span><span class="keep-word">だけじゃない。</span><br>
+                        <span class="text-rose-400 italic">プロ</span><span class="keep-word">としての</span><span class="keep-word">キャリアを✨</span>
+                    </h2>
+                    <p class="text-slate-500 mb-8 text-[14px] leading-relaxed font-bold text-center md:text-left">
+                        <span class="keep-word">Local Linkはあなたの成長を本気でサポート！</span><br>
+                        <span class="keep-word">実績に応じてランクが上がると、</span><br class="br-sp">
+                        <span class="keep-word">もっと特別な体験が待っています♪</span>
+                    </p>
+                    <div class="space-y-4 max-w-sm mx-auto md:mx-0">
+                        <div class="flex items-center gap-4 bg-white/70 p-4 rounded-2xl border border-white backdrop-blur-sm shadow-sm">
+                            <div class="w-7 h-7 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-white fill-white"></i>
+                            </div>
+                            <p class="text-slate-700 font-bold text-xs sm:text-sm text-left">SNS運用のノウハウをプロから学ぶ</p>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/70 p-4 rounded-2xl border border-white backdrop-blur-sm shadow-sm">
+                            <div class="w-7 h-7 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-white fill-white"></i>
+                            </div>
+                            <p class="text-slate-700 font-bold text-xs sm:text-sm text-left">高単価な「求人レポート」案件へ挑戦</p>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/70 p-4 rounded-2xl border border-white backdrop-blur-sm shadow-sm">
+                            <div class="w-7 h-7 bg-orange-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-white fill-white"></i>
+                            </div>
+                            <p class="text-slate-700 font-bold text-xs sm:text-sm text-left">企業や自治体との案件を優先案内</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rank Card -->
+                <div class="bg-white p-8 sm:p-10 rounded-[3rem] border-4 border-orange-50 shadow-2xl relative mt-10 md:mt-0">
+                    <div class="absolute -top-4 -right-4 bg-yellow-300 w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform rotate-12 border-4 border-white">
+                        <i data-lucide="award" class="text-white w-8 h-8"></i>
+                    </div>
+
+                    <h3 class="text-xl font-black mb-8 text-slate-800 flex items-center gap-3 justify-center md:justify-start">
+                        <i data-lucide="sparkles" class="text-orange-400 w-6 h-6"></i>
+                        アンバサダー・ランク
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-[2rem] bg-slate-50 border-2 border-transparent">
+                            <div class="w-28 py-2 rounded-xl text-center font-black text-xs tracking-widest bg-gradient-to-br from-orange-200 to-orange-400 text-white shadow-md">BRONZE</div>
+                            <p class="text-[12px] text-slate-500 text-center sm:text-left font-bold">通常案件に参加可能です。</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-[2rem] bg-slate-50 border-2 border-transparent">
+                            <div class="w-28 py-2 rounded-xl text-center font-black text-xs tracking-widest bg-gradient-to-br from-blue-100 to-blue-300 text-white shadow-md">SILVER</div>
+                            <p class="text-[12px] text-slate-500 text-center sm:text-left font-bold">5件以上の実績。人気店の先行予約等。</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-[2rem] bg-slate-50 border-2 border-transparent">
+                            <div class="w-28 py-2 rounded-xl text-center font-black text-xs tracking-widest bg-gradient-to-br from-yellow-200 to-yellow-400 text-white shadow-md">GOLD</div>
+                            <p class="text-[12px] text-slate-500 text-center sm:text-left font-bold text-rose-400">高単価案件を優先案内！</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-orange-50 rounded-2xl border border-dashed border-orange-200 text-[10px] text-orange-400 text-center font-black leading-relaxed">
+                        ※投稿数・マナー等でランクが決まるよ！<br>みんなでGOLDランクを目指そう★
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center md:text-left">
+            <h2 class="text-2xl font-black text-center mb-12 text-slate-800 text-center">よくある質問</h2>
+            <div class="space-y-6">
+                <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 text-left">
+                    <h4 class="font-bold text-sm sm:text-md mb-3 flex items-start gap-2 text-slate-800">
+                        <span class="text-orange-400 font-black text-lg text-outline">Q.</span>
+                        <span class="keep-word">本当に無料で</span><span class="keep-word">体験できるの？</span>
+                    </h4>
+                    <p class="text-slate-500 text-[13px] pl-7 leading-relaxed font-bold">はい！アンバサダー案件は、指定の範囲内での代金はすべて事務局が負担します♪</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 text-left">
+                    <h4 class="font-bold text-sm sm:text-md mb-3 flex items-start gap-2 text-slate-800">
+                        <span class="text-orange-400 font-black text-lg text-outline">Q.</span>
+                        <span class="keep-word">フォロワーが少なくても</span><span class="keep-word">大丈夫？</span>
+                    </h4>
+                    <p class="text-slate-500 text-[13px] pl-7 leading-relaxed font-bold">もちろんです！熱意や丁寧な発信を大切にしています。ここから一緒に成長していきましょう！</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-16 border-t border-slate-100 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-orange-400 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-black">L</span>
+                    </div>
+                    <span class="text-lg font-black tracking-tight text-slate-800">Local Link</span>
+                </div>
+                <div class="text-[11px] font-bold text-slate-400 space-y-2 text-center">
+                    <p class="keep-word">運営：株式会社セレソン</p>
+                    <p>&copy; 2024 Local Link Project. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucideアイコンの初期化
+        lucide.createIcons();
+    </script>
+</body>
+</html>
