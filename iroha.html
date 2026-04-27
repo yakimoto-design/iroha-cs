@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+    <title>iroha - 1人分の人件費でデザイナーとWebマーケッターを提供</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+        /* CTAボタンの洗練されたグラデーション */
+        .cta-gradient {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            box-shadow: 0 8px 20px -5px rgba(234, 88, 12, 0.5);
+            transition: all 0.3s ease;
+        }
+        .cta-gradient:hover {
+            box-shadow: 0 12px 25px -5px rgba(234, 88, 12, 0.7);
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        .cta-gradient:active {
+            transform: translateY(1px);
+        }
+        /* セクション見出しの装飾 */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #2563eb;
+            margin: 1.2rem auto 0;
+            border-radius: 2px;
+        }
+        /* 価格カードのホバーエフェクト */
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .plan-card:hover {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation / Header (Hidden as per previous request, but keeping structure if needed for later) -->
+
+    <!-- Hero Section -->
+    <section id="hero" class="w-full">
+        <!-- PC Hero Image (Horizontal) -->
+        <img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha(SP).png?raw=true" alt="iroha PC版ヒーロー" class="hidden md:block w-full h-auto">
+        <!-- SP Hero Image (Vertical) -->
+        <img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha%EF%BC%88PC%EF%BC%89.png?raw=true" alt="iroha SP版ヒーロー" class="block md:hidden w-full h-auto">
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-16 md:py-24 bg-blue-50/30">
+        <div class="container mx-auto px-5 max-w-6xl text-center">
+            <div class="mb-12">
+                <p class="text-blue-600 font-bold tracking-[0.2em] text-sm mb-2">DIFFICULTIES</p>
+                <h2 class="text-2xl md:text-4xl font-black section-title leading-tight">こんなお悩み、ありませんか？</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <!-- 課題① -->
+                <div class="w-full">
+                    <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E8%AA%B2%E9%A1%8C%E2%91%A0.png?raw=true" alt="採用ができない" class="w-full h-auto rounded-3xl shadow-sm mx-auto">
+                </div>
+                <!-- 課題② -->
+                <div class="w-full">
+                    <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E8%AA%B2%E9%A1%8C%E2%91%A1.png?raw=true" alt="何をすればいいかわからない" class="w-full h-auto rounded-3xl shadow-sm mx-auto">
+                </div>
+                <!-- 課題③ -->
+                <div class="w-full">
+                    <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E8%AA%B2%E9%A1%8C%E2%91%A2.png?raw=true" alt="外注コストが高い" class="w-full h-auto rounded-3xl shadow-sm mx-auto">
+                </div>
+            </div>
+
+            <!-- Stylized Text and Image for "まとめて解決" -->
+            <div class="mt-20 md:mt-24">
+                <h3 class="text-xl md:text-4xl font-black tracking-tight flex flex-wrap justify-center items-center gap-y-2 mb-10 leading-relaxed">
+                    <span class="text-gray-800">そのお悩み、</span>
+                    <span class="text-blue-600 mx-2">iroha</span>
+                    <span class="text-gray-800 mr-2">が</span>
+                    <span class="text-red-600">まとめて解決</span>
+                    <span class="text-gray-800">します！</span>
+                </h3>
+                <div class="flex justify-center px-2">
+                    <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E3%81%BE%E3%81%A8%E3%82%81%E3%81%A6%E8%A7%A3%E6%B1%BA.png?raw=true" alt="irohaがまとめて解決" class="w-full max-w-2xl h-auto drop-shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="py-16 md:py-24 bg-blue-600 text-white text-center">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <h2 class="text-2xl md:text-4xl font-black mb-16 leading-tight">
+                irohaが選ばれる<span class="text-yellow-400 text-4xl md:text-7xl mx-3 italic font-black">4</span>つの理由
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- 理由①-④ -->
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E9%81%B8%E3%81%B0%E3%82%8C%E3%82%8B%E7%90%86%E7%94%B1%EF%BC%91.png?raw=true" alt="選ばれる理由1" class="w-full h-auto rounded-2xl shadow-xl mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E9%81%B8%E3%81%B0%E3%82%8C%E3%82%8B%E7%90%86%E7%94%B1%EF%BC%92.png?raw=true" alt="選ばれる理由2" class="w-full h-auto rounded-2xl shadow-xl mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E9%81%B8%E3%81%B0%E3%82%8C%E3%82%8B%E7%90%86%E7%94%B1%EF%BC%93.png?raw=true" alt="選ばれる理由3" class="w-full h-auto rounded-2xl shadow-xl mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E9%81%B8%E3%81%B0%E3%82%8C%E3%82%8B%E7%90%86%E7%94%B1%EF%BC%94.png?raw=true" alt="選ばれる理由4" class="w-full h-auto rounded-2xl shadow-xl mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden text-center">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <h2 class="text-2xl md:text-4xl font-black mb-16 section-title leading-tight">サービス内容</h2>
+            <div class="flex justify-center">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%86%85%E5%AE%B9.png?raw=true" alt="iroha サービス一覧" class="w-full h-auto max-w-5xl mx-auto">
+            </div>
+            <p class="text-center text-gray-400 text-[10px] md:text-sm mt-12 font-bold tracking-wider italic">※上記以外にも、WEB周りの課題へ幅広く対応可能です。まずはお気軽にご相談ください。</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-5 max-w-6xl text-center">
+            <h2 class="text-2xl md:text-4xl font-black mb-16 section-title">料金プラン</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Standard -->
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-200 flex flex-col plan-card text-left">
+                    <div class="mb-6">
+                        <span class="text-blue-600 text-xs font-black bg-blue-50 px-4 py-1.5 rounded-full inline-block mb-4">スタンダードプラン</span>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2 leading-tight">しっかりサポートしてほしい方に</h3>
+                        <div class="flex items-baseline mt-4 border-b border-gray-100 pb-4">
+                            <span class="text-sm font-bold text-gray-400 mr-2 uppercase tracking-tighter">MONTHLY</span>
+                            <span class="text-5xl font-black text-blue-600 tracking-tight">15</span>
+                            <span class="text-xl font-bold text-blue-600 ml-1">万円〜</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm font-bold text-gray-600">
+                        <li class="flex items-center"><span class="text-blue-500 mr-3 text-lg">✓</span> WEBサイト制作・改善</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3 text-lg">✓</span> LP制作・改善</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3 text-lg">✓</span> SEO・MEO対策</li>
+                    </ul>
+                    <div class="text-center font-black text-blue-600 bg-blue-50/50 py-3 rounded-2xl text-xs">おすすめ</div>
+                </div>
+                
+                <!-- Premium -->
+                <div class="bg-white p-8 rounded-[2rem] shadow-2xl border-4 border-emerald-400 flex flex-col relative md:scale-105 z-10 plan-card text-left">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-emerald-400 text-white text-xs font-black px-8 py-2 rounded-full shadow-lg whitespace-nowrap">人気No.1プラン</div>
+                    <div class="mb-6">
+                        <span class="text-emerald-600 text-xs font-black bg-emerald-50 px-4 py-1.5 rounded-full inline-block mb-4 uppercase">Premium Plan</span>
+                        <h3 class="text-lg font-bold text-emerald-800 mb-2 leading-tight">集客・売上を最大化したい方に</h3>
+                        <div class="flex items-baseline mt-4 border-b border-emerald-50 pb-4">
+                            <span class="text-sm font-bold text-emerald-300 mr-2 uppercase tracking-tighter">MONTHLY</span>
+                            <span class="text-5xl font-black text-emerald-600 tracking-tight">30</span>
+                            <span class="text-xl font-bold text-emerald-600 ml-1">万円〜</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm font-bold text-gray-700">
+                        <li class="flex items-center font-black text-emerald-600"><span class="mr-3 text-lg">✓</span> スタンダードの内容すべて</li>
+                        <li class="flex items-center"><span class="text-emerald-400 mr-3 text-lg">✓</span> SNS運用・広告運用</li>
+                        <li class="flex items-center"><span class="text-emerald-400 mr-3 text-lg">✓</span> コンテンツ制作</li>
+                        <li class="flex items-center text-emerald-700 font-black"><span class="text-emerald-400 mr-3 text-lg">✓</span> 戦略設計・コンサルティング</li>
+                    </ul>
+                    <a href="https://forms.gle/2EGNK46jUzMmibUE9" target="_blank" class="block w-full text-center font-black text-white py-4 bg-emerald-500 rounded-2xl hover:bg-emerald-600 transition shadow-lg text-lg">お申し込みはこちら</a>
+                </div>
+
+                <!-- Spot -->
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-200 flex flex-col plan-card text-left">
+                    <div class="mb-6">
+                        <span class="text-orange-500 text-xs font-black bg-orange-50 px-4 py-1.5 rounded-full inline-block mb-4">スポットプラン</span>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2 leading-tight">必要な時だけ依頼したい方に</h3>
+                        <div class="flex items-baseline mt-4 border-b border-gray-100 pb-4">
+                            <span class="text-sm font-bold text-gray-400 mr-2 uppercase tracking-tighter">Estimate</span>
+                            <span class="text-3xl font-black text-orange-600 tracking-tight">要お見積り</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm font-bold text-gray-600">
+                        <li class="flex items-center"><span class="text-orange-400 mr-3 text-lg">✓</span> バナー制作 / LP制作</li>
+                        <li class="flex items-center"><span class="text-orange-400 mr-3 text-lg">✓</span> サイト改修・修正</li>
+                        <li class="flex items-center"><span class="text-orange-400 mr-3 text-lg">✓</span> 特定施策の単発依頼</li>
+                    </ul>
+                    <div class="text-center font-black text-gray-400 bg-gray-50 py-3 rounded-2xl text-xs">まずはご相談ください</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Flow Section -->
+    <section class="py-16 md:py-24 bg-white border-t border-gray-100 text-center">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <h2 class="text-2xl md:text-4xl font-black mb-16 section-title leading-tight">導入の流れ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-4">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E5%B0%8E%E5%85%A5%E3%81%AE%E6%B5%81%E3%82%8C%E2%91%A0.png?raw=true" alt="導入STEP1" class="w-full max-w-[280px] md:max-w-full h-auto mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E5%B0%8E%E5%85%A5%E3%81%AE%E6%B5%81%E3%82%8C%E2%91%A1.png?raw=true" alt="導入STEP2" class="w-full max-w-[280px] md:max-w-full h-auto mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E5%B0%8E%E5%85%A5%E3%81%AE%E6%B5%81%E3%82%8C%E2%91%A2.png?raw=true" alt="導入STEP3" class="w-full max-w-[280px] md:max-w-full h-auto mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E5%B0%8E%E5%85%A5%E3%81%AE%E6%B5%81%E3%82%8C%E2%91%A3.png?raw=true" alt="導入STEP4" class="w-full max-w-[280px] md:max-w-full h-auto mx-auto">
+                <img src="https://github.com/yakimoto-design/image/blob/main/iroha/%E5%B0%8E%E5%85%A5%E3%81%AE%E6%B5%81%E3%82%8C%E2%91%A4.png?raw=true" alt="導入STEP5" class="w-full max-w-[280px] md:max-w-full h-auto mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta" class="py-20 md:py-32 bg-gray-900 text-center relative overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-5 max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight tracking-tighter text-white">
+                まずはお気軽に<br class="md:hidden text-blue-400">ご相談ください
+            </h2>
+            <p class="text-gray-400 md:text-xl font-bold mb-14 tracking-wide">貴社専用のプロチームが、最短距離で成果へと導きます。</p>
+            
+            <a href="https://forms.gle/2EGNK46jUzMmibUE9" target="_blank" class="cta-gradient inline-flex items-center justify-center px-12 py-6 font-black text-white transition-all duration-300 rounded-full text-xl md:text-3xl tracking-tight">
+                <svg class="w-8 h-8 md:w-10 md:h-10 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                無料相談・お問い合わせ
+                <svg class="w-6 h-6 md:w-8 md:h-8 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <div class="mt-20">
+                <a href="index.html" class="text-gray-600 hover:text-gray-400 text-[10px] font-bold tracking-widest uppercase transition-colors">
+                    Back to Home / Company
+                </a>
+                <p class="text-gray-800 text-[8px] tracking-[0.3em] uppercase mt-4 opacity-50">&copy; 2024 iroha inc. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Sticky Footer CTA -->
+    <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-md border-t border-gray-100 z-50 shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.2)]">
+        <a href="https://forms.gle/2EGNK46jUzMmibUE9" target="_blank" class="cta-gradient flex items-center justify-center w-full text-white font-black py-4 rounded-2xl text-lg tracking-tight active:scale-95 transition-all">
+            無料相談はこちら
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+    </div>
+
+</body>
+</html>
