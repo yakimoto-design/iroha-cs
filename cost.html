@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>そのネットに払ってるお金、無駄になっていませんか？ | セレソン</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #ff5e3a 0%, #ff2a68 100%);
+            box-shadow: 0 4px 15px rgba(255, 62, 58, 0.4);
+        }
+        .cta-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 62, 58, 0.6);
+        }
+        /* アニメーション */
+        @keyframes pulse-custom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .animate-pulse-custom {
+            animation: pulse-custom 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+
+    <!-- メインコンテンツコンテナ -->
+    <main class="w-full max-w-[500px] md:max-w-[1000px] bg-white relative pb-24 shadow-xl">
+        
+        <!-- 画像切り替えエリア -->
+        <div class="w-full">
+            <!-- スマホ用画像 (768px未満で表示) -->
+            <img 
+                src="https://github.com/yakimoto-design/image/blob/main/cost/%E3%82%B3%E3%82%B9%E3%83%88%E5%89%8A%E6%B8%9BSP%E7%89%88.png?raw=true" 
+                alt="コスト削減LP スマホ版" 
+                class="block md:hidden w-full h-auto"
+                onerror="this.src='https://via.placeholder.com/500x2000?text=SP+Image+Not+Found'"
+            >
+            <!-- PC用画像 (768px以上で表示) -->
+            <img 
+                src="https://github.com/yakimoto-design/image/blob/main/cost/%E3%82%B3%E3%82%B9%E3%83%88%E5%89%8A%E6%B8%9BPC%E7%89%88.png?raw=true" 
+                alt="コスト削減LP PC版" 
+                class="hidden md:block w-full h-auto"
+                onerror="this.src='https://via.placeholder.com/1000x2000?text=PC+Image+Not+Found'"
+            >
+        </div>
+
+        <!-- ページ下部固定CTAエリア -->
+        <section class="px-6 py-12 bg-gray-50 text-center">
+            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-6">
+                まずは無料で診断！<br>
+                <span class="text-red-600">あなたの会社の「見えないコスト」</span>を<br>
+                プロがチェックします。
+            </h3>
+            
+            <div class="max-w-md mx-auto">
+                <a href="https://forms.gle/uRuFfNR8GyJa5VcH8" target="_blank" rel="noopener noreferrer" class="cta-gradient text-white text-xl font-bold py-5 px-8 rounded-full block w-full transition-all duration-300 transform">
+                    無料で診断を申し込む
+                    <p class="text-xs font-normal mt-1 text-white/90">（1分で完了！お気軽にご相談ください）</p>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-sm text-gray-500">
+                <p>© セレソン All Rights Reserved.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 画面下部追従フローティングCTA -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 p-4 flex justify-center pointer-events-none">
+        <div class="w-full max-w-[500px] pointer-events-auto">
+            <a href="https://forms.gle/uRuFfNR8GyJa5VcH8" target="_blank" rel="noopener noreferrer" class="cta-gradient animate-pulse-custom text-white text-lg font-bold py-4 px-6 rounded-xl flex items-center justify-center space-x-2 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>まずは無料でコストを診断する</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
