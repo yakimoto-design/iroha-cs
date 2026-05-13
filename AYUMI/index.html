@@ -32,7 +32,7 @@
     
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans JP', sans-serif; overflow-x: hidden; }
+        body { font-family: 'Noto Sans JP', sans-serif; overflow-x: hidden; line-height: 1.6; }
         .bg-iroha-teal { background-color: #0d9488; }
         .text-iroha-teal { color: #0d9488; }
         .border-iroha-teal { border-color: #0d9488; }
@@ -44,15 +44,13 @@
         details[open] summary .toggle-icon { transform: rotate(45deg); }
         details summary { list-style: none; }
 
-        /* Hero Click Zones (Hotspots) - 確実に最前面に持ってくる設定 */
+        /* Hero Click Zones (Hotspots) */
         .hero-container { position: relative; width: 100%; height: auto; }
         .hero-hotspot { 
             position: absolute; 
             cursor: pointer; 
             display: block; 
-            z-index: 50; /* 他の要素より確実に上に */
-            /* デバッグ用（位置を確認したい時は下記をコメント解除してください） */
-            /* background: rgba(255, 0, 0, 0.2); */
+            z-index: 50;
         }
 
         /* Mobile Menu */
@@ -81,6 +79,9 @@
             align-items: center;
             justify-content: center;
         }
+        
+        /* Utility to prevent awkward line breaks in JP */
+        .keep-phrase { display: inline-block; }
     </style>
 </head>
 <body class="bg-white text-slate-800">
@@ -94,7 +95,7 @@
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
                 <a href="#about" class="hover:text-iroha-teal transition">AYUMIとは？</a>
-                <a href="#features" class="hover:text-iroha-teal transition text-iroha-teal">AI活用メニュー</a>
+                <a href="#features" class="hover:text-iroha-teal transition">AI活用メニュー</a>
                 <a href="#cases" class="hover:text-iroha-teal transition">活用例</a>
                 <a href="#flow" class="hover:text-iroha-teal transition">進め方</a>
                 <a href="#faq" class="hover:text-iroha-teal transition">よくある質問</a>
@@ -108,19 +109,19 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col p-8 lg:hidden">
-        <div class="flex justify-between items-center mb-8 border-b border-slate-50 pb-4">
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col p-8 lg:hidden text-slate-800">
+        <div class="flex justify-between items-center mb-8 border-b border-slate-50 pb-4 text-slate-800">
             <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/rogo2.png?raw=true" alt="AYUMI" class="h-8 w-auto">
             <button id="close-menu" class="text-slate-400 p-2 hover:bg-slate-50 rounded-full">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
         <nav class="flex flex-col gap-4 text-lg font-bold">
-            <a href="#about" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition">AYUMIとは？</a>
-            <a href="#features" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition">AI活用メニュー</a>
-            <a href="#cases" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition">活用例</a>
-            <a href="#flow" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition">進め方</a>
-            <a href="#faq" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition">よくある質問</a>
+            <a href="#about" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition text-slate-800">AYUMIとは？</a>
+            <a href="#features" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition text-slate-800">AI活用メニュー</a>
+            <a href="#cases" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition text-slate-800">活用例</a>
+            <a href="#flow" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition text-slate-800">進め方</a>
+            <a href="#faq" class="menu-link p-4 bg-slate-50 rounded-2xl hover:bg-iroha-soft hover:text-iroha-teal transition text-slate-800">よくある質問</a>
             <a href="https://forms.gle/mF48cFeikRx7xkzx7" target="_blank" class="bg-iroha-teal text-white p-5 rounded-2xl mt-4 text-center shadow-lg shadow-teal-100">お問い合わせ（無料相談）</a>
         </nav>
     </div>
@@ -134,149 +135,156 @@
 
         <!-- PC hotspots -->
         <div class="hidden md:block">
-            <!-- 「無料で相談する」 -->
             <a href="https://forms.gle/mF48cFeikRx7xkzx7" target="_blank" class="hero-hotspot" style="top: 72%; left: 21%; width: 33%; height: 10%;" title="無料で相談する"></a>
-            <!-- 「AI活用メニューを見る（上部ヘッダー付近やイラスト部分をクリックで誘導）」 -->
             <a href="#features" class="hero-hotspot" style="top: 10%; left: 35%; width: 25%; height: 10%;" title="AI活用メニューを見る"></a>
-            <!-- スクロール誘導の補助エリア（右側のイラストエリア全体をスクロール用に） -->
             <a href="#features" class="hero-hotspot" style="top: 25%; left: 50%; width: 30%; height: 40%;" title="AI活用メニューを見る"></a>
         </div>
 
-        <!-- SP hotspots (Adjusted for hero2(SP).png) -->
+        <!-- SP hotspots -->
         <div class="md:hidden">
-            <!-- 「無料で相談する」画像下部のボタン部分 -->
             <a href="https://forms.gle/mF48cFeikRx7xkzx7" target="_blank" class="hero-hotspot" style="bottom: 11%; left: 10%; width: 80%; height: 10%;" title="無料で相談する"></a>
-            <!-- 上部のタイトルや「メニュー」部分をタップで誘導 -->
             <a href="#features" class="hero-hotspot" style="top: 0%; left: 0%; width: 100%; height: 35%;" title="AI活用メニューを見る"></a>
         </div>
     </section>
 
     <!-- AYUMIとは？ -->
-    <section id="about" class="py-20 md:py-32 bg-white text-center">
-        <div class="container mx-auto px-4">
-            <div class="inline-block text-iroha-teal font-black text-sm mb-4 tracking-widest uppercase">What is AYUMI</div>
-            <h2 class="text-3xl md:text-4xl font-black mb-8 text-blue-950">AYUMIとは？</h2>
-            <p class="text-lg md:text-xl font-medium text-slate-700 max-w-3xl mx-auto leading-relaxed mb-16 px-4">
-                具体的な業務を効率化させるため、<br class="hidden md:block">
-                AIを活用したご支援をしています。
+    <section id="about" class="py-16 md:py-32 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <div class="inline-block text-iroha-teal font-black text-xs md:text-sm mb-4 tracking-widest uppercase">What is AYUMI</div>
+            <h2 class="text-2xl md:text-4xl font-black mb-8 text-blue-950">AYUMIとは？</h2>
+            <p class="text-base md:text-xl font-medium text-slate-700 max-w-3xl mx-auto leading-relaxed mb-12 md:mb-16">
+                <span class="keep-phrase">具体的な業務を</span><span class="keep-phrase">効率化させるため、</span><br class="hidden md:block">
+                <span class="keep-phrase">AIを活用した</span><span class="keep-phrase">ご支援をしています。</span>
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4 max-w-6xl mx-auto">
-                <div class="px-6 py-8 border-l-0 md:border-l border-slate-100 first:border-l-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4 max-w-6xl mx-auto">
+                <!-- Point 01 -->
+                <div class="px-4 py-8 md:px-6 border-l-0 md:border-l border-slate-100 first:border-l-0 bg-slate-50 md:bg-transparent rounded-2xl md:rounded-none">
                     <h3 class="text-lg font-black mb-4 flex flex-col items-center md:items-start text-blue-950">
                         <span class="text-iroha-teal text-xs mb-2 tracking-tighter">POINT 01</span>
                         現場の課題を整理
                     </h3>
-                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">「何が不便か」「どこから直すべきか」を一緒に整理し、ムダな作業を見つけ出します。</p>
+                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">
+                        「何が不便か」「どこから直すべきか」を<span class="keep-phrase">一緒に整理し、</span><span class="keep-phrase">ムダな作業を</span><span class="keep-phrase">見つけ出します。</span>
+                    </p>
                 </div>
-                <div class="px-6 py-8 border-l-0 md:border-l border-slate-100">
+                <!-- Point 02 -->
+                <div class="px-4 py-8 md:px-6 border-l-0 md:border-l border-slate-100 bg-slate-50 md:bg-transparent rounded-2xl md:rounded-none">
                     <h3 class="text-lg font-black mb-4 flex flex-col items-center md:items-start text-blue-950">
                         <span class="text-iroha-teal text-xs mb-2 tracking-tighter">POINT 02</span>
                         すぐ使える「形」に
                     </h3>
-                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">営業台本や求人原稿など、明日からすぐに現場で使える「道具」をお作りします。</p>
+                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">
+                        営業台本や求人原稿など、<span class="keep-phrase">明日からすぐに</span><span class="keep-phrase">現場で使える</span>「道具」をお作りします。
+                    </p>
                 </div>
-                <div class="px-6 py-8 border-l-0 md:border-l border-slate-100">
+                <!-- Point 03 -->
+                <div class="px-4 py-8 md:px-6 border-l-0 md:border-l border-slate-100 bg-slate-50 md:bg-transparent rounded-2xl md:rounded-none">
                     <h3 class="text-lg font-black mb-4 flex flex-col items-center md:items-start text-blue-950">
                         <span class="text-iroha-teal text-xs mb-2 tracking-tighter">POINT 03</span>
                         誰でも使える仕組み
                     </h3>
-                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">特定の人だけでなく、社員の誰もが同じように使いこなせるルールや手順を整えます。</p>
+                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">
+                        特定の人だけでなく、<span class="keep-phrase">社員の誰もが</span><span class="keep-phrase">同じように使いこなせる</span><span class="keep-phrase">ルールや手順を整えます。</span>
+                    </p>
                 </div>
-                <div class="px-6 py-8 border-l-0 md:border-l border-slate-100">
+                <!-- Point 04 -->
+                <div class="px-4 py-8 md:px-6 border-l-0 md:border-l border-slate-100 bg-slate-50 md:bg-transparent rounded-2xl md:rounded-none">
                     <h3 class="text-lg font-black mb-4 flex flex-col items-center md:items-start text-blue-950">
                         <span class="text-iroha-teal text-xs mb-2 tracking-tighter">POINT 04</span>
                         馴染むまでずっと伴走
                     </h3>
-                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">作って終わりではありません。使いこなせるようになるまで、寄り添って改善を続けます。</p>
+                    <p class="text-sm text-slate-500 leading-relaxed text-center md:text-left">
+                        作って終わりではありません。<span class="keep-phrase">使いこなせるように</span>なるまで、<span class="keep-phrase">寄り添って改善を続けます。</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AYUMIが提供できること (AI活用メニュー) -->
-    <section id="features" class="py-24 bg-slate-50">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-4 text-blue-950">AYUMIが提供できること</h2>
-            <p class="text-sm text-slate-500 mb-16 italic">実際に相談が多い、具体的な支援メニューの一部です。</p>
+    <!-- AI活用メニュー -->
+    <section id="features" class="py-20 md:py-24 bg-slate-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-4xl font-black mb-4 text-blue-950">AYUMIが提供できること</h2>
+            <p class="text-sm text-slate-500 mb-12 md:mb-16 italic">実際に相談が多い、具体的な支援メニューの一部です。</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A0.png?raw=true" alt="1. 商談の勝ちパターン分析" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A0.png?raw=true" alt="商談の勝ちパターン分析" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A1.png?raw=true" alt="2. 見積メールからドラフト生成" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A1.png?raw=true" alt="見積メールからドラフト生成" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A2.png?raw=true" alt="3. LINE AIコンシェルジュ" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A2.png?raw=true" alt="LINE AIコンシェルジュ" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A3.png?raw=true" alt="4. 売れるLP構成案生成" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A3.png?raw=true" alt="売れるLP構成案生成" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A4.png?raw=true" alt="5. SNS運用自動化" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A4.png?raw=true" alt="SNS運用自動化" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A5.png?raw=true" alt="6. 口コミ・評判の分析レポート" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A5.png?raw=true" alt="口コミ分析レポート" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A6.png?raw=true" alt="7. 社内AI検索（RAG）" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A6.png?raw=true" alt="社内AI検索" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A7.png?raw=true" alt="8. 請求書・契約書の不整合検知" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A7.png?raw=true" alt="書類ミスチェック" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A8.png?raw=true" alt="9. 工事写真の自動整理・報告書" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A8.png?raw=true" alt="工事写真の整理" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A9.png?raw=true" alt="10. ベテラン技能のマニュアル化" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%A9.png?raw=true" alt="技能マニュアル化" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%AA.png?raw=true" alt="11. 履歴書・応募書類の相性判定" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%AA.png?raw=true" alt="書類の相性判定" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%AB.png?raw=true" alt="12. 会議録からタスク管理" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/%E2%91%AB.png?raw=true" alt="タスク管理支援" class="w-full h-auto block">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Use Cases -->
-    <section id="cases" class="py-24 bg-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-black mb-12 text-blue-950">活用例（よくあるご相談）</h2>
+    <section id="cases" class="py-20 md:py-24 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-4xl font-black mb-12 text-blue-950">活用例（よくあるご相談）</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/E.png?raw=true" alt="活用例：営業録音を教育に" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/E.png?raw=true" alt="営業録音活用" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/H.png?raw=true" alt="活用例：見積作成を速く" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/H.png?raw=true" alt="見積作成効率化" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/G.png?raw=true" alt="活用例：工事写真を整理" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/G.png?raw=true" alt="写真整理自動化" class="w-full h-auto block">
                 </div>
                 <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
-                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/F.png?raw=true" alt="活用例：会議録からタスク管理" class="w-full h-auto block">
+                    <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/F.png?raw=true" alt="会議録タスク化" class="w-full h-auto block">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Support Flow -->
-    <section id="flow" class="py-24 bg-slate-50 text-center">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-black mb-16 text-blue-950">ご支援の流れ</h2>
+    <section id="flow" class="py-20 md:py-24 bg-slate-50 text-center">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-2xl md:text-4xl font-black mb-16 text-blue-950">ご支援の流れ</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
+                <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
                     <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/A.png?raw=true" alt="1. ヒアリング" class="w-full h-auto block">
                 </div>
-                <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
+                <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
                     <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/B.png?raw=true" alt="2. 整理" class="w-full h-auto block">
                 </div>
-                <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
+                <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
                     <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/C.png?raw=true" alt="3. 実装" class="w-full h-auto block">
                 </div>
-                <div class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm card-hover">
+                <div class="bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm card-hover">
                     <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/D.png?raw=true" alt="4. 支援" class="w-full h-auto block">
                 </div>
             </div>
@@ -284,34 +292,34 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-black mb-12 text-center text-blue-950">よくある質問</h2>
+    <section id="faq" class="py-20 md:py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h2 class="text-2xl md:text-4xl font-black mb-12 text-center text-blue-950">よくある質問</h2>
             <div class="space-y-4">
                 <details class="group border-b border-slate-200 py-4">
-                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm select-none">
-                        <span>AIの知識がなくても大丈夫ですか？</span>
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base select-none">
+                        <span class="pr-4">AIの知識がなくても大丈夫ですか？</span>
                         <span class="text-iroha-teal text-xl font-bold transition-transform duration-300 toggle-icon">+</span>
                     </summary>
-                    <div class="mt-4 text-xs text-slate-500 leading-relaxed bg-slate-50 p-4 rounded-xl">
+                    <div class="mt-4 text-[14px] md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 rounded-2xl">
                         はい、全く問題ありません。難しい専門用語は使わず、お客様が普段行っている業務内容に合わせて「どう便利になるのか」を分かりやすく丁寧にご説明します。
                     </div>
                 </details>
                 <details class="group border-b border-slate-200 py-4">
-                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm select-none">
-                        <span>どこまで実務を手伝ってもらえますか？</span>
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base select-none">
+                        <span class="pr-4">どこまで実務を手伝ってもらえますか？</span>
                         <span class="text-iroha-teal text-xl font-bold transition-transform duration-300 toggle-icon">+</span>
                     </summary>
-                    <div class="mt-4 text-xs text-slate-500 leading-relaxed bg-slate-50 p-4 rounded-xl">
+                    <div class="mt-4 text-[14px] md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 rounded-2xl">
                         AIの使い方の提案だけではありません。実際に使うためのプロンプト（指示文）の作成、マニュアル整備、運用ルールの策定、さらには社内でのレクチャーまで一貫してサポートします。
                     </div>
                 </details>
                 <details class="group border-b border-slate-200 py-4">
-                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm select-none">
-                        <span>栃木県外でも相談できますか？</span>
+                    <summary class="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base select-none">
+                        <span class="pr-4">栃木県外でも相談できますか？</span>
                         <span class="text-iroha-teal text-xl font-bold transition-transform duration-300 toggle-icon">+</span>
                     </summary>
-                    <div class="mt-4 text-xs text-slate-500 leading-relaxed bg-slate-50 p-4 rounded-xl">
+                    <div class="mt-4 text-[14px] md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-5 rounded-2xl">
                         はい、可能です。Zoom等のオンラインツールを用いたご相談をメインに、全国どこからでも対応させていただきます。
                     </div>
                 </details>
@@ -320,13 +328,15 @@
     </section>
 
     <!-- Footer CTA -->
-    <section id="contact" class="py-24 bg-iroha-teal text-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">AIを、難しいもののままで終わらせない。</h2>
+    <section id="contact" class="py-20 md:py-24 bg-iroha-teal text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-4xl font-black mb-8 leading-tight">
+                <span class="keep-phrase">AIを、難しいもののままで</span><span class="keep-phrase">終わらせない。</span>
+            </h2>
             <p class="text-sm md:text-base mb-12 opacity-90 text-white">御社の業務に合わせて、"使える形"にしてご提案します。</p>
-            <div class="bg-white rounded-3xl p-12 max-w-xl mx-auto shadow-2xl relative overflow-hidden text-slate-800">
-                 <div class="absolute top-0 right-0 p-8 text-teal-100/20 text-8xl font-black">AI</div>
-                 <a href="https://forms.gle/mF48cFeikRx7xkzx7" target="_blank" class="inline-flex items-center justify-between w-full border-2 border-slate-200 hover:border-iroha-teal text-lg font-black px-10 py-6 rounded-full transition-all group">
+            <div class="bg-white rounded-3xl p-10 md:p-12 max-w-xl mx-auto shadow-2xl relative overflow-hidden text-slate-800">
+                 <div class="absolute top-0 right-0 p-8 text-teal-100/20 text-8xl font-black select-none pointer-events-none">AI</div>
+                 <a href="https://forms.gle/mF48cFeikRx7xkzx7" target="_blank" class="inline-flex items-center justify-between w-full border-2 border-slate-200 hover:border-iroha-teal text-lg font-black px-8 md:px-10 py-6 rounded-full transition-all group">
                     <span>ご相談はこちら</span>
                     <svg class="w-6 h-6 group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                  </a>
@@ -336,7 +346,7 @@
 
     <!-- Footer -->
     <footer class="py-12 border-t border-slate-100 text-center">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="flex justify-center mb-6">
                 <a href="#"><img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/rogo2.png?raw=true" alt="AYUMI" class="h-8 md:h-10 w-auto"></a>
             </div>
@@ -349,13 +359,13 @@
                 <button id="open-policy" class="hover:text-iroha-teal transition">プライバシーポリシー</button>
             </div>
 
-            <p class="text-[10px] text-slate-400">© 2024 SELECCION Inc. All Rights Reserved.</p>
+            <p class="text-[10px] text-slate-400 uppercase tracking-widest">© 2024 SELECCION Inc. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Privacy Policy Modal -->
-    <div id="policy-modal" class="modal shadow-2xl">
-        <div class="bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto m-4 p-8 md:p-12 rounded-[2.5rem] relative shadow-2xl border border-slate-100">
+    <div id="policy-modal" class="modal">
+        <div class="bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto m-4 p-8 md:p-12 rounded-[2.5rem] relative shadow-2xl border border-slate-100 text-slate-800">
             <button id="close-modal" class="absolute top-8 right-8 text-slate-300 hover:text-iroha-teal transition">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -376,7 +386,7 @@
                 <section>
                     <h4 class="font-black text-slate-800 text-base mb-3">2. 個人情報を収集・利用する目的</h4>
                     <p class="mb-3">当社が個人情報を収集・利用する目的は、以下のとおりです。</p>
-                    <ul class="list-disc pl-5 space-y-2">
+                    <ul class="list-disc pl-5 space-y-2 text-slate-600">
                         <li>本サービスの提供・運営のため</li>
                         <li>ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）</li>
                         <li>メンテナンス、重要なお知らせなど必要に応じたご連絡のため</li>
@@ -413,7 +423,14 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         closeMenu.addEventListener('click', toggleMenu);
-        menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    toggleMenu();
+                }
+            });
+        });
 
         // Modal Toggle
         const policyBtn = document.getElementById('open-policy');
@@ -433,12 +450,10 @@
         closeModal.addEventListener('click', toggleModal);
         closeModalBtn.addEventListener('click', toggleModal);
         
-        // Close modal when clicking background
         modal.addEventListener('click', (e) => {
             if (e.target === modal) toggleModal();
         });
 
-        // ESC key to close
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) toggleModal();
         });
