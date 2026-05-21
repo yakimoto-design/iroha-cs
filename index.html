@@ -13,25 +13,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO基本設定 -->
+    <!-- SEO基本設定（「株式会社セレソン」を最優先に最適化） -->
     <title>株式会社セレソン | 栃木県小山市のWEBマーケティング・デザイン・印刷・SNS運用支援</title>
-    <meta name="description" content="栃木県小山市で18年の実績。株式会社セレソンは、デザイン・印刷からWEBマーケティング、SNS運用、AI活用、DX推進までをワンストップでサポートするビジネスパートナーです。">
-    <meta name="keywords" content="セレソン,栃木県,小山市,WEB制作,デザイン,印刷,SNS運用代行,マーケティング,DX支援,AI活用">
+    <meta name="description" content="栃木県小山市で18年の実績を誇る「株式会社セレソン」の公式ホームページです。デザイン・印刷からWEBマーケティング、SNS運用（インフルエンサー広告）、AI活用、DX推進までをワンストップでサポート。「想いをカタチに、成果につなげる」伴走型支援を提供します。">
+    <meta name="keywords" content="株式会社セレソン,セレソン,栃木県,小山市,WEB制作,デザイン,印刷,SNS運用代行,マーケティング,DX支援,AI活用">
+    
+    <!-- ★要変更★：正式公開後のURL（https://〜）が決まったら、下記の「href="..."」の部分を書き換えてください -->
+    <link rel="canonical" href="https://cereson.jp/">
 
-    <!-- OGP設定 (SNSシェア時の表示) -->
+    <!-- OGP設定 (SNSシェア時の表示設定。古い表記がないか確認済み) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="株式会社セレソン | 想いをカタチに、成果につなげる。">
-    <meta property="og:description" content="デザイン・印刷からWEBマーケ・SNS・AI活用まで。栃木県小山市のビジネスサポートパートナー。">
+    <meta property="og:description" content="デザイン・印刷からWEBマーケ・SNS・AI活用まで。栃木県小山市のビジネスサポートパートナー「株式会社セレソン」。">
     <meta property="og:image" content="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero.png?raw=true">
+    <!-- ★要変更★：正式公開後のURLに書き換えてください -->
     <meta property="og:url" content="https://cereson.jp/">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- 構造化データ -->
+    <!-- 構造化データ（GoogleやAI検索が会社情報を正確に読み取るためのJSON-LD） -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Corporation",
       "name": "株式会社セレソン",
+      "alternateName": "Cereson Inc.",
+      "description": "栃木県小山市を拠点に、デザイン・印刷、WEBマーケティング、SNS運用、DX支援、AI導入支援を行う企業です。",
       "image": "https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true",
       "address": {
         "@type": "PostalAddress",
@@ -42,14 +48,8 @@
         "addressCountry": "JP"
       },
       "url": "https://cereson.jp/",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        }
-      ]
+      "telephone": "+81-285-XX-XXXX",
+      "foundingDate": "2015-10"
     }
     </script>
 
@@ -118,6 +118,7 @@
         
         .logo-iroha { height: 75%; width: auto; }
         .logo-locallink { height: 130%; width: auto; transform: translateX(-5%); }
+        .logo-ayumi { height: 75%; width: auto; }
         .service-icon-print { height: 80%; width: auto; color: #0041a0; }
 
         html { scroll-behavior: smooth; }
@@ -129,11 +130,10 @@
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-16 md:h-24 flex items-center justify-between">
-            <!-- Logo - 更新版ロゴ2 -->
             <div class="flex items-center">
                 <a href="#" title="ホーム">
                     <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true" 
-                         alt="株式会社セレソン" 
+                         alt="株式会社セレソン ロゴ" 
                          class="h-10 md:h-16 w-auto object-contain">
                 </a>
             </div>
@@ -174,8 +174,8 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero-container">
-            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero.png?raw=true" alt="セレソン メインバナー デスクトップ版" class="hero-img hidden md:block">
-            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero(SP).png?raw=true" alt="セレソン メインバナー モバイル版" class="hero-img block md:hidden">
+            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero.png?raw=true" class="hero-img hidden md:block" alt="株式会社セレソン メインビジュアル（PC）">
+            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero(SP).png?raw=true" class="hero-img block md:hidden" alt="株式会社セレソン メインビジュアル（スマホ）">
         </section>
 
         <!-- Stats Section -->
@@ -195,8 +195,7 @@
                 </div>
                 <div class="flex justify-center items-center py-2 md:py-0">
                     <div class="flex items-center gap-2 md:gap-3">
-                        <!-- irohaロゴ - 更新版ロゴ2 -->
-                        <img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha%E3%83%AD%E3%82%B42.png?raw=true" alt="irohaロゴ" class="h-6 md:h-7 w-auto object-contain">
+                        <img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha%E3%83%AD%E3%82%B42.png?raw=true" class="h-6 md:h-7 w-auto object-contain" alt="irohaロゴ">
                         <p class="text-[8px] md:text-[9px] font-bold text-gray-400 leading-tight uppercase">Strategic<br>BPO Service</p>
                     </div>
                 </div>
@@ -214,10 +213,11 @@
                     </h2>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-                    <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%81%8A%E6%82%A9%E3%81%BF1.png?raw=true" alt="売上の悩み" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
+                    <!-- お悩み画像 - URL完全修正済み -->
+                    <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%1%8A%E6%82%A9%E3%81%BF1.png?raw=true" alt="売上の悩み" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
                     <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%81%8A%E6%82%A9%E3%81%BF2.png?raw=true" alt="採用の悩み" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
                     <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%81%8A%E6%82%A9%E3%81%BF3.png?raw=true" alt="制作の悩み" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
-                    <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%81%8A%E6%82%A9%E3%81%BF4.png?raw=true" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
+                    <div class="flex justify-center"><img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%1%8A%E6%82%A9%E3%81%BF4.png?raw=true" alt="集客の悩み" class="w-full h-auto drop-shadow-md transition-transform hover:translate-y-[-4px]"></div>
                 </div>
                 
                 <div class="mt-12 md:mt-24 px-2">
@@ -233,59 +233,80 @@
             </div>
         </section>
 
-        <!-- 1. Services Section -->
+        <!-- 1. Services Section (4カラム構成) -->
         <section id="services" class="py-16 md:py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- iroha - 更新版ロゴ2 -->
-                <article class="bg-white p-7 md:p-10 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- iroha -->
+                <article class="bg-white p-6 md:p-8 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
                     <div>
-                        <div class="logo-box"><img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha%E3%83%AD%E3%82%B42.png?raw=true" alt="irohaロゴ" class="logo-iroha object-contain"></div>
-                        <div class="mb-5 md:mb-6"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full uppercase tracking-widest">戦略型BPOサービス</span></div>
-                        <div class="space-y-4 text-left">
-                            <h4 class="text-xl font-black text-gray-800 leading-snug">成果に直結する、<br>最高峰の伴走支援。</h4>
-                            <p class="text-sm md:text-[15px] text-gray-500 leading-[1.8] font-medium">専属のデザイナーとWebマーケターが貴社のチームの一員として伴走。企画から運用までを一気通貫でサポートします。</p>
+                        <div class="logo-box"><img src="https://github.com/yakimoto-design/image/blob/main/iroha/iroha%E3%83%AD%E3%82%B42.png?raw=true" class="logo-iroha object-contain" alt="irohaロゴ"></div>
+                        <div class="mb-5"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-widest">戦略型BPOサービス</span></div>
+                        <div class="space-y-3 text-left">
+                            <h4 class="text-lg font-black text-gray-800 leading-snug">成果に直結する、<br>最高峰の伴走支援。</h4>
+                            <p class="text-[13px] text-gray-500 leading-relaxed font-medium">専属のデザイナーとWebマーケターが貴社のチームの一員として伴走。企画から運用までを一気通貫でサポートします。</p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-8 border-t border-gray-100">
-                        <a href="/iroha" class="btn w-full bg-cereson-blue text-white py-4 rounded-xl text-sm group">
-                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <a href="/iroha" class="btn w-full bg-cereson-blue text-white py-3 rounded-xl text-xs group">
+                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </article>
+
                 <!-- Local Link -->
-                <article class="bg-white p-7 md:p-10 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
+                <article class="bg-white p-6 md:p-8 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
                     <div>
-                        <div class="logo-box"><img src="https://github.com/yakimoto-design/image/blob/main/local%20link/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%B3%E3%82%AF.png?raw=true" alt="LocalLinkロゴ" class="logo-locallink object-contain"></div>
-                        <div class="mb-5 md:mb-6"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full uppercase tracking-widest">MEO・地域集客支援</span></div>
-                        <div class="space-y-4 text-left">
-                            <h4 class="text-xl font-black text-gray-800 leading-snug">地域のビジネスを、<br>もっと身近に。</h4>
-                            <p class="text-sm md:text-[15px] text-gray-500 leading-[1.8] font-medium">アンバサダー広告とGoogleマップでの露出強化を中心に店舗集客を最大化。検索結果の上位表示と魅力的な情報発信を支援。</p>
+                        <div class="logo-box"><img src="https://github.com/yakimoto-design/image/blob/main/local%20link/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%B3%E3%82%AF.png?raw=true" class="logo-locallink object-contain" alt="Local Linkロゴ"></div>
+                        <div class="mb-5"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-widest">MEO・地域集客支援</span></div>
+                        <div class="space-y-3 text-left">
+                            <h4 class="text-lg font-black text-gray-800 leading-snug">地域のビジネスを、<br>もっと身近に。</h4>
+                            <p class="text-[13px] text-gray-500 leading-relaxed font-medium">アンバサダー広告とGoogleマップでの露出強化を中心に店舗集客を最大化。検索結果の上位表示と魅力的な情報発信を支援。</p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-8 border-t border-gray-100">
-                        <a href="/locallink" class="btn w-full bg-cereson-blue text-white py-4 rounded-xl text-sm group">
-                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <a href="/locallink" class="btn w-full bg-cereson-blue text-white py-3 rounded-xl text-xs group">
+                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </article>
+
                 <!-- Print Design -->
-                <article class="bg-white p-7 md:p-10 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
+                <article class="bg-white p-6 md:p-8 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
                     <div>
                         <div class="logo-box">
-                            <div class="service-icon-print flex items-center gap-3">
-                                <i data-lucide="palette" class="w-8 h-8 md:w-10 md:h-10"></i>
-                                <span class="font-black text-xl md:text-2xl text-gray-800">Print Design</span>
+                            <div class="service-icon-print flex items-center gap-2">
+                                <i data-lucide="palette" class="w-7 h-7"></i>
+                                <span class="font-black text-lg md:text-xl text-gray-800">Print Design</span>
                             </div>
                         </div>
-                        <div class="mb-5 md:mb-6"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full uppercase tracking-widest">広告・クリエイティブ制作</span></div>
-                        <div class="space-y-4 text-left">
-                            <h4 class="text-xl font-black text-gray-800 leading-snug">想いをカタチにする、<br>高品質なデザイン。</h4>
-                            <p class="text-sm md:text-[15px] text-gray-500 leading-[1.8] font-medium">チラシ、名刺、パンフレット等のデザインから印刷まで。ブランドの魅力を最大限に引き出すクリエイティブを提供します。</p>
+                        <div class="mb-5"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-widest">広告・クリエイティブ制作</span></div>
+                        <div class="space-y-3 text-left">
+                            <h4 class="text-lg font-black text-gray-800 leading-snug">想いをカタチにする、<br>高品質なデザイン。</h4>
+                            <p class="text-[13px] text-gray-500 leading-relaxed font-medium">チラシ、名刺、パンフレット等のデザインから印刷まで。ブランドの魅力を最大限に引き出すクリエイティブを提供します。</p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-8 border-t border-gray-100">
-                        <a href="#" class="btn w-full bg-cereson-blue text-white py-4 rounded-xl text-sm group">
-                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <a href="#" class="btn w-full bg-cereson-blue text-white py-3 rounded-xl text-xs group">
+                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- AYUMI (AI活用・業務効率化サービスへと説明文を最適化修正) -->
+                <article class="bg-white p-6 md:p-8 rounded-2xl border-2 border-blue-50 shadow-heavy flex flex-col justify-between hover:border-blue-200 transition-all">
+                    <div>
+                        <div class="logo-box">
+                            <img src="https://github.com/yakimoto-design/iroha-cs/blob/main/AYUMI/rogo2.png?raw=true" class="logo-ayumi object-contain" alt="AYUMIロゴ">
+                        </div>
+                        <div class="mb-5"><span class="inline-block text-[10px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-widest">AI導入・業務効率化支援</span></div>
+                        <div class="space-y-3 text-left">
+                            <h4 class="text-lg font-black text-gray-800 leading-snug">AIの力で一歩先へ。<br>業務を劇的にスマートに。</h4>
+                            <p class="text-[13px] text-gray-500 leading-relaxed font-medium">具体的な業務を効率化させるため、AIを活用したご支援をしています。最新のAIツール導入から実務への定着まで一気通貫で伴走します。</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <a href="https://irohacs.com/AYUMI/index.html" target="_blank" rel="noopener noreferrer" class="btn w-full bg-cereson-blue text-white py-3 rounded-xl text-xs group">
+                            <span>詳しく見る</span><i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1"></i>
                         </a>
                     </div>
                 </article>
@@ -303,24 +324,24 @@
                     <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-blue-50/50 transition-colors text-center">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-blue-50 rounded-3xl flex items-center justify-center mb-6 text-cereson-blue group-hover:scale-110 transition-transform"><i data-lucide="users-2" class="w-8 h-8 md:w-10 md:h-10"></i></div>
                         <h3 class="text-base md:text-lg font-black mb-4">チーム体制で高品質</h3>
-                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-balance text-center">専属のデザイナーとマーケターが貴社目標達成まで常に伴走します。</p>
+                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-center text-balance">専属のデザイナーとマーケターが貴社目標達成まで常に伴走します。</p>
                     </div>
                     <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-green-50/50 transition-colors text-center">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-green-50 rounded-3xl flex items-center justify-center mb-6 text-green-600 group-hover:scale-110 transition-transform"><i data-lucide="file-check" class="w-8 h-8 md:w-10 md:h-10"></i></div>
                         <h3 class="text-base md:text-lg font-black mb-4">丸投げOKで手間いらず</h3>
-                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-balance text-center">制作、運用のすべての工程をワンストップでお任せいただけます。</p>
+                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-center text-balance">制作、運用のすべての工程をワンストップでお任せいただけます。</p>
                     </div>
                     <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-orange-50/50 transition-colors text-center">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-orange-50 rounded-3xl flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform"><i data-lucide="dollar-sign" class="w-8 h-8 md:w-10 md:h-10"></i></div>
                         <h3 class="text-base md:text-lg font-black mb-4">コスパの良い料金設定</h3>
-                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-balance text-center text-center">必要な部分だけの依頼も可能。最適な予算提案をお約束します。</p>
+                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-center text-balance text-center">必要な部分だけの依頼も可能。最適な予算提案をお約束します。</p>
                     </div>
                     <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-red-50/50 transition-colors text-center">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-red-50 rounded-3xl flex items-center justify-center mb-6 text-red-500 group-hover:scale-110 transition-transform"><i data-lucide="line-chart" class="w-8 h-8 md:w-10 md:h-10"></i></div>
                         <h3 class="text-base md:text-lg font-black mb-4">成果にこだわる運用力</h3>
-                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-balance text-center">数字に基づいた徹底した改善。確実に成果へと繋げます。</p>
+                        <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-center text-balance">数字に基づいた徹底した改善。確実に成果へと繋げます。</p>
                     </div>
-                    <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-purple-50/50 transition-colors text-center text-center">
+                    <div class="group flex flex-col items-center p-6 rounded-2xl hover:bg-purple-50/50 transition-colors text-center">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-purple-50 rounded-3xl flex items-center justify-center mb-6 text-purple-600 group-hover:scale-110 transition-transform"><i data-lucide="sparkles" class="w-8 h-8 md:w-10 md:h-10"></i></div>
                         <h3 class="text-base md:text-lg font-black mb-4">最新の取り組み</h3>
                         <p class="text-[13px] md:text-sm text-gray-500 font-medium leading-relaxed text-balance text-center">最新技術を取り入れ、一歩先を行く戦略を提案します。</p>
@@ -348,7 +369,7 @@
                             <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E5%B0%8F%E5%B1%B1%E5%B8%82.png?raw=true" alt="栃木県小山市" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-white/60 flex flex-col items-center justify-center p-6 text-center">
                                 <p class="text-cereson-blue font-black italic mb-3 md:mb-4 text-base md:text-lg">想いをカタチに、成果につなげる。</p>
-                                <!-- セレソンロゴ - 更新版ロゴ2 -->
+                                <!-- セレソンロゴ2 -->
                                 <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true" alt="セレソン 会社概要ロゴ" class="w-48 md:w-80 h-auto">
                             </div>
                         </div>
@@ -429,6 +450,11 @@
                                     <div class="w-7 h-7 md:w-8 md:h-8 bg-yellow-50 rounded-full flex items-center justify-center shrink-0 text-yellow-500"><i data-lucide="bar-chart-3" class="w-3.5 h-3.5 md:w-4 md:h-4"></i></div>
                                     <div><p class="font-black text-[13px] md:text-sm text-gray-700">営業・経営・DX支援</p><p class="text-[9px] md:text-[10px] text-gray-400">DX推進トータルサポート</p></div>
                                 </div>
+                                <!-- AYUMI関連の事業紹介を実態(AI業務効率化)に即して変更 -->
+                                <div class="flex items-start gap-3">
+                                    <div class="w-7 h-7 md:w-8 md:h-8 bg-purple-50 rounded-full flex items-center justify-center shrink-0 text-purple-600"><i data-lucide="sparkles" class="w-3.5 h-3.5 md:w-4 md:h-4"></i></div>
+                                    <div><p class="font-black text-[13px] md:text-sm text-gray-700">AI導入・業務効率化支援事業</p><p class="text-[9px] md:text-[10px] text-gray-400">「AYUMI」ブランドによる実務直結型のAI活用支援・自動化伴走サポート</p></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -462,7 +488,7 @@
 
     <footer class="bg-white py-12 border-t border-gray-50 text-center">
         <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
-            <!-- セレソンロゴ - 更新版ロゴ2 -->
+            <!-- セレソンロゴ2 -->
             <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true" 
                  alt="株式会社セレソン"
                  class="h-10 md:h-14 mb-10 md:mb-16 w-auto object-contain">
