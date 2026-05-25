@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ | 株式会社セレソン</title>
+    <meta name="description" content="株式会社セレソンのブログです。Webマーケティング、AI活用、DX、地域ビジネスの集客改善に役立つ考え方を発信します。">
+    <link rel="canonical" href="https://celecao.com/blog/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ブログ | 株式会社セレソン">
+    <meta property="og:description" content="Webマーケティング、AI活用、DX、地域ビジネスの集客改善に役立つ考え方を発信します。">
+    <meta property="og:url" content="https://celecao.com/blog/">
+    <meta property="og:image" content="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero.png?raw=true">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+            line-height: 1.7;
+        }
+        .bg-cereson-blue { background-color: #0041a0; }
+        .text-cereson-blue { color: #0041a0; }
+        .shadow-heavy { box-shadow: 0 20px 40px -10px rgba(0, 65, 160, 0.15); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 md:h-24 flex items-center justify-between">
+            <a href="/" title="ホーム">
+                <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true"
+                     alt="株式会社セレソン ロゴ"
+                     class="h-10 md:h-16 w-auto object-contain">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="/" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">ホーム</a>
+                <a href="/#services" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">サービス</a>
+                <a href="/#strengths" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">強み</a>
+                <a href="/#company" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">会社概要</a>
+                <a href="/blog/" class="text-[13px] font-bold text-cereson-blue transition-colors">ブログ</a>
+                <a href="https://forms.gle/613mCTBNDF6x4jt97" target="_blank" rel="noopener noreferrer" class="btn bg-cereson-blue text-white px-6 py-3 rounded-full text-[13px] shadow-lg">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    無料で相談する
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-cereson-blue p-2" aria-label="メニューを開く">
+                <i data-lucide="menu" class="w-7 h-7 md:w-8 md:h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl overflow-y-auto max-h-[calc(100vh-64px)]">
+            <div class="flex flex-col p-6 gap-2 text-center">
+                <a href="/" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">ホーム</a>
+                <a href="/#services" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">サービス</a>
+                <a href="/#strengths" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">強み</a>
+                <a href="/#company" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">会社概要</a>
+                <a href="/blog/" class="mobile-link text-sm font-bold py-4 border-b border-gray-50 text-cereson-blue">ブログ</a>
+                <a href="https://forms.gle/613mCTBNDF6x4jt97" target="_blank" rel="noopener noreferrer" class="bg-cereson-blue text-white p-5 rounded-full font-bold flex items-center justify-center gap-2 mt-4 shadow-lg">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    無料で相談する
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-blue-50 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="max-w-3xl">
+                    <p class="text-cereson-blue font-black tracking-[0.25em] text-xs md:text-sm uppercase mb-4">Cereson Blog</p>
+                    <h1 class="text-3xl md:text-6xl font-black text-gray-900 leading-tight mb-6">ブログ</h1>
+                    <p class="text-gray-600 text-sm md:text-lg font-bold leading-relaxed">Webマーケティング、AI活用、DX、地域ビジネスの集客改善に役立つ考え方を、実務に落とし込みやすい形で発信します。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-14 md:py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="mb-8 md:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                    <div>
+                        <p class="text-cereson-blue font-black text-xs tracking-[0.2em] uppercase mb-2">Latest Articles</p>
+                        <h2 class="text-2xl md:text-4xl font-black text-gray-900">最新記事</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 font-bold">1件の記事</p>
+                </div>
+
+                <article class="bg-white border border-blue-100 rounded-2xl shadow-heavy overflow-hidden">
+                    <a href="/blog/ai-principles.html" class="grid lg:grid-cols-[0.9fr_1.3fr] group">
+                        <div class="bg-cereson-blue p-8 md:p-10 text-white flex flex-col justify-between min-h-[260px]">
+                            <div>
+                                <span class="inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-black tracking-wider">AI活用</span>
+                                <h3 class="mt-8 text-2xl md:text-4xl font-black leading-tight">AIは優秀なのに、なぜ仕事に定着しないのか</h3>
+                            </div>
+                            <div class="mt-8 grid grid-cols-2 gap-3 text-xs font-bold text-blue-100">
+                                <div class="rounded-xl bg-white/10 p-3">生成AI</div>
+                                <div class="rounded-xl bg-white/10 p-3">仕事活用</div>
+                            </div>
+                        </div>
+                        <div class="p-8 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-gray-400 mb-5">
+                                    <time datetime="2026-05-25">2026.05.25</time>
+                                </div>
+                                <p class="text-gray-600 text-sm md:text-base font-medium leading-relaxed">生成AIが仕事に定着しない原因は、プロンプト不足だけではなく、目的・文脈・制約・評価基準をAIに渡す設計がないことです。ツール紹介ではなく、実務に落とし込むための原理原則を整理します。</p>
+                            </div>
+                            <div class="mt-8 inline-flex items-center text-cereson-blue font-black text-sm">
+                                記事を読む
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white py-12 border-t border-gray-50 text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true"
+                 alt="株式会社セレソン"
+                 class="h-10 md:h-14 mb-10 md:mb-16 w-auto object-contain">
+            <nav class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-5 mb-14 px-4 font-bold text-[11px] md:text-[13px] text-gray-500 uppercase tracking-widest">
+                <a href="/" class="hover:text-cereson-blue transition-colors text-center">ホーム</a>
+                <a href="/#services" class="hover:text-cereson-blue transition-colors text-center">サービス</a>
+                <a href="/#strengths" class="hover:text-cereson-blue transition-colors text-center">強み</a>
+                <a href="/#company" class="hover:text-cereson-blue transition-colors text-center">会社概要</a>
+                <a href="/blog/" class="hover:text-cereson-blue transition-colors text-center">ブログ</a>
+            </nav>
+            <p class="text-[10px] text-gray-200 font-black tracking-[0.3em] uppercase">&copy; 2024 Cereson Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('mobile-nav');
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nav.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => nav.classList.add('hidden'));
+        });
+
+        document.addEventListener('click', () => {
+            if(!nav.classList.contains('hidden')) nav.classList.add('hidden');
+        });
+
+        nav.addEventListener('click', (e) => e.stopPropagation());
+    </script>
+</body>
+</html>

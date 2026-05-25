@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KY8G122Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4KY8G122Y8');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIは優秀なのに、なぜ仕事に定着しないのか | 株式会社セレソン</title>
+    <meta name="description" content="生成AIが仕事に定着しない原因は、プロンプト不足だけではなく、目的・文脈・制約・評価基準をAIに渡す設計がないことです。仕事で使う前に理解したい原理原則を整理します。">
+    <link rel="canonical" href="https://celecao.com/blog/ai-principles.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AIは優秀なのに、なぜ仕事に定着しないのか">
+    <meta property="og:description" content="生成AIを実務に落とし込むために必要な、目的・文脈・制約・評価基準の考え方を整理します。">
+    <meta property="og:url" content="https://celecao.com/blog/ai-principles.html">
+    <meta property="og:image" content="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3hero.png?raw=true">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AIは優秀なのに、なぜ仕事に定着しないのか",
+      "description": "生成AIが仕事に定着しない原因は、プロンプト不足だけではなく、目的・文脈・制約・評価基準をAIに渡す設計がないことです。",
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "author": {
+        "@type": "Organization",
+        "name": "株式会社セレソン"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "株式会社セレソン",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true"
+        }
+      },
+      "mainEntityOfPage": "https://celecao.com/blog/ai-principles.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "生成AIの原理原則とは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "生成AIの原理原則とは、AIを意図を察して正解を出す存在ではなく、与えられた言葉、文脈、制約、例、評価基準をもとに出力する仕組みとして理解することです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "生成AIを仕事で使いこなせない原因は何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "原因はプロンプト不足だけではありません。目的、文脈、制約、参考情報、評価基準が整理されていないと、AIは一般論に寄りやすく、実務で使いにくい出力になります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "講座や学習サービスはどんな人向けですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "生成AIを仕事で使いたいが、学習順序や職種別の使い方を整理したい人に向いています。特に、動画、演習、質問環境を使って進めたい人は検討しやすいです。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+            line-height: 1.8;
+        }
+        .bg-cereson-blue { background-color: #0041a0; }
+        .text-cereson-blue { color: #0041a0; }
+        .border-cereson-blue { border-color: #0041a0; }
+        .shadow-heavy { box-shadow: 0 20px 40px -10px rgba(0, 65, 160, 0.15); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        .article-body h2 {
+            font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+            line-height: 1.35;
+            font-weight: 900;
+            margin-top: 4rem;
+            margin-bottom: 1.25rem;
+            color: #111827;
+            letter-spacing: 0;
+        }
+        .article-body h3 {
+            font-size: clamp(1.15rem, 2vw, 1.45rem);
+            line-height: 1.5;
+            font-weight: 900;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: #0041a0;
+            letter-spacing: 0;
+        }
+        .article-body p,
+        .article-body li {
+            color: #4b5563;
+            font-weight: 500;
+        }
+        .article-body p {
+            margin: 1rem 0;
+        }
+        .article-body ul,
+        .article-body ol {
+            margin: 1.2rem 0;
+            padding-left: 1.4rem;
+        }
+        .article-body li {
+            margin: 0.55rem 0;
+        }
+        .article-body table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border: 1px solid #dbeafe;
+            border-radius: 1rem;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.9rem;
+        }
+        .article-body th {
+            background: #eff6ff;
+            color: #0041a0;
+            font-weight: 900;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid #dbeafe;
+        }
+        .article-body td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        .article-body tr:last-child td {
+            border-bottom: 0;
+        }
+        .visual-panel {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 1.5rem;
+            padding: 1.25rem;
+            margin: 2rem 0;
+        }
+        .article-body .cta-panel p {
+            color: #fff;
+        }
+        .article-body .cta-panel .cta-panel-note {
+            color: #dbeafe;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 md:h-24 flex items-center justify-between">
+            <a href="/" title="ホーム">
+                <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true"
+                     alt="株式会社セレソン ロゴ"
+                     class="h-10 md:h-16 w-auto object-contain">
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="/" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">ホーム</a>
+                <a href="/#services" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">サービス</a>
+                <a href="/#strengths" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">強み</a>
+                <a href="/#company" class="text-[13px] font-bold hover:text-cereson-blue transition-colors">会社概要</a>
+                <a href="/blog/" class="text-[13px] font-bold text-cereson-blue transition-colors">ブログ</a>
+                <a href="https://forms.gle/613mCTBNDF6x4jt97" target="_blank" rel="noopener noreferrer" class="btn bg-cereson-blue text-white px-6 py-3 rounded-full text-[13px] shadow-lg">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    無料で相談する
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-cereson-blue p-2" aria-label="メニューを開く">
+                <i data-lucide="menu" class="w-7 h-7 md:w-8 md:h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl overflow-y-auto max-h-[calc(100vh-64px)]">
+            <div class="flex flex-col p-6 gap-2 text-center">
+                <a href="/" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">ホーム</a>
+                <a href="/#services" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">サービス</a>
+                <a href="/#strengths" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">強み</a>
+                <a href="/#company" class="mobile-link text-sm font-bold py-4 border-b border-gray-50">会社概要</a>
+                <a href="/blog/" class="mobile-link text-sm font-bold py-4 border-b border-gray-50 text-cereson-blue">ブログ</a>
+                <a href="https://forms.gle/613mCTBNDF6x4jt97" target="_blank" rel="noopener noreferrer" class="bg-cereson-blue text-white p-5 rounded-full font-bold flex items-center justify-center gap-2 mt-4 shadow-lg">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    無料で相談する
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <header class="bg-blue-50 py-14 md:py-24 border-b border-blue-100">
+                <div class="max-w-5xl mx-auto px-4">
+                    <a href="/blog/" class="inline-flex items-center text-cereson-blue font-black text-sm mb-8">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                        ブログ一覧へ
+                    </a>
+                    <div class="flex flex-wrap items-center gap-3 mb-6">
+                        <span class="bg-cereson-blue text-white rounded-full px-4 py-1.5 text-xs font-black tracking-widest">AI活用</span>
+                    </div>
+                    <h1 class="text-3xl md:text-6xl font-black text-gray-900 leading-tight mb-6">AIは優秀なのに、なぜ仕事に定着しないのか</h1>
+                    <p class="text-lg md:text-2xl font-bold text-gray-600 leading-relaxed">生成AIが仕事に定着しない原因は、プロンプト不足だけではなく、目的・文脈・制約・評価基準をAIに渡す設計がないことです。</p>
+                    <div class="mt-8 flex flex-wrap gap-4 text-sm font-bold text-gray-500">
+                        <time datetime="2026-05-25">公開日: 2026年5月25日</time>
+                        <span>著者: 株式会社セレソン</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="max-w-5xl mx-auto px-4 py-10 md:py-16">
+                <div class="article-body max-w-3xl mx-auto">
+                    <h2>この記事で言いたいこと</h2>
+                    <p>生成AIを仕事で使うなら、最初に覚えるべきなのは「便利なプロンプト集」ではなく「仕事をAIに渡せる形に分解する考え方」です。</p>
+                    <p>ChatGPTに文章を書かせる。議事録を要約させる。企画案を出させる。ここまでは、少し触ればできます。けれど、実際の仕事で使おうとすると、急に手が止まります。</p>
+                    <ul>
+                        <li>出てきた文章が、なんとなく薄い</li>
+                        <li>自社の事情に合っていない</li>
+                        <li>どこまで信じていいか分からない</li>
+                        <li>結局、人の手で直す時間が長い</li>
+                        <li>一度は便利でも、毎日の業務に定着しない</li>
+                    </ul>
+                    <p>この違和感は、AIの性能だけの問題ではありません。人間側が「何を任せるのか」「何を任せないのか」「良い出力とは何か」を言葉にできていないことが多いです。</p>
+
+                    <div class="visual-panel">
+                        <p class="text-xs font-black text-cereson-blue tracking-[0.2em] uppercase mb-4">Work Flow</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white rounded-2xl p-5 border border-red-100">
+                                <p class="font-black text-red-600 mb-3">丸投げした場合</p>
+                                <div class="space-y-3 text-sm font-bold text-gray-600">
+                                    <div class="rounded-xl bg-red-50 p-3">AIに丸投げ</div>
+                                    <div class="text-center text-red-300">↓</div>
+                                    <div class="rounded-xl bg-red-50 p-3">一般論の出力</div>
+                                    <div class="text-center text-red-300">↓</div>
+                                    <div class="rounded-xl bg-red-50 p-3">修正と確認が増える</div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-5 border border-blue-100">
+                                <p class="font-black text-cereson-blue mb-3">設計して渡す場合</p>
+                                <div class="space-y-3 text-sm font-bold text-gray-600">
+                                    <div class="rounded-xl bg-blue-50 p-3">目的・文脈・制約を渡す</div>
+                                    <div class="text-center text-blue-300">↓</div>
+                                    <div class="rounded-xl bg-blue-50 p-3">使いやすい下書きに近づく</div>
+                                    <div class="text-center text-blue-300">↓</div>
+                                    <div class="rounded-xl bg-blue-50 p-3">人間が判断して改善する</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>なぜ「AIを使えば仕事が進む」は、現場で止まりやすいのか？</h2>
+                    <p>生成AIを触ると、最初はかなり感動します。文章は返ってくるし、要約も速いし、壁打ち相手にもなる。</p>
+                    <p>ただ、仕事は「文章が出れば終わり」ではありません。</p>
+                    <p>たとえば営業メールなら、文面が自然かだけでは足りません。相手との関係性、自社のトーン、過去のやり取り、言ってはいけない表現、次に取ってほしい行動まで関係します。</p>
+                    <p>採用文面なら、魅力的に見えるかだけでは足りません。実態とズレていないか、誤解を招かないか、候補者にとって必要な情報が入っているかを見る必要があります。</p>
+                    <p>記事制作なら、読みやすいかだけでは足りません。検索意図、独自性、一次情報、広告表記、読者の不安、導線の自然さまで考える必要があります。</p>
+                    <p>つまり、仕事で必要なのは「AIに文章を作らせる力」ではなく、「AIが扱える形に仕事を設計する力」です。</p>
+
+                    <h2>生成AIの原理原則とは？</h2>
+                    <p>生成AIの原理原則とは、AIを「意図を察して正解を出す存在」ではなく、「与えられた言葉・文脈・制約・例・評価基準をもとに出力する仕組み」として理解することです。</p>
+                    <p>生成AIは、人間の頭の中にある事情を自動で読んでくれるわけではありません。こちらが渡した情報をもとに、もっともそれらしい出力を作ります。</p>
+                    <p>仕事で使うときに最低限渡したいのは、次の5つです。</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>渡すもの</th>
+                                <th>例</th>
+                                <th>渡さないと起きること</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>目的</td>
+                                <td>担当職種に合う学習方法を判断できる状態にする</td>
+                                <td>きれいだが次の行動につながらない文章になる</td>
+                            </tr>
+                            <tr>
+                                <td>文脈</td>
+                                <td>誰向けか、どんな悩みがあるか</td>
+                                <td>一般論になり、刺さりにくい</td>
+                            </tr>
+                            <tr>
+                                <td>制約</td>
+                                <td>言ってはいけない表現、文字数、トーン</td>
+                                <td>修正や確認の手間が増える</td>
+                            </tr>
+                            <tr>
+                                <td>参考例</td>
+                                <td>過去記事、ブランド文体、競合構成</td>
+                                <td>ブランドらしさが出にくい</td>
+                            </tr>
+                            <tr>
+                                <td>評価基準</td>
+                                <td>何を良い出力とみなすか</td>
+                                <td>出てきた案を判断できない</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>生成AIの学習は「ツール」より先に「分解」から始めるべき</h2>
+                    <p>よくある学び方は、ChatGPTの便利な使い方、プロンプト例、最新ツールの紹介から入る流れです。もちろん、それも必要です。実際に触らないと分からないことは多いです。</p>
+                    <p>ただ、最初からツールやプロンプト例に寄りすぎると、実務への落とし込みで止まりやすくなります。最初に必要なのは、「この仕事はどこまでAIに渡せるのか」を見分けることです。</p>
+                    <ol>
+                        <li>情報を集める</li>
+                        <li>情報を整理する</li>
+                        <li>仮説を出す</li>
+                        <li>選択肢を比較する</li>
+                        <li>文章や資料にする</li>
+                        <li>リスクを確認する</li>
+                        <li>人間が判断する</li>
+                        <li>結果を次に反映する</li>
+                    </ol>
+                    <p>AIに向いているのは、情報整理、要約、案出し、比較、下書き、抜け漏れチェックのような部分です。一方で、最終判断、責任を伴う承認、事実確認、慎重な判断が必要な領域は、人間の確認が必要です。</p>
+
+                    <div class="cta-panel rounded-2xl bg-cereson-blue text-white p-6 md:p-8 my-10">
+                        <p class="cta-panel-note text-sm md:text-base font-bold mb-3">ここまで読んで、担当業務への当てはめ方で止まりそうな場合</p>
+                        <p class="text-xl md:text-2xl font-black leading-relaxed mb-6">動画・演習・質問環境がある学習サービスを比較対象に入れると判断しやすくなります。</p>
+                    </div>
+
+                    <h2>なぜプロンプトだけ学んでも、仕事に定着しにくいのか？</h2>
+                    <p>プロンプトは大事です。ただ、プロンプトは仕事設計の一部でしかありません。</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>依頼</th>
+                                <th>出力されやすいもの</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>生成AIについての記事を書いて</td>
+                                <td>広く浅い一般論</td>
+                            </tr>
+                            <tr>
+                                <td>30代会社員向けに、生成AIを仕事で使えない理由を「目的・文脈・制約・評価基準」の不足として説明し、次に確認すべき学習方法につなげる記事を書いて</td>
+                                <td>読者、論点、導線がそろった下書き</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>違いは、言い回しの上手さではありません。仕事の目的や制約をどれだけ言語化できているかです。</p>
+
+                    <h2>生成AIを仕事で使うための3つの理解</h2>
+                    <h3>1. AIは文脈がないと、一般論に寄る</h3>
+                    <p>生成AIは、こちらが文脈を渡さないと、多くの人に当てはまりそうな回答を返します。仕事で必要なのは、読者や担当業務の状況に合う判断です。</p>
+                    <h3>2. AIは制約がないと、使えない案も出す</h3>
+                    <p>広告表現で使ってはいけない言い回し、社内で避けたいトーン、事実確認が必要な数字、商標まわりの注意点。こうした制約は、人間側が渡す必要があります。</p>
+                    <h3>3. AIは評価基準がないと、改善できない</h3>
+                    <p>AIから複数案が出てきたとき、どれが良いかを決めるのは人間です。評価基準がないと「なんとなく良い」「なんとなく違う」で止まります。</p>
+                    <ul>
+                        <li>冒頭で読者の違和感を言語化できているか</li>
+                        <li>一般論ではなく、記事としての主張があるか</li>
+                        <li>主張を支える理由があるか</li>
+                        <li>広告導線が不自然ではないか</li>
+                        <li>読者が次に取る行動が明確か</li>
+                    </ul>
+
+                    <h2>文章だけで学ぶと、なぜ分かったつもりになりやすいのか？</h2>
+                    <p>生成AIの原理原則は、文章でも学べます。ただ、仕事で使えるレベルまで理解するには、文章だけでは足りない場面があります。</p>
+                    <p>理由は、生成AI活用が「概念」だけでなく「手順」だからです。RAG、AIエージェント、Human in the Loop、プロンプト改善、ワークフロー設計のような言葉は、定義を読めば分かった気になります。</p>
+                    <ol>
+                        <li>悪い依頼文を書く</li>
+                        <li>AIの出力がズレる</li>
+                        <li>目的、文脈、制約を足す</li>
+                        <li>出力がどう変わるか見る</li>
+                        <li>さらに評価基準で直す</li>
+                        <li>担当業務に当てはめる</li>
+                    </ol>
+                    <p>このBefore/Afterは、動画や画面共有の方が理解しやすいことがあります。図解があると、入力、処理、出力、人間の確認ポイントも見えやすくなります。</p>
+
+                    <h2>独学で十分な人と、講座を使った方が進めやすい人</h2>
+                    <p>生成AIは、独学でも学べます。無料記事、YouTube、公式ドキュメント、書籍だけでも、基礎には届きます。ただ、独学には弱点もあります。情報が多すぎて、何から順番に学ぶべきか分かりにくいことです。</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>学び方</th>
+                                <th>向いている人</th>
+                                <th>つまずきやすい点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>無料記事</td>
+                                <td>まず概要を知りたい人</td>
+                                <td>情報が断片的になりやすい</td>
+                            </tr>
+                            <tr>
+                                <td>YouTube</td>
+                                <td>操作画面を見ながら覚えたい人</td>
+                                <td>体系化は別途行う必要がある</td>
+                            </tr>
+                            <tr>
+                                <td>書籍</td>
+                                <td>基礎概念を落ち着いて学びたい人</td>
+                                <td>ツールの変化には追いつきにくい</td>
+                            </tr>
+                            <tr>
+                                <td>講座・学習サービス</td>
+                                <td>順番、演習、質問環境が欲しい人</td>
+                                <td>受け身だと活用しきれない</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>講座・学習サービスは、どんな人が検討しやすいか？</h2>
+                    <p>講座や学習サービスを検討しやすいのは、「生成AIの知識」だけでなく「担当業務で何から試すか」を整理したい人です。</p>
+                    <p>検討しやすいのは、たとえば次のような人です。</p>
+                    <ul>
+                        <li>生成AIを仕事で使いたいが、使いどころが曖昧な人</li>
+                        <li>ChatGPTやGPTsの基本から整理したい人</li>
+                        <li>エンジニア、デザイン、動画制作など、目的別に学びたい人</li>
+                        <li>動画だけでなく、演習や質問環境も重視したい人</li>
+                        <li>無料情報を見ているが、学習順序を決めきれない人</li>
+                    </ul>
+                    <p>受講しただけで仕事の成果が自動的に出るわけではありません。必要なのは、担当業務を題材にして、入力、出力、制約、評価基準を組み立てることです。</p>
+
+                    <h2>講座・学習サービスでは、何を確認すべきか？</h2>
+                    <p>講座や学習サービスを比較するなら、見るべきことは料金やコース名だけではありません。担当業務に持ち帰れるかを見るために、次の点を確認したいです。</p>
+                    <ol>
+                        <li>担当職種に近い活用例があるか</li>
+                        <li>ChatGPTの操作だけでなく、目的や制約の設計から学べるか</li>
+                        <li>動画を見るだけで終わらず、演習できるか</li>
+                        <li>分からないところを質問できるか</li>
+                        <li>どの順番で学べばよいか相談できるか</li>
+                        <li>担当業務で使う場合、どのコースから入るべきか</li>
+                        <li>料金に対して、継続できる学習時間を確保できるか</li>
+                    </ol>
+
+                    <div class="rounded-2xl border-2 border-cereson-blue bg-blue-50 p-6 md:p-8 my-10">
+                        <p class="text-xs font-black text-cereson-blue tracking-[0.2em] uppercase mb-3">Check Point</p>
+                        <h2 class="!mt-0 !mb-4">比較前に確認すること</h2>
+                        <p>講座や学習サービスを見るときは、「担当職種なら何から学ぶべきか」「動画・演習・質問環境が必要か」「学習時間を継続して確保できるか」を先に整理すると判断しやすくなります。</p>
+                    </div>
+
+                    <h2>まとめ</h2>
+                    <p>AIは優秀です。ただ、AIが優秀であることと、目の前の仕事に定着することは同じではありません。</p>
+                    <p>実務に定着させるには、AIに任せる前に、人間側が目的、文脈、制約、参考例、評価基準を整理する必要があります。</p>
+                    <p>プロンプトを覚えることは大事です。しかし、その前に「この仕事はどこまでAIに渡せるのか」「何を人間が判断するのか」を分けることの方が大事です。</p>
+                    <p>もし、概念が抽象的で止まる、担当業務への当てはめ方が分からない、動画や演習で整理したいと感じるなら、学習方法を比較する前に必要な条件を整理することが判断材料になります。</p>
+
+                    <h2>FAQ</h2>
+                    <h3>生成AIの原理原則とは何ですか？</h3>
+                    <p>生成AIの原理原則とは、AIを「意図を察して正解を出す存在」ではなく、「与えられた言葉、文脈、制約、例、評価基準をもとに出力する仕組み」として理解することです。</p>
+                    <h3>生成AIを仕事で使いこなせない原因は何ですか？</h3>
+                    <p>原因はプロンプト不足だけではありません。目的、文脈、制約、参考情報、評価基準が整理されていないと、AIは一般論に寄りやすく、実務で使いにくい出力になります。</p>
+                    <h3>プロンプトを学べば十分ですか？</h3>
+                    <p>プロンプトは重要ですが、それだけでは不十分です。仕事で使うには、何をAIに任せ、何を人間が判断し、どの基準で出力を評価するかまで設計する必要があります。</p>
+                    <h3>講座や学習サービスはどんな人向けですか？</h3>
+                    <p>生成AIを仕事で使いたいが、学習順序や職種別の使い方を整理したい人に向いています。特に、動画、演習、質問環境を使って進めたい人は検討しやすいです。</p>
+
+                    <h2>出典・参考情報</h2>
+                    <ul>
+                        <li><a href="https://www.ibm.com/think/topics/generative-ai" target="_blank" rel="noopener noreferrer" class="text-cereson-blue font-bold underline">IBM, What is generative AI?</a></li>
+                        <li><a href="https://openai.com/research/gpt-4" target="_blank" rel="noopener noreferrer" class="text-cereson-blue font-bold underline">OpenAI, GPT-4 research</a></li>
+                        <li><a href="https://sites.uw.edu/somlearningtech/principles-for-teaching-with-multimedia/" target="_blank" rel="noopener noreferrer" class="text-cereson-blue font-bold underline">UW School of Medicine, Principles for Teaching With Multimedia</a></li>
+                        <li><a href="https://www.rit.edu/teaching/cognitive-load-memory-and-instruction" target="_blank" rel="noopener noreferrer" class="text-cereson-blue font-bold underline">RIT, Cognitive Load, Memory, and Instruction</a></li>
+                        <li><a href="https://www.cmu.edu/teaching/resources/instructionalstrategies/activelearningstrategies/index.html" target="_blank" rel="noopener noreferrer" class="text-cereson-blue font-bold underline">Carnegie Mellon University, Active Learning Strategies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white py-12 border-t border-gray-50 text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <img src="https://github.com/yakimoto-design/image/blob/main/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3/%E3%82%BB%E3%83%AC%E3%82%BD%E3%83%B3%E3%83%AD%E3%82%B42.png?raw=true"
+                 alt="株式会社セレソン"
+                 class="h-10 md:h-14 mb-10 md:mb-16 w-auto object-contain">
+            <nav class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-5 mb-14 px-4 font-bold text-[11px] md:text-[13px] text-gray-500 uppercase tracking-widest">
+                <a href="/" class="hover:text-cereson-blue transition-colors text-center">ホーム</a>
+                <a href="/#services" class="hover:text-cereson-blue transition-colors text-center">サービス</a>
+                <a href="/#strengths" class="hover:text-cereson-blue transition-colors text-center">強み</a>
+                <a href="/#company" class="hover:text-cereson-blue transition-colors text-center">会社概要</a>
+                <a href="/blog/" class="hover:text-cereson-blue transition-colors text-center">ブログ</a>
+            </nav>
+            <p class="text-[10px] text-gray-200 font-black tracking-[0.3em] uppercase">&copy; 2024 Cereson Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('mobile-nav');
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nav.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => nav.classList.add('hidden'));
+        });
+
+        document.addEventListener('click', () => {
+            if(!nav.classList.contains('hidden')) nav.classList.add('hidden');
+        });
+
+        nav.addEventListener('click', (e) => e.stopPropagation());
+    </script>
+</body>
+</html>
